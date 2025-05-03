@@ -21,7 +21,7 @@ const VOCAB = [
   { id: 17, word: "Ìrìn", pronunciation: "ee-reen", meaning: "Journey/Walk", image: water, eg: "A lọ irin.", english: "We went for a walk." },
   { id: 18, word: "Ẹja", pronunciation: "eh-jah", meaning: "Fish", image: water, eg: "Mo ra ẹja.", english: "I bought fish." },
   { id: 19, word: "Adìẹ", pronunciation: "ah-dee-eh", meaning: "Chicken", image: water, eg: "Adie wa ninu agbala.", english: "The chicken is in the yard." },
-  { id: 20, word: "Ìlú", pronunciation: "ee-loo", meaning: "Town/City", image: water, eg: "Mo n gbe ni ilu nla.", english: "I live in a big city.." },
+  { id: 20, word: "Ìlú", pronunciation: "ee-loo", meaning: "Town/City", image: water, eg: "Mo n gbe ni ilu nla.", english: "I live in a big city." },
 ];
 
 
