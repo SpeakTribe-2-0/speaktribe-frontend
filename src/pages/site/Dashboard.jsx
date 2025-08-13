@@ -1,6 +1,8 @@
 import React from "react";
 import { VscDebugStart } from "react-icons/vsc";
 import abstract from '../../assets/abstract-removebg-preview.png'
+import SideBar from "../../components/SideBar";
+
 
 const Dashboard = () => {
   const learningProgress = [
@@ -26,10 +28,12 @@ const Dashboard = () => {
   const radius = 12; // smaller radius to make space for thick stroke
   const strokeWidth = 8; // thickness of the donut
   return (
-    <div className="p-6 width">
+    <div className=" flex gap-8 width ">
+      <SideBar />
+    <div className="">
       {/* Welcome Section */}
       <div>
-        <p className="text-lg font-bold">Welcome Back, Learner!</p>
+        <p className="text-3xl font-bold text-[#383726]">Welcome Back, Learner!</p>
         <p className="text-gray-600">
           Your language journey continues here. Let's make progress today.
         </p>
@@ -44,7 +48,7 @@ const Dashboard = () => {
           {learningProgress.map((data, index) => (
             <div
               key={index}
-              className="w-[300px] h-[170px] rounded-2xl bg-[#F5FAF5] border-[#9d9d9d33] border-2 px-5 py-2 flex flex-col items-center justify-center gap-4"
+              className="w-[270px] h-[170px] rounded-2xl bg-[#F5FAF5] border-[#9d9d9d33] border-2 px-5 py-2 flex flex-col items-center justify-center gap-4"
             >
               <p className="font-semibold text-[17px]">{data.text}</p>
               <p className="font-bold text-3xl text-[#383726]">{data.num}</p>
@@ -127,6 +131,7 @@ const Dashboard = () => {
               
             </div>
           </div>
+      </div>
       </div>
     </div>
   );
