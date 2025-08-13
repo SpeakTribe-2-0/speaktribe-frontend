@@ -52,7 +52,7 @@ const Dashboard = () => {
             >
               <p className="font-semibold text-[17px]">{data.text}</p>
               <p className="font-bold text-3xl text-[#383726]">{data.num}</p>
-              <div className="w-[80%] h-3 bg-green-700 mx-auto rounded-full"></div>
+              <div className="w-[80%] h-3 bg-[#009688] mx-auto rounded-full"></div>
             </div>
           ))}
         </div>
