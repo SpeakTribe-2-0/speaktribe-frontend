@@ -7,8 +7,10 @@ import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { IoPeople } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -27,21 +29,24 @@ const Navbar = () => {
     max-mobile:px-4 max-mobile:pt-4
     '>
       <div>
-        <img src={logo} alt="" className='w-[80px] max-mobile:w-[50px]' />
+        <img onClick={() => navigate('/')} src={logo} alt="" className='w-[80px] max-mobile:w-[50px] cursor-pointer' />
       </div>
-      <div className=' flex justify-center items-center gap-7 max-mobile:text-[13px] font-semibold'>
-        <p>Home</p>
-        <p>About</p>
+      <div className=' flex justify-center items-center gap-7 max-mobile:text-[13px] font-semibold cursor-pointer'>
+        <p onClick={() => navigate('/')}>Home</p>
+        <p onClick={() => navigate('dashboard')}>Dashboard</p>
+        <p onClick={() => navigate('about')}>About</p>
       </div>
       <div className=' flex justify-center items-center gap-7 cursor-pointer'>
         <IoPersonOutline size={20} color='#009688' className='max-mobile:hidden' />
-        <div className=' rounded-full w-[40px] h-[40px] bg-[#009688] max-mobile:hidden'></div>
+
+        {/* add user name first letter as display picture */}
+        <div onClick={() => navigate('dashboard')} className=' rounded-full w-[40px] h-[40px] bg-[#009688] max-mobile:hidden text-white font-bold text-2xl flex items-center justify-center'>A</div>  
         <IoPersonOutline
           onClick={() => setIsOpen(!isOpen)}
           size={20} color='#009688' className='hidden max-mobile:block ' />
       </div>
       {isOpen && (
-        <div className=' absolute  inset-0 h-screen bg-white px-5 py-5 gap-10 flex flex-col'>
+        <div className=' absolute  inset-0 h-screen bg-white px-5 py-5 gap-10 flex flex-col z-50'>
           <div className='flex items-center justify-between'>
             <img src={logo} alt="" className='w-[80px] max-mobile:w-[70px]' />
             <p onClick={() => setIsOpen(!isOpen)} className=' font-bold text-red-600 text-2xl cursor-pointer'>X</p>
