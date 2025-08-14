@@ -31,7 +31,7 @@ const SideBar = () => {
           Account Settings
         </div>
         <div className=''>
-          <div onClick={() => { setOpen(!open) }} className='flex justify-start items-center gap-4 cursor-pointer cursor-pointer'>
+          <div onClick={() => { setOpen(!open) }} className='flex justify-start items-center gap-4 cursor-pointer'>
             <IoMdSettings color='#009688'/>
             Language Settings
             <FaChevronDown className=' ml-10' color='#009688'/>

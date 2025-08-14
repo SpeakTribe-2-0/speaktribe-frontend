@@ -68,7 +68,7 @@ const Dashboard = () => {
             ))}
           </div>
 
-          <hr className="my-8 border-[#9d9d9d33] border-1 rounded-4xl" />
+          <hr className="my-8 justify-center items-center'" />
 
           {/* Donut Chart */}
           <div className="  py-3 px-5 rounded-2xl border-[#9d9d9d33] border-2">
