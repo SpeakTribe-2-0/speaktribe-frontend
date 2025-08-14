@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+
+@theme{
+    --breakpoint-desktop:1105px;
+    --breakpoint-tablet:901px;
+    --breakpoint-mobile:621px
+}
+
 .width {
   max-width: 1440px;
   /* background-color: red; */
