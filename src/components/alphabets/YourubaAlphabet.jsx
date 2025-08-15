@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { BsFillSpeakerFill } from "react-icons/bs";
 import { CiMicrophoneOn } from "react-icons/ci";
 import { PiSneakerMoveFill } from "react-icons/pi";
-import alphabets from '../utils/yorubaAlphabet';
+import alphabets from '../../utils/yorubaAlphabet';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const AlphabetBlock = () => {
+const YourubaAlphabet = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const current = alphabets[selectedIndex];
@@ -127,4 +127,4 @@ const AlphabetBlock = () => {
   );
 };
 
-export default AlphabetBlock;
+export default YourubaAlphabet;

@@ -12,7 +12,9 @@ import Dashboard from './pages/site/Dashboard';
 import HomePage from './pages/site/HomePage';
 import About from './pages/site/About';
 import GetStarted from './pages/site/GetStarted';
-import AlphabetBlock from './components/AlphabetBlock';
+import YourubaAlphabet from './components/alphabets/YourubaAlphabet';
+import HausaAlphabet from './components/alphabets/HausaAlphabet';
+import IgboAlphabet from './components/alphabets/IgboAlphabet';
 
 const AppContent = () => {
   const location = useLocation();
@@ -29,7 +31,9 @@ const AppContent = () => {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/getStarted" element={<GetStarted />} />
-        <Route path="/all" element={<AlphabetBlock />} />
+        <Route path="/yoruba-alphabet" element={<YourubaAlphabet />} />
+        <Route path="/hausa-alphabet" element={<HausaAlphabet />} />
+        <Route path="/igbo-alphabet" element={<IgboAlphabet />} />
       </Routes>
 
       <Footer />
