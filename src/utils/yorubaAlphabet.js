@@ -1,5 +1,6 @@
 import akara from '../assets/akara.png'
 
+
 const alphabets = [
     {
       letter: "A",

@@ -22,7 +22,7 @@ const AppContent = () => {
   return (
     <>
       {/* Show Navbar unless on /getStarted */}
-      {location.pathname !== '/getStarted' && <Navbar />}
+      {!['/getStarted', '/login', '/signup'].includes(location.pathname) && <Navbar />}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
