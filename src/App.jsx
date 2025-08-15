@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 // Components
 import Navbar from './components/Navbar';
@@ -11,11 +11,15 @@ import SignupPage from './pages/user/SignupPage';
 import Dashboard from './pages/site/Dashboard';
 import HomePage from './pages/site/HomePage';
 import About from './pages/site/About';
+import GetStarted from './pages/site/GetStarted';
 
-const App = () => {
+const AppContent = () => {
+  const location = useLocation();
+
   return (
-    <BrowserRouter>
-      <Navbar />
+    <>
+      {/* Show Navbar unless on /getStarted */}
+      {location.pathname !== '/getStarted' && <Navbar />}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -23,9 +27,18 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/getStarted" element={<GetStarted />} />
       </Routes>
 
       <Footer />
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 };
