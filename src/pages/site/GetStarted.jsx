@@ -37,8 +37,12 @@ const GetStarted = () => {
 
 
 
-          <div className=' flex justify-center rounded-2xl  width gap-10'>
-      <section className=' w-[40%] flex flex-col gap-5 items-end  justify-center '>
+          <div className=' flex justify-center rounded-2xl  width gap-10
+          max-tablet:flex-col max-tablet:items-center
+          '>
+      <section className=' w-[40%] flex flex-col gap-5 items-end  justify-center 
+      max-tablet:w-[70%]
+      '>
         <h1 className=' text-[#263238] text-[40px] font-bold leading-[50px] text-center '>
           “Your Language. Your Power. 
           <span className=' items-baseline inline-block text-[#009688]'><FaHeadSideCough /></span>”
@@ -56,10 +60,16 @@ const GetStarted = () => {
         </div>
       </section>
       <section className='' >
-        <img src="./tribe.jpg" alt="" className='w-[500px] max-tablet:w-full p-5 rounded-tl-[100px]' />
+        <img src="./tribe.jpg" alt="" className='w-[500px] p-5 rounded-tl-[100px]
+        max-tablet:w-[600px]
+        ' />
 
       </section>
     </div>
+
+
+
+            <hr className="my-8 border-[#9d9d9d33] border-1 rounded-4xl" />
 
 
 
@@ -98,13 +108,13 @@ const GetStarted = () => {
           Speak Proud. Speak Native. <span className=' italic text-5xl max-mobile:text-2xl'>SpeakTribe.</span>
         </motion.h1>
 
-        <p className=' text-center w-[62%] font-medium mx-auto my-5 text-[20px] text-[#263238] max-tablet:w-[90%] max-mobile:text-[14px]'>Learn your language, live your culture. SpeakTribe helps you connect to your heritage in a bold, modern way — through fun lessons, quizzes, and real conversations in Yoruba, Igbo, and Hausa.</p>
+        <p className=' text-center w-[62%] font-medium mx-auto my-5 text-[20px] text-[#7a7a7a] max-tablet:w-[90%] max-mobile:text-[14px]'>Learn your language, live your culture. SpeakTribe helps you connect to your heritage in a bold, modern way — through fun lessons, quizzes, and real conversations in Yoruba, Igbo, and Hausa.</p>
       </section>
       <section className=' flex flex-wrap gap-9 items-center text-center justify-center my-10 max-tablet:flex-col'>
         {aboutUs.map((element, index) => (
-          <div key={index} className='bg-[#118478] w-[35%] h-[300px] max-tablet:rounded-bl-[40px] max-tablet:rounded-tr-[40px]  rounded-bl-[30px] rounded-tr-[30px] px-3 py-4 hover:scale-105 shadow-2xl duration-500 ease-in-out transition-all mb-4 max-tablet:w-[60%] max-mobile:w-[84%]'>
+          <div key={index} className=' w-[35%] h-[300px]  px-3 py-4 hover:scale-105 shadow-2xl duration-500 ease-in-out transition-all mb-4 max-tablet:w-[60%] max-mobile:w-[84%]'>
             <h1 className='  text-[30px] font-bold bg-white text-[#009688] flex items-center justify-center h-[30%] max-mobile:text-[20px]'>{element.h1}</h1>
-            <p className=' text-white text-[15px] font-medium py-3 max-mobile:text-[13px]'>{element.p}</p>
+            <p className=' text-[#7a7a7a] text-[15px] font-medium py-3 max-mobile:text-[13px]'>{element.p}</p>
           </div>
         ))}
 
@@ -122,7 +132,7 @@ const GetStarted = () => {
 
 
 
-
+      <hr className="my-8 border-[#9d9d9d33] border-1 rounded-4xl" />
 
 
 
@@ -135,8 +145,8 @@ const GetStarted = () => {
       
         <section className=' w-[40%] max-tablet:w-[85%] max-tablet:mx-auto'>
             <h1 className=' text-[#263238] text-[40px] font-bold text-center mb-3 max-mobile:text-[30px]'>Languages to Explore....</h1>
-            <p className=' text-[18px] font-serif text-[#263238] max-mobile:text-centr max-mobile:text-[16px] '>Speak Tribe currently supports Yoruba, Igbo, and Hausa — three of Nigeria’s most widely spoken languages. Each course is designed to help you speak confidently in real-life situations, from simple greetings to everyday conversations. Whether you're learning for travel, work, or personal growth, you'll pick up useful words, phrases, and cultural tips that make communication easier.</p>
-            <ul className=' flex justify-around mt-8 max-mobile:justify-start max-mobile:gap-12'>
+            <p className=' text-[18px] font-serif text-[#7a7a7a] max-mobile:text-center max-mobile:text-[16px] '>Speak Tribe currently supports Yoruba, Igbo, and Hausa — three of Nigeria’s most widely spoken languages. Each course is designed to help you speak confidently in real-life situations, from simple greetings to everyday conversations. Whether you're learning for travel, work, or personal growth, you'll pick up useful words, phrases, and cultural tips that make communication easier.</p>
+            <ul className=' flex justify-center mt-8 max-mobile:justify-center max-mobile:gap-12'>
               <a href=""><li className=' bg-[#009688] text-[18px] font-light p-2 hover:bg-[#388E3C] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px]'>Yorùbá</li></a>
               <a href=""><li className='  bg-[#009688] text-[18px] font-light px-4 py-2 hover:bg-[#388E3C] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px]'>Igbo</li></a>
               <a href=""><li className='  bg-[#009688] text-[18px] font-light p-2 hover:bg-[#388E3C] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px]'>Hausa</li></a>
@@ -157,7 +167,7 @@ const GetStarted = () => {
 
 
 
-
+      <hr className="my-8 border-[#9d9d9d33] border-1 rounded-4xl" />
 
 
 
@@ -201,7 +211,7 @@ const GetStarted = () => {
                   SpeakTribe.
                 </span>
               </motion.h1>
-              <p className=" text-center max-mobile:text-[15px]">
+              <p className=" text-center max-mobile:text-[15px] text-[#7a7a7a]">
                 "At the heart of it all, what matters most is that we stay
                 connected, united, and proud of our shared roots — and through
                 language,

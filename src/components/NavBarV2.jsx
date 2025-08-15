@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <div className=' flex justify-between items-center px-44 pb-6 pt-5 relative
-    max-mobile:px-4 max-mobile:pt-4
+    max-mobile:px-4 max-mobile:pt-4 max-tablet:px-20
     '>
       <div>
         <img src={logo} alt="" className='w-[80px] max-mobile:w-[50px] cursor-pointer' />
