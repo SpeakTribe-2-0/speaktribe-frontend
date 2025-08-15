@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BsFillSpeakerFill } from "react-icons/bs";
 import { CiMicrophoneOn } from "react-icons/ci";
 import { PiSneakerMoveFill } from "react-icons/pi";
-import alphabets from '../../utils/IgboAlphabet ';
+import alphabets from '../../utils/igboAlphabet ';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
