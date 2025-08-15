@@ -5,9 +5,12 @@ import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { IoPeople } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
+import { TbLogout2 } from "react-icons/tb";
+import { useNavigate } from 'react-router-dom';
 
 
 const SideBar = () => {
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   return (
     <div className=' max-w-[300px] border-[#9d9d9d33] border-1 py-5 px-3
@@ -44,6 +47,12 @@ const SideBar = () => {
               <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Igbo</p>
             </div>
           )}
+        </div>
+        <div
+        onClick={() => navigate('/getStarted')}
+        className='flex justify-start items-center gap-4 cursor-pointer'>
+          <TbLogout2 color='red'/>
+          Logout
         </div>
       </div>
     </div>

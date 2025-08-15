@@ -69,17 +69,19 @@ const Navbar = () => {
               Account Settings
             </div>
             <div className=''>
-              <div onClick={() => { setOpen(!open) }} className='flex justify-start items-center gap-4 cursor-pointer cursor-pointer'>
+              <div onClick={() => { setOpen(!open) }} className='flex justify-start items-center gap-4 cursor-pointer '>
                 <IoMdSettings color='#009688' />
                 Language Settings
                 <FaChevronDown className='' color='#009688' />
 
               </div>
               {open && (
-                <div className='mt-3 text-[16px] font-semibold flex flex-col gap-3'>
-                  <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Yoruba</p>
-                  <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Hausa</p>
-                  <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Igbo</p>
+                <div className='mt-3 text-[16px] font-semibold flex flex-col gap-3
+                max-mobile:text-center
+                '>
+                  <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out max-desktop:bg-[#009688] max-desktop:pl-0 max-desktop:py-2'>Yoruba</p>
+                  <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out max-desktop:bg-[#009688] max-desktop:pl-0 max-desktop:py-2'>Hausa</p>
+                  <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out max-desktop:bg-[#009688] max-desktop:pl-0 max-desktop:py-2'>Igbo</p>
                 </div>
               )}
             </div>
