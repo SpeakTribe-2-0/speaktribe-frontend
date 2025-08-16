@@ -6,7 +6,7 @@ import alphabets from '../../utils/yorubaAlphabet';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const YourubaAlphabet = () => {
+const YorubaAlphabet = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const current = alphabets[selectedIndex];
@@ -127,4 +127,4 @@ const YourubaAlphabet = () => {
   );
 };
 
-export default YourubaAlphabet;
+export default YorubaAlphabet;
