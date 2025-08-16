@@ -11,13 +11,13 @@ const YorubaWords = () => {
       <div>
         <p>Yoruba Vocabulary</p>
       </div>
-      <div className=' bg-amber-400'>
+      <div className=' bg-amber-400 w-[330px] px-3 py-2'>
         <div className=' bg-gray-500'>
-          <p>Omi</p>
-          <p>Oh-mee</p>
-          <p>Water</p>
+          <p className=' text-[#009688] font-semibold text-[18px]'>Omi</p>
+          <p className=' text-[#7a7a7a] text-[13px] italic'>Oh-mee</p>
+          <p className=' font-semibold'>Water</p>
         </div>
-        <div className=' w-[70px]'>
+        <div className=' w-[70px] py-10'>
           <img src={water} alt="" />
         </div>
         <div>

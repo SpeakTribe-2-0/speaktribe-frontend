@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { motion } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 
-import Logo from "../../assets/speaktribe-logo.png";
+import Logo from "../../assets/speakTribe-logo.png";
 import learningImage from "../../assets/undraw_reading-time_gcvc.svg";
 
 const LoginPage = () => {

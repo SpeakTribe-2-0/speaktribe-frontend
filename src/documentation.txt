@@ -1,0 +1,11 @@
+| UI Element               | Suggested Color                                                  | Reason                                                         |
+| ------------------------ | ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Page Background**      | `Soft Ivory` `#FFF8E1`                                           | Warm, clean background that gives a natural and welcoming feel |
+| **Headers / Titles**     | `Deep Charcoal` `#263238`                                        | Strong contrast for readability, clean professional appearance |
+| **Body Text**            | `Deep Charcoal` `#263238`                                        | Consistency and good contrast against the background           |
+| **Main Buttons**         | `Tribal Teal` `#009688`                                          | Primary action button with identity and vibrance               |
+| **Button Hover**         | `Forest Green` `#388E3C`                                         | A deeper tone for hover, gives feedback on interaction         |
+| **Secondary Buttons**    | `Sunrise Amber` `#FFC107`                                        | Eye-catching alternative action buttons (e.g., "Learn More")   |
+| **Active Boxes / Cards** | `Sunrise Amber` `#FFC107` (background) with `Deep Charcoal` text | Makes the active card pop while keeping it readable            |
+| **Accent Details**       | `Sunrise Amber` or `Tribal Teal`                                 | For underlines, icons, borders — keeps brand identity strong   |
+| **Borders / Dividers**   | `#E0E0E0` (light gray)                                           | Optional: subtle borders if needed for structure               |
