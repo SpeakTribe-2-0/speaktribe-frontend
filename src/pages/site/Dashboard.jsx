@@ -2,20 +2,22 @@ import React from "react";
 import { VscDebugStart } from "react-icons/vsc";
 import abstract from '../../assets/abstract-removebg-preview.png'
 import SideBar from "../../components/SideBar";
+import { useNavigate } from "react-router-dom";
 
 
 const Dashboard = () => {
+  const navigate = useNavigate()
   const learningProgress = [
     { text: "Overall Progress", num: "75%" },
     { text: "Lesson Completed", num: "20/35" },
     { text: "Vocabulary Mastered", num: "25 Words" },
     { text: "Grammar Topics Covered", num: "10/15" },
   ];
-
+const yoruba = () => navigate('/yoruba-alphabet')
   const lessons = [
-    { heading: 'Mastering YORUBA Alphabets', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, nemo!", image: abstract },
-    { heading: 'Mastering YORUBA Alphabets', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, nemo!", image: abstract },
-    { heading: 'Mastering YORUBA Alphabets', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, nemo!", image: abstract },
+    { heading: 'Mastering YORUBA Alphabets', function: () => navigate('/yoruba-alphabet'), text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, nemo!", image: abstract },
+    { heading: 'Mastering HAUSA Alphabets', function: () => navigate('/hausa-alphabet'), text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, nemo!", image: abstract },
+    { heading: 'Mastering IGBO Alphabets', function: () => navigate('/igbo-alphabet'), text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, nemo!", image: abstract },
   ]
 
   const segments = [
@@ -136,7 +138,9 @@ const Dashboard = () => {
                   <div className=" flex flex-col gap-1.5">
                     <p className=" font-semibold w-1/2">{data.heading}</p>
                     <p className="text-[11px]">{data.text}</p>
-                    <button className=" flex items-center gap-3 w-full bg-[#009688] rounded text-white justify-center py-1.5">
+                    <button 
+                    onClick={data.function}
+                    className=" flex items-center gap-3 w-full bg-[#009688] rounded text-white justify-center py-1.5">
                       <VscDebugStart />
                       Start Lesson
                     </button>

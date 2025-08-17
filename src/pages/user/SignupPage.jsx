@@ -33,54 +33,64 @@ const SignupPage = () => {
     }));
   };
 
-  //  const lowerCaseEmail = formData.email.toLowerCase();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
+    const { firstName, lastName, displayName, email, password, confirmPassword } = formData;
 
-  const { firstName, lastName, displayName, email, password, confirmPassword } = formData;
+    // === Validation ===
+    if (!firstName.trim()) return toast.error("First name is required"), setLoading(false);
+    if (firstName.length < 2) return toast.error("First name must be at least 2 characters long"), setLoading(false);
 
-  // 1. Basic validations
-  if (!firstName || !lastName || !displayName || !email || !password || !confirmPassword) {
-    toast.error("Please fill in all fields");
-    setLoading(false);
-    return;
-  }
+    if (!lastName.trim()) return toast.error("Last name is required"), setLoading(false);
+    if (lastName.length < 2) return toast.error("Last name must be at least 2 characters long"), setLoading(false);
 
-  if (password !== confirmPassword) {
-    toast.error("Passwords do not match");
-    setLoading(false);
-    return;
-  }
+    if (!displayName.trim()) return toast.error("Display name is required"), setLoading(false);
+    if (displayName.length < 3) return toast.error("Display name must be at least 3 characters long"), setLoading(false);
 
-  try {
-    // 2. Make request to backend
-    const res = await axios.post(`${baseUrl}/register`, {
-      firstName,
-      lastName,
-      displayName,
-      email: email.toLowerCase(), // ✅ use lowercase
-      password,
-    });
+    if (!email.trim()) return toast.error("Email is required"), setLoading(false);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) return toast.error("Please enter a valid email address"), setLoading(false);
 
-    // 3. Show success
-    toast.success(res.data.message || "Signup successful!");
+    if (!password) return toast.error("Password is required"), setLoading(false);
+    if (password.length < 6) return toast.error("Password must be at least 6 characters long"), setLoading(false);
 
-    // 4. Redirect to dashboard
-    navigate("/dashboard");
-  } catch (error) {
-    // 5. Handle backend error
-    if (error.response && error.response.data && error.response.data.message) {
-      toast.error(error.response.data.message);
-    } else {
-      toast.error("Something went wrong. Please try again.");
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+    if (!strongPasswordRegex.test(password)) {
+      return toast.error("Password must include uppercase, lowercase, and a number"), setLoading(false);
     }
-  } finally {
-    setLoading(false);
-  }
-};
 
+    if (!confirmPassword) return toast.error("Please confirm your password"), setLoading(false);
+    if (password !== confirmPassword) return toast.error("Passwords do not match"), setLoading(false);
+
+    // === API call ===
+    try {
+      const res = await axios.post(`${baseUrl}/v1/register`, {
+        firstName,
+        lastName,
+        displayName,
+        email: email.toLowerCase(),
+        password,
+      });
+
+      toast.success("User created successfully! Please log in.");
+
+      // Redirect after short delay so user sees toast
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
+      console.log(res.data)
+    } catch (error) {
+      if (error.response?.data?.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("Something went wrong, or email already in use");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center">
@@ -126,7 +136,7 @@ const handleSubmit = async (e) => {
             {[
               { label: "First Name", name: "firstName", type: "text" },
               { label: "Last Name", name: "lastName", type: "text" },
-              { label: "displayName", name: "displayName", type: "text" },
+              { label: "Display Name", name: "displayName", type: "text" },
               { label: "Email", name: "email", type: "email" },
             ].map((field, idx) => (
               <fieldset key={idx}>

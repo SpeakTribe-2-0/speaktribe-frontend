@@ -5,11 +5,43 @@ import { PiSneakerMoveFill } from "react-icons/pi";
 import alphabets from '../../utils/igboAlphabet ';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const IgboAlphabet = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [quizAnswers, setQuizAnswers] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const current = alphabets[selectedIndex];
+
+  // Generate 10 random quiz questions
+  const quizQuestions = React.useMemo(() => {
+    let shuffled = [...alphabets].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 10).map((q) => {
+      const options = [q.pronunciation];
+      while (options.length < 4) {
+        const rand = alphabets[Math.floor(Math.random() * alphabets.length)].pronunciation;
+        if (!options.includes(rand)) options.push(rand);
+      }
+      return {
+        letter: q.letter,
+        correct: q.pronunciation,
+        options: options.sort(() => 0.5 - Math.random())
+      };
+    });
+  }, [showQuiz]);
+
+  const handleSelect = (qIndex, value) => {
+    setQuizAnswers((prev) => ({ ...prev, [qIndex]: value }));
+  };
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+  };
+
+  const allCorrect = submitted && quizQuestions.every((q, i) => quizAnswers[i] === q.correct);
 
   return (
     <div className='border-[#9d9d9d33] border-t-2'>
@@ -36,6 +68,7 @@ const IgboAlphabet = () => {
 
           {/* Letter */}
           <div>
+            <p className=' text-4xl font-bold my-4 text-[#262626] '>Igbo Alphabets</p>
             <p className='text-7xl font-bold text-center text-[#009688] my-10'>
               {current.letter}
             </p>
@@ -108,11 +141,8 @@ const IgboAlphabet = () => {
                 Reset
               </p>
             </div>
-
-            {/* Toastify container */}
             <ToastContainer />
           </div>
-
 
           <hr className="my-8 border-[#9d9d9d33] border-1 rounded-4xl" />
 
@@ -121,6 +151,75 @@ const IgboAlphabet = () => {
             <p className='font-semibold text-[17px] mb-3'>Cultural Context</p>
             <p className='text-[#7a7a7a] text-[12px]'>{current.culturalContext}</p>
           </div>
+
+          {/* Quiz Section */}
+          <hr className="my-8 border-[#9d9d9d33] border-1 rounded-4xl" />
+          {!showQuiz ? (
+            <button 
+              onClick={() => setShowQuiz(true)} 
+              className="px-6 py-3 bg-[#009688] text-white rounded-lg shadow-md hover:bg-[#00796B]"
+            >
+              Start Quiz
+            </button>
+          ) : (
+            <div className="mt-5">
+              <h2 className="text-xl font-bold mb-4">Alphabet Pronunciation Quiz</h2>
+              {quizQuestions.map((q, i) => (
+                <div key={i} className="mb-4 p-4 border rounded-lg">
+                  <p className="font-semibold text-lg">Letter: {q.letter}</p>
+                  <div className="flex gap-3 mt-2">
+                    {q.options.map((opt, idx) => (
+                      <label key={idx} className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name={`q-${i}`}
+                          value={opt}
+                          checked={quizAnswers[i] === opt}
+                          onChange={() => handleSelect(i, opt)}
+                        />
+                        {opt}
+                      </label>
+                    ))}
+                  </div>
+                  {submitted && (
+                    <p className={`mt-2 text-sm ${quizAnswers[i] === q.correct ? "text-green-600" : "text-red-600"}`}>
+                      {quizAnswers[i] === q.correct ? "✅ Correct" : `❌ Wrong (Answer: ${q.correct})`}
+                    </p>
+                  )}
+                </div>
+              ))}
+
+              {!submitted ? (
+                <button 
+                  onClick={handleSubmit}
+                  className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700"
+                >
+                  Submit Quiz
+                </button>
+              ) : (
+                <div className="mt-4">
+                  <p className="text-lg font-bold">
+                    You got {quizQuestions.filter((q, i) => quizAnswers[i] === q.correct).length} / {quizQuestions.length} correct.
+                  </p>
+                  {allCorrect ? (
+                    <button
+                      onClick={() => navigate("/igbo-word")}
+                      className="mt-3 px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700"
+                    >
+                      🎉 Congrats! Go to Words
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => { setShowQuiz(false); setSubmitted(false); setQuizAnswers({}); }}
+                      className="mt-3 px-6 py-3 bg-orange-600 text-white rounded-lg shadow-md hover:bg-orange-700"
+                    >
+                      Retry Quiz
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

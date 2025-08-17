@@ -17,19 +17,27 @@ const SideBar = () => {
     max-mobile:hidden
     '>
       <div className=' text-[#333] flex flex-col gap-5 text-[13px]'>
-        <div className='flex justify-start items-center gap-4 cursor-pointer'>
+        <div  
+        onClick={() => navigate('/home')}
+        className='flex justify-start items-center gap-4 cursor-pointer'>
           <FaHome color='#009688'/>
           Home
         </div>
-        <div className='flex justify-start items-center gap-4 cursor-pointer'>
+        <div  
+        onClick={() => navigate('/about')}
+        className='flex justify-start items-center gap-4 cursor-pointer'>
           <IoIosInformationCircle color='#009688'/>
           About
         </div>
-        <div className='flex justify-start items-center gap-4 cursor-pointer'>
+        <div  
+        onClick={() => navigate('/dashboard')}
+        className='flex justify-start items-center gap-4 cursor-pointer'>
           <TbLayoutDashboardFilled color='#009688'/>
           Dashboard
         </div>
-        <div className='flex justify-start items-center gap-4 cursor-pointer'>
+        <div  
+        onClick={() => navigate('')}
+        className='flex justify-start items-center gap-4 cursor-pointer'>
           <IoPeople color='#009688'/>
           Account Settings
         </div>
@@ -42,14 +50,20 @@ const SideBar = () => {
           </div>
           {open && (
             <div className='mt-3 text-[16px] font-semibold flex flex-col gap-3'>
-              <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Yoruba</p>
-              <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Hausa</p>
-              <p className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Igbo</p>
+              <p  
+              onClick={() => navigate('/yoruba-alphabet')}
+              className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Yoruba</p>
+              <p  
+              onClick={() => navigate('/hausa-alphabet')}
+              className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Hausa</p>
+              <p  
+              onClick={() => navigate('/igbo-alphabet')}
+              className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Igbo</p>
             </div>
           )}
         </div>
         <div
-        onClick={() => navigate('/getStarted')}
+        onClick={() => navigate('/login')}
         className='flex justify-start items-center gap-4 cursor-pointer'>
           <TbLogout2 color='red'/>
           Logout
