@@ -16,6 +16,8 @@ import YorubaAlphabet from './components/alphabets/YorubaAlphabet';
 import HausaAlphabet from './components/alphabets/HausaAlphabet';
 import IgboAlphabet from './components/alphabets/IgboAlphabet';
 import YorubaWords from './components/words/YorubaWords';
+import HausaWords from './components/words/HausaWords';
+import IgboWords from './components/words/IgboWords';
 
 const AppContent = () => {
   const location = useLocation();
@@ -23,20 +25,20 @@ const AppContent = () => {
   return (
     <>
       {/* Show Navbar unless on /getStarted */}
-      {!['/getStarted', '/login', '/signup'].includes(location.pathname) && <Navbar />}
+      {!['/', '/login', '/signup'].includes(location.pathname) && <Navbar />}
 
       <Routes>
         {/* home */}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<GetStarted />} />
 
         {/* auth */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
 
         {/* site pages */}
+        <Route path="/home" element={<HomePage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/about" element={<About />} />
-        <Route path="/getStarted" element={<GetStarted />} />
 
         {/* alphabets */}
         <Route path="/yoruba-alphabet" element={<YorubaAlphabet />} />
@@ -45,8 +47,8 @@ const AppContent = () => {
 
         {/* words */}
         <Route path="/yoruba-word" element={<YorubaWords />} />
-        {/* <Route path="/-word" element={<YorubaWords />} />
-        <Route path="/-word" element={<YorubaWords />} /> */}
+        <Route path="/hausa-word" element={<HausaWords />} />
+        <Route path="/igbo-word" element={<IgboWords />} />
       </Routes>
 
       <Footer />

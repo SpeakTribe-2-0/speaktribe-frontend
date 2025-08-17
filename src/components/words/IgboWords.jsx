@@ -9,21 +9,78 @@ import { useNavigate } from "react-router-dom";
 
 
 /** Main Component */
-const YorubaWords = () => {
+const IgboWords = () => {
   const navigate = useNavigate()
   const [gameStats, setGameStats] = useState({ score: 0, streak: 0, total: 0, reset: () => { } });
   const [resetSignal, setResetSignal] = useState(false);
 
 
-  const VOCAB = [
-    { id: 1, word: "Ọmi", pronunciation: "oh-mee", meaning: "Water", image: water, eg: "Mo fẹ omi.", english: "I want water." },
-    { id: 2, word: "Ilé", pronunciation: "ee-leh", meaning: "House", image: water, eg: "Mo nlọ si ile.", english: "I am going home." },
-    { id: 3, word: "Ọúnjẹ", pronunciation: "oh-oon-jeh", meaning: "Food", image: water, eg: "Mo fẹ ounjẹ.", english: "I want food." },
-    { id: 4, word: "Ìwé", pronunciation: "ee-weh", meaning: "Book", image: water, eg: "Mo ka iwe.", english: "I read a book." },
-    { id: 5, word: "Ẹranko", pronunciation: "eh-ranh-koh", meaning: "Animal", image: water, eg: "Eranko wa ni igbo.", english: "An animal is in the forest." },
-    { id: 6, word: "ode", pronunciation: "eh-ranh-koh", meaning: "fool", image: water, eg: "Eranko wa ni igbo.", english: "An animal is in the forest." },
-    { id: 7, word: "ahmed", pronunciation: "eh-ranh-koh", meaning: "ola", image: water, eg: "Eranko wa ni igbo.", english: "An animal is in the forest." },
-  ];
+const VOCAB = [
+  { 
+    id: 1, 
+    word: "Mmiri", 
+    pronunciation: "m-mee-ree", 
+    meaning: "Water", 
+    image: water, 
+    eg: "Achọrọ m mmiri.", 
+    english: "I want water." 
+  },
+  { 
+    id: 2, 
+    word: "Ụlọ", 
+    pronunciation: "oo-loh", 
+    meaning: "House/Home", 
+    image: water, 
+    eg: "Aga m n’ụlọ.", 
+    english: "I am going home." 
+  },
+  { 
+    id: 3, 
+    word: "Nri", 
+    pronunciation: "n-ree", 
+    meaning: "Food", 
+    image: water, 
+    eg: "Achọrọ m nri.", 
+    english: "I want food." 
+  },
+  { 
+    id: 4, 
+    word: "Akwụkwọ", 
+    pronunciation: "ah-kwoo-kwo", 
+    meaning: "Book", 
+    image: water, 
+    eg: "A na m agụ akwụkwọ.", 
+    english: "I am reading a book." 
+  },
+  { 
+    id: 5, 
+    word: "Anụmanụ", 
+    pronunciation: "ah-noo-mah-noo", 
+    meaning: "Animal", 
+    image: water, 
+    eg: "Enwere anụmanụ n’ọhịa.", 
+    english: "There is an animal in the forest." 
+  },
+  { 
+    id: 6, 
+    word: "Enyi", 
+    pronunciation: "en-yee", 
+    meaning: "Friend", 
+    image: water, 
+    eg: "Enyim dị ebe a.", 
+    english: "My friend is here." 
+  },
+  { 
+    id: 7, 
+    word: "Ụlọakwụkwọ", 
+    pronunciation: "oo-loh-ah-kwoo-kwo", 
+    meaning: "School", 
+    image: water, 
+    eg: "Aga m n’ụlọakwụkwọ.", 
+    english: "I am going to school." 
+  },
+];
+
 
 
   const handleReset = () => {
@@ -63,7 +120,7 @@ const YorubaWords = () => {
 
       {/* Main content */}
       <div className=" w-full ">
-        <p className="font-semibold text-[27px] max-tablet:text-[25px] mb-6 text-center">📖 Yoruba Vocabulary</p>
+        <p className="font-semibold text-[27px] max-tablet:text-[25px] mb-6 text-center">📖 Igbo Vocabulary</p>
 
         {/* Vocabulary Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-fit mx-auto">
@@ -80,4 +137,4 @@ const YorubaWords = () => {
 };
 
 
-export default YorubaWords;
+export default IgboWords;

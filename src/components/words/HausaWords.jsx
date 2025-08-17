@@ -9,21 +9,78 @@ import { useNavigate } from "react-router-dom";
 
 
 /** Main Component */
-const YorubaWords = () => {
+const HausaWords = () => {
   const navigate = useNavigate()
   const [gameStats, setGameStats] = useState({ score: 0, streak: 0, total: 0, reset: () => { } });
   const [resetSignal, setResetSignal] = useState(false);
 
 
-  const VOCAB = [
-    { id: 1, word: "Ọmi", pronunciation: "oh-mee", meaning: "Water", image: water, eg: "Mo fẹ omi.", english: "I want water." },
-    { id: 2, word: "Ilé", pronunciation: "ee-leh", meaning: "House", image: water, eg: "Mo nlọ si ile.", english: "I am going home." },
-    { id: 3, word: "Ọúnjẹ", pronunciation: "oh-oon-jeh", meaning: "Food", image: water, eg: "Mo fẹ ounjẹ.", english: "I want food." },
-    { id: 4, word: "Ìwé", pronunciation: "ee-weh", meaning: "Book", image: water, eg: "Mo ka iwe.", english: "I read a book." },
-    { id: 5, word: "Ẹranko", pronunciation: "eh-ranh-koh", meaning: "Animal", image: water, eg: "Eranko wa ni igbo.", english: "An animal is in the forest." },
-    { id: 6, word: "ode", pronunciation: "eh-ranh-koh", meaning: "fool", image: water, eg: "Eranko wa ni igbo.", english: "An animal is in the forest." },
-    { id: 7, word: "ahmed", pronunciation: "eh-ranh-koh", meaning: "ola", image: water, eg: "Eranko wa ni igbo.", english: "An animal is in the forest." },
-  ];
+const VOCAB = [
+  { 
+    id: 1, 
+    word: "Ruwa", 
+    pronunciation: "roo-wah", 
+    meaning: "Water", 
+    image: water, 
+    eg: "Ina son ruwa.", 
+    english: "I want water." 
+  },
+  { 
+    id: 2, 
+    word: "Gida", 
+    pronunciation: "gee-dah", 
+    meaning: "House/Home", 
+    image: water, 
+    eg: "Ina tafiya gida.", 
+    english: "I am going home." 
+  },
+  { 
+    id: 3, 
+    word: "Abinci", 
+    pronunciation: "ah-been-chee", 
+    meaning: "Food", 
+    image: water, 
+    eg: "Ina son abinci.", 
+    english: "I want food." 
+  },
+  { 
+    id: 4, 
+    word: "Littafi", 
+    pronunciation: "lee-tah-fee", 
+    meaning: "Book", 
+    image: water, 
+    eg: "Ina karanta littafi.", 
+    english: "I am reading a book." 
+  },
+  { 
+    id: 5, 
+    word: "Dabba", 
+    pronunciation: "dah-bah", 
+    meaning: "Animal", 
+    image: water, 
+    eg: "Dabba tana cikin daji.", 
+    english: "An animal is in the forest." 
+  },
+  { 
+    id: 6, 
+    word: "Aboki", 
+    pronunciation: "ah-boh-kee", 
+    meaning: "Friend", 
+    image: water, 
+    eg: "Abokina yana nan.", 
+    english: "My friend is here." 
+  },
+  { 
+    id: 7, 
+    word: "Makaranta", 
+    pronunciation: "mah-kah-rahn-tah", 
+    meaning: "School", 
+    image: water, 
+    eg: "Ina zuwa makaranta.", 
+    english: "I am going to school." 
+  },
+];
+
 
 
   const handleReset = () => {
@@ -63,7 +120,7 @@ const YorubaWords = () => {
 
       {/* Main content */}
       <div className=" w-full ">
-        <p className="font-semibold text-[27px] max-tablet:text-[25px] mb-6 text-center">📖 Yoruba Vocabulary</p>
+        <p className="font-semibold text-[27px] max-tablet:text-[25px] mb-6 text-center">📖 Hausa Vocabulary</p>
 
         {/* Vocabulary Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-fit mx-auto">
@@ -80,4 +137,4 @@ const YorubaWords = () => {
 };
 
 
-export default YorubaWords;
+export default HausaWords;

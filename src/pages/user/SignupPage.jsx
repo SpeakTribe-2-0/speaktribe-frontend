@@ -8,6 +8,8 @@ import { FaEyeSlash } from "react-icons/fa6";
 
 import SignupImage from "../../assets/undraw_explore_kfv3.svg";
 import logo from "../../assets/speakTribe-logo.png";
+import axios from "axios";
+import baseUrl from "../../utils/baseUrl";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ const SignupPage = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    username: "",
+    displayName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -31,28 +33,54 @@ const SignupPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
+  //  const lowerCaseEmail = formData.email.toLowerCase();
 
-    const { firstName, lastName, username, email, password, confirmPassword } = formData;
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-    if (!firstName || !lastName || !username || !email || !password || !confirmPassword) {
-      toast.error("Please fill in all fields");
-      setLoading(false);
-      return;
-    }
+  const { firstName, lastName, displayName, email, password, confirmPassword } = formData;
 
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
-      setLoading(false);
-      return;
-    }
-
-    toast.success("Signup successful!");
+  // 1. Basic validations
+  if (!firstName || !lastName || !displayName || !email || !password || !confirmPassword) {
+    toast.error("Please fill in all fields");
     setLoading(false);
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    toast.error("Passwords do not match");
+    setLoading(false);
+    return;
+  }
+
+  try {
+    // 2. Make request to backend
+    const res = await axios.post(`${baseUrl}/register`, {
+      firstName,
+      lastName,
+      displayName,
+      email: email.toLowerCase(), // ✅ use lowercase
+      password,
+    });
+
+    // 3. Show success
+    toast.success(res.data.message || "Signup successful!");
+
+    // 4. Redirect to dashboard
     navigate("/dashboard");
-  };
+  } catch (error) {
+    // 5. Handle backend error
+    if (error.response && error.response.data && error.response.data.message) {
+      toast.error(error.response.data.message);
+    } else {
+      toast.error("Something went wrong. Please try again.");
+    }
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center">
@@ -98,7 +126,7 @@ const SignupPage = () => {
             {[
               { label: "First Name", name: "firstName", type: "text" },
               { label: "Last Name", name: "lastName", type: "text" },
-              { label: "Username", name: "username", type: "text" },
+              { label: "displayName", name: "displayName", type: "text" },
               { label: "Email", name: "email", type: "email" },
             ].map((field, idx) => (
               <fieldset key={idx}>
