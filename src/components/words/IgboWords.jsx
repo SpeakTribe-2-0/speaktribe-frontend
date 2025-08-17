@@ -15,71 +15,71 @@ const IgboWords = () => {
   const [resetSignal, setResetSignal] = useState(false);
 
 
-const VOCAB = [
-  { 
-    id: 1, 
-    word: "Mmiri", 
-    pronunciation: "m-mee-ree", 
-    meaning: "Water", 
-    image: water, 
-    eg: "Achọrọ m mmiri.", 
-    english: "I want water." 
-  },
-  { 
-    id: 2, 
-    word: "Ụlọ", 
-    pronunciation: "oo-loh", 
-    meaning: "House/Home", 
-    image: water, 
-    eg: "Aga m n’ụlọ.", 
-    english: "I am going home." 
-  },
-  { 
-    id: 3, 
-    word: "Nri", 
-    pronunciation: "n-ree", 
-    meaning: "Food", 
-    image: water, 
-    eg: "Achọrọ m nri.", 
-    english: "I want food." 
-  },
-  { 
-    id: 4, 
-    word: "Akwụkwọ", 
-    pronunciation: "ah-kwoo-kwo", 
-    meaning: "Book", 
-    image: water, 
-    eg: "A na m agụ akwụkwọ.", 
-    english: "I am reading a book." 
-  },
-  { 
-    id: 5, 
-    word: "Anụmanụ", 
-    pronunciation: "ah-noo-mah-noo", 
-    meaning: "Animal", 
-    image: water, 
-    eg: "Enwere anụmanụ n’ọhịa.", 
-    english: "There is an animal in the forest." 
-  },
-  { 
-    id: 6, 
-    word: "Enyi", 
-    pronunciation: "en-yee", 
-    meaning: "Friend", 
-    image: water, 
-    eg: "Enyim dị ebe a.", 
-    english: "My friend is here." 
-  },
-  { 
-    id: 7, 
-    word: "Ụlọakwụkwọ", 
-    pronunciation: "oo-loh-ah-kwoo-kwo", 
-    meaning: "School", 
-    image: water, 
-    eg: "Aga m n’ụlọakwụkwọ.", 
-    english: "I am going to school." 
-  },
-];
+  const VOCAB = [
+    {
+      id: 1,
+      word: "Mmiri",
+      pronunciation: "m-mee-ree",
+      meaning: "Water",
+      image: water,
+      eg: "Achọrọ m mmiri.",
+      english: "I want water."
+    },
+    {
+      id: 2,
+      word: "Ụlọ",
+      pronunciation: "oo-loh",
+      meaning: "House/Home",
+      image: water,
+      eg: "Aga m n’ụlọ.",
+      english: "I am going home."
+    },
+    {
+      id: 3,
+      word: "Nri",
+      pronunciation: "n-ree",
+      meaning: "Food",
+      image: water,
+      eg: "Achọrọ m nri.",
+      english: "I want food."
+    },
+    {
+      id: 4,
+      word: "Akwụkwọ",
+      pronunciation: "ah-kwoo-kwo",
+      meaning: "Book",
+      image: water,
+      eg: "A na m agụ akwụkwọ.",
+      english: "I am reading a book."
+    },
+    {
+      id: 5,
+      word: "Anụmanụ",
+      pronunciation: "ah-noo-mah-noo",
+      meaning: "Animal",
+      image: water,
+      eg: "Enwere anụmanụ n’ọhịa.",
+      english: "There is an animal in the forest."
+    },
+    {
+      id: 6,
+      word: "Enyi",
+      pronunciation: "en-yee",
+      meaning: "Friend",
+      image: water,
+      eg: "Enyim dị ebe a.",
+      english: "My friend is here."
+    },
+    {
+      id: 7,
+      word: "Ụlọakwụkwọ",
+      pronunciation: "oo-loh-ah-kwoo-kwo",
+      meaning: "School",
+      image: water,
+      eg: "Aga m n’ụlọakwụkwọ.",
+      english: "I am going to school."
+    },
+  ];
 
 
 
@@ -91,7 +91,7 @@ const VOCAB = [
   return (
     <div className="px-6 py-6 gap-9 flex border-t-2 border-[#9d9d9d33]">
       {/* Sidebar */}
-      <div className=" w-[300px] flex flex-col justify-between gap-10 border-2 px-4 py-10 border-[#9d9d9d33] rounded-xl">
+      <div className=" w-[300px] flex flex-col justify-between gap-10 border-2 px-4 py-10 border-[#9d9d9d33] rounded-xl max-tablet:hidden">
         <div className=" flex flex-col gap-4 ">
           <div className=" flex items-center gap-4 cursor-pointer text-sm bg-[#0096880f] px-3 py-1 rounded">
             <FaBook color="#009688" size={20} />
@@ -123,13 +123,34 @@ const VOCAB = [
         <p className="font-semibold text-[27px] max-tablet:text-[25px] mb-6 text-center">📖 Igbo Vocabulary</p>
 
         {/* Vocabulary Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-fit mx-auto">
-          {VOCAB.map(({ word, pronunciation, meaning, image, eg, english }, index) => (<motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} className="bg-white border border-[#88888833] rounded-xl w-[270px] px-4 py-6 shadow-sm" > <p className="text-[#009688] font-semibold text-lg">{word}</p> <p className="text-gray-500 text-sm italic">{pronunciation}</p> <p className="font-semibold">{meaning}</p> <div className="py-6 flex justify-center"> <img src={image} alt={word} className="w-[70px]" /> </div> <p className="text-gray-600 text-sm italic">{eg}</p> <p className="text-gray-600 text-sm">{english}</p> </motion.div>))}
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,2fr))] gap-6 mx-auto place-items-center w-full">
+          {VOCAB.map(({ word, pronunciation, meaning, image, eg, english }, index) => (
+            <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}
+              className="bg-white border border-[#88888833] rounded-xl w-[270px] px-4 py-6 shadow-sm" >
+              <p className="text-[#009688] font-semibold text-lg">
+                {word}
+              </p>
+              <p className="text-gray-500 text-sm italic">
+                {pronunciation}</p>
+              <p className="font-semibold">
+                {meaning}
+              </p>
+              <div className="py-6 flex justify-center">
+                <img src={image} alt={word} className="w-[70px]" />
+              </div>
+              <p className="text-gray-600 text-sm italic">
+                {eg}
+              </p>
+              <p className="text-gray-600 text-sm">
+                {english}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
         {/* Matching Exercise */}
         <div id="matching">
-        <MatchingExercise items={VOCAB} onGameUpdate={setGameStats} resetSignal={resetSignal} />
+          <MatchingExercise items={VOCAB} onGameUpdate={setGameStats} resetSignal={resetSignal} />
         </div>
       </div>
     </div>

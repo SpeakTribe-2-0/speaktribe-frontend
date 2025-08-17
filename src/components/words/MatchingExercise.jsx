@@ -150,16 +150,16 @@ const MatchingExercise = ({ items, onGameUpdate, resetSignal }) => {
       className="border-2 border-[#9d9d9d33] rounded-xl px-6 py-5 mt-8 flex flex-col gap-4"
     >
       {/* Header + stats */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center  max-tablet: flex-col max-tablet:gap-3">
         <h2 className="font-semibold text-lg">🎮 Test Your Knowledge</h2>
         <div className="flex gap-2">
-          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded">
+          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded max-mobile:text-[12px]">
             Score: {score}/{total}
           </span>
-          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded">
+          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded max-mobile:text-[12px]">
             🔥 Streak: {streak}
           </span>
-          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded">
+          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded max-mobile:text-[12px]">
             🏆 Best: {bestStreak}
           </span>
           <button
