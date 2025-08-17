@@ -163,7 +163,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
-import Logo from "../../assets/speaktribe-logo.png";
+import Logo from "../../assets/speakTribe-logo.png";
 import learningImage from "../../assets/undraw_reading-time_gcvc.svg";
 import baseUrl from "../../utils/baseUrl";
 
