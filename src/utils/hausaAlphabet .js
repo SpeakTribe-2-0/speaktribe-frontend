@@ -1,13 +1,82 @@
 import akara from '../assets/akara.png';
+import father from '../assets/images/hausa/father.png'
+import mother from '../assets/images/hausa/mother.png'
+import food from '../assets/images/hausa/bibimbap.png'
+import big from '../assets/images/hausa/think.png'
+import motorcycle from '../assets/images/hausa/motorbike.png'
+import rat from '../assets/images/hausa/rat.png'
+import bless from '../assets/images/hausa/open-hands.png'
+import bow from '../assets/images/hausa/bow-and-arrow.png'
+import inside from '../assets/images/hausa/home.png'
+import speak from '../assets/images/hausa/speak.png'
+import eat from '../assets/images/hausa/vegetarian.png'
+import head from '../assets/images/hausa/head.png'
+import sweet from '../assets/images/hausa/sweets.png'
+import horse from '../assets/images/hausa/horse.png'
+import child from '../assets/images/hausa/playtime.png'
+import room from '../assets/images/hausa/room.png'
+import taste from '../assets/images/hausa/mouth.png'
+import me from '../assets/images/hausa/user.png'
+import harvest from '../assets/images/hausa/harvest.png'
+import devil from '../assets/images/hausa/devil.png'
+import feud from '../assets/images/hausa/feud.png'
+import out from '../assets/images/hausa/go-out.png'
+import white from '../assets/images/hausa/white.png'
+import house from '../assets/images/hausa/house.png'
+import town from '../assets/images/hausa/village.png'
+import respect from '../assets/images/hausa/respect.png'
+import mount from '../assets/images/hausa/mountain.png'
+import chat from '../assets/images/hausa/chat.png'
+import number from '../assets/images/hausa/number.png'
+import power from '../assets/images/hausa/empowerment.png'
+import where from '../assets/images/hausa/find.png'
+import ability from '../assets/images/hausa/abilities.png'
+import girl from '../assets/images/hausa/woman.png'
+import blood from '../assets/images/hausa/blood.png'
+import tree from '../assets/images/hausa/tree.png'
+import land from '../assets/images/hausa/land.png'
+import ring from '../assets/images/hausa/phone.png'
+import broken from '../assets/images/hausa/glasses-insurance.png'
+import dust from '../assets/images/hausa/dust.png'
+import effort from '../assets/images/hausa/effort.png'
+import line from '../assets/images/hausa/minus.png'
+import health from '../assets/images/hausa/health-care.png'
+import five from '../assets/images/hausa/number-5.png'
+import begin from '../assets/images/hausa/complete.png'
+import guard from '../assets/images/hausa/security.png'
+import intend from '../assets/images/hausa/select.png'
+import farm from '../assets/images/hausa/chemical.png'
+import currency from '../assets/images/hausa/naira.png'
+import day from '../assets/images/hausa/day-mode.png'
+import water from '../assets/images/hausa/water-tap.png'
+import dominate from '../assets/images/hausa/people.png'
+import cattle from '../assets/images/hausa/cow.png'
+import get from '../assets/images/hausa/payment-method.png'
+import tea from '../assets/images/hausa/herbal-tea.png'
+import walk from '../assets/images/hausa/walk.png'
+import rise from '../assets/images/hausa/support.png'
+import clean from '../assets/images/hausa/cleaning.png'
+import bird from '../assets/images/hausa/dove.png'
+import order from '../assets/images/hausa/checkout.png'
+import bring from '../assets/images/hausa/bring.png'
+import game from '../assets/images/hausa/game-console.png'
+import moon from '../assets/images/hausa/moon.png'
+import fight from '../assets/images/hausa/man.png'
+import heart from '../assets/images/hausa/heart.png'
+import fire from '../assets/images/hausa/fire.png'
+import seat from '../assets/images/hausa/computer-worker.png'
+
+
+
 
 const hausaAlphabet = [
   {
     letter: "A",
     pronunciation: "/a/",
     examples: [
-      { word: "Āba", meaning: "Father", image: akara },
-      { word: "Āya", meaning: "Mother", image: akara },
-      { word: "Ābu", meaning: "Have/Exist", image: akara }
+      { word: "Āba", meaning: "Father", image: father },
+      { word: "Āya", meaning: "Mother", image: mother },
+      { word: "Àbìncì", meaning: "Have/Exist", image: food }
     ],
     practiceOptions: ["A", "E", "I"],
     culturalContext:
@@ -17,9 +86,9 @@ const hausaAlphabet = [
     letter: "B",
     pronunciation: "/b/",
     examples: [
-      { word: "Babba", meaning: "Big", image: akara },
-      { word: "Bari", meaning: "Allow", image: akara },
-      { word: "Bahaushe", meaning: "Hausa person", image: akara }
+      { word: "Babba", meaning: "Big", image: big },
+      { word: "Bàbùr", meaning: "Motorcycle", image: motorcycle },
+      { word: "Bahaushe", meaning: "Hausa person", image: father }
     ],
     practiceOptions: ["B", "D", "G"],
     culturalContext:
@@ -29,9 +98,9 @@ const hausaAlphabet = [
     letter: "Ɓ",
     pronunciation: "/ɓ/",
     examples: [
-      { word: "Ɓera", meaning: "Rat", image: akara },
-      { word: "Ɓarka", meaning: "Blessing", image: akara },
-      { word: "Ɓata", meaning: "Lose", image: akara }
+      { word: "Ɓera", meaning: "Rat", image: rat }, 
+      { word: "Ɓarka", meaning: "Blessing", image: bless },
+      { word: "Bàkà", meaning: "Bow (weapon)", image: bow }
     ],
     practiceOptions: ["Ɓ", "B", "D"],
     culturalContext:
@@ -41,9 +110,9 @@ const hausaAlphabet = [
     letter: "C",
     pronunciation: "/t͡ʃ/",
     examples: [
-      { word: "Ciki", meaning: "Inside", image: akara },
-      { word: "Cewa", meaning: "Say that", image: akara },
-      { word: "Cin", meaning: "Buy/Eat", image: akara }
+      { word: "Ciki", meaning: "Inside", image: inside   },
+      { word: "Cewa", meaning: "Say that", image: speak },
+      { word: "Cin", meaning: "Buy/Eat", image: eat }
     ],
     practiceOptions: ["C", "K", "S"],
     culturalContext:
@@ -53,9 +122,9 @@ const hausaAlphabet = [
     letter: "D",
     pronunciation: "/d/",
     examples: [
-      { word: "Daɗi", meaning: "Pleasure", image: akara },
-      { word: "Dadi", meaning: "Sweet", image: akara },
-      { word: "Doki", meaning: "Horse", image: akara }
+      { word: "Daɗi", meaning: "Pleasure", image: head },
+      { word: "Dadi", meaning: "Sweet", image: sweet },
+      { word: "Doki", meaning: "Horse", image: horse }
     ],
     practiceOptions: ["D", "T", "Ɗ"],
     culturalContext:
@@ -65,9 +134,9 @@ const hausaAlphabet = [
     letter: "Ɗ",
     pronunciation: "/ɗ/",
     examples: [
-      { word: "Ɗan", meaning: "Child", image: akara },
-      { word: "Ɗaki", meaning: "Room", image: akara },
-      { word: "Ɗanɗano", meaning: "Taste", image: akara }
+      { word: "Ɗan", meaning: "Child", image: child },
+      { word: "Ɗaki", meaning: "Room", image: room },
+      { word: "Ɗanɗano", meaning: "Taste", image: taste }
     ],
     practiceOptions: ["Ɗ", "D", "T"],
     culturalContext:
@@ -77,9 +146,9 @@ const hausaAlphabet = [
     letter: "E",
     pronunciation: "/e/",
     examples: [
-      { word: "Emi", meaning: "Me", image: akara },
-      { word: "Evil", meaning: "Evil", image: akara },
-      { word: "Era", meaning: "Harvest", image: akara }
+      { word: "Emi", meaning: "Me", image: me },
+      { word: "Evil", meaning: "Evil", image: devil },
+      { word: "Era", meaning: "Harvest", image: harvest }
     ],
     practiceOptions: ["E", "A", "I"],
     culturalContext:
@@ -89,9 +158,9 @@ const hausaAlphabet = [
     letter: "F",
     pronunciation: "/f/",
     examples: [
-      { word: "Fada", meaning: "Die/Quarrel", image: akara },
-      { word: "Fari", meaning: "White", image: akara },
-      { word: "Fita", meaning: "Go out", image: akara }
+      { word: "Fada", meaning: "Die/Quarrel", image: feud },
+      { word: "Fari", meaning: "White", image: white },
+      { word: "Fita", meaning: "Go out", image: out }
     ],
     practiceOptions: ["F", "P", "V"],
     culturalContext:
@@ -101,9 +170,9 @@ const hausaAlphabet = [
     letter: "G",
     pronunciation: "/g/",
     examples: [
-      { word: "Gida", meaning: "House", image: akara },
-      { word: "Gari", meaning: "Town", image: akara },
-      { word: "Girma", meaning: "Size/Respect", image: akara }
+      { word: "Gida", meaning: "House", image: house },
+      { word: "Gari", meaning: "Town", image: town },
+      { word: "Girma", meaning: "Size/Respect", image: respect }
     ],
     practiceOptions: ["G", "K", "Ƙ"],
     culturalContext:
@@ -113,9 +182,9 @@ const hausaAlphabet = [
     letter: "H",
     pronunciation: "/h/",
     examples: [
-      { word: "Hau", meaning: "Mount", image: akara },
-      { word: "Hira", meaning: "Chat", image: akara },
-      { word: "Hudu", meaning: "Four", image: akara }
+      { word: "Hau", meaning: "Mount", image: mount },
+      { word: "Hira", meaning: "Chat", image: chat },
+      { word: "Hudu", meaning: "Four", image: number }
     ],
     practiceOptions: ["H", "K", "J"],
     culturalContext:
@@ -125,9 +194,9 @@ const hausaAlphabet = [
     letter: "I",
     pronunciation: "/i/",
     examples: [
-      { word: "Ina", meaning: "Where", image: akara },
-      { word: "Iya", meaning: "Ability", image: akara },
-      { word: "Iko", meaning: "Power", image: akara }
+      { word: "Ina", meaning: "Where", image: where },
+      { word: "Iya", meaning: "Ability", image: ability },
+      { word: "Iko", meaning: "Power", image: power }
     ],
     practiceOptions: ["I", "E", "Y"],
     culturalContext:
@@ -137,9 +206,9 @@ const hausaAlphabet = [
     letter: "J",
     pronunciation: "/d͡ʒ/",
     examples: [
-      { word: "Jiya", meaning: "Yesterday", image: akara },
-      { word: "Jini", meaning: "Blood", image: akara },
-      { word: "Jiyo", meaning: "A kind of tree", image: akara }
+      { word: "Jìyàrà", meaning: "Young girl", image: girl },
+      { word: "Jini", meaning: "Blood", image: blood },
+      { word: "Jiyo", meaning: "Tree", image: tree }
     ],
     practiceOptions: ["J", "G", "Y"],
     culturalContext:
@@ -149,9 +218,9 @@ const hausaAlphabet = [
     letter: "K",
     pronunciation: "/k/",
     examples: [
-      { word: "Kasa", meaning: "Land", image: akara },
-      { word: "Karya", meaning: "Lie/Broken", image: akara },
-      { word: "Kira", meaning: "Call", image: akara }
+      { word: "Kasa", meaning: "Land", image: land },
+      { word: "Karya", meaning: "Lie/Broken", image: broken },
+      { word: "Kira", meaning: "Call", image: ring }
     ],
     practiceOptions: ["K", "Ƙ", "G"],
     culturalContext:
@@ -161,9 +230,9 @@ const hausaAlphabet = [
     letter: "Ƙ",
     pronunciation: "/ƙ/",
     examples: [
-      { word: "Ƙasa", meaning: "Ground", image: akara },
-      { word: "Ƙoƙari", meaning: "Effort", image: akara },
-      { word: "Ƙura", meaning: "Dust", image: akara }
+      { word: "Ƙasa", meaning: "Ground", image: land },
+      { word: "Ƙoƙari", meaning: "Effort", image: effort },
+      { word: "Ƙura", meaning: "Dust", image: dust }
     ],
     practiceOptions: ["Ƙ", "K", "G"],
     culturalContext:
@@ -173,9 +242,9 @@ const hausaAlphabet = [
     letter: "L",
     pronunciation: "/l/",
     examples: [
-      { word: "Lafiya", meaning: "Health", image: akara },
-      { word: "Layi", meaning: "Line", image: akara },
-      { word: "Lima", meaning: "Five", image: akara }
+      { word: "Lafiya", meaning: "Health", image: health },
+      { word: "Layi", meaning: "Line", image: line },
+      { word: "Lima", meaning: "Five", image: five }
     ],
     practiceOptions: ["L", "R", "N"],
     culturalContext:
@@ -185,9 +254,9 @@ const hausaAlphabet = [
     letter: "M",
     pronunciation: "/m/",
     examples: [
-      { word: "Maci", meaning: "Beginning", image: akara },
-      { word: "Mata", meaning: "Women", image: akara },
-      { word: "Mikiya", meaning: "Watch/Guard", image: akara }
+      { word: "Maci", meaning: "Beginning", image: begin },
+      { word: "Mata", meaning: "Women", image: mother },
+      { word: "Mikiya", meaning: "Watch/Guard", image: guard }
     ],
     practiceOptions: ["M", "N", "B"],
     culturalContext:
@@ -197,9 +266,9 @@ const hausaAlphabet = [
     letter: "N",
     pronunciation: "/n/",
     examples: [
-      { word: "Noma", meaning: "Farming", image: akara },
-      { word: "Naira", meaning: "Currency", image: akara },
-      { word: "Nufi", meaning: "Intend", image: akara }
+      { word: "Noma", meaning: "Farming", image: farm },
+      { word: "Naira", meaning: "Currency", image: currency },
+      { word: "Nufi", meaning: "Intend", image: intend }
     ],
     practiceOptions: ["N", "M", "R"],
     culturalContext:
@@ -209,9 +278,9 @@ const hausaAlphabet = [
     letter: "O",
     pronunciation: "/o/",
     examples: [
-      { word: "Oshi", meaning: "Name", image: akara },
-      { word: "Ona", meaning: "Mother", image: akara },
-      { word: "Oro", meaning: "Money", image: akara }
+      { word: "Oshi", meaning: "Name", image: me },
+      { word: "Ona", meaning: "Mother", image: mother },
+      { word: "Oro", meaning: "Money", image: currency }
     ],
     practiceOptions: ["O", "U", "Ƴ"],
     culturalContext:
@@ -221,9 +290,9 @@ const hausaAlphabet = [
     letter: "R",
     pronunciation: "/r/",
     examples: [
-      { word: "Rana", meaning: "Day", image: akara },
-      { word: "Ruwa", meaning: "Water", image: akara },
-      { word: "Roma", meaning: "Dominate", image: akara }
+      { word: "Rana", meaning: "Day", image: day },
+      { word: "Ruwa", meaning: "Water", image: water },
+      { word: "Roma", meaning: "Dominate", image: dominate }
     ],
     practiceOptions: ["R", "L", "D"],
     culturalContext:
@@ -233,9 +302,9 @@ const hausaAlphabet = [
     letter: "S",
     pronunciation: "/s/",
     examples: [
-      { word: "Suna", meaning: "Name/They are called", image: akara },
-      { word: "Sayi", meaning: "Buy", image: akara },
-      { word: "Samu", meaning: "Get", image: akara }
+      { word: "Suna", meaning: "Name/They are called", image: me },
+      { word: "Sayi", meaning: "Buy", image: get },
+      { word: "Samu", meaning: "Get", image: get }
     ],
     practiceOptions: ["S", "SH", "Z"],
     culturalContext:
@@ -245,9 +314,9 @@ const hausaAlphabet = [
     letter: "SH",
     pronunciation: "/ʃ/",
     examples: [
-      { word: "Shiga", meaning: "Enter", image: akara },
-      { word: "Shanu", meaning: "Cattle", image: akara },
-      { word: "Shayi", meaning: "Tea", image: akara }
+      { word: "Shiga", meaning: "Enter", image: inside },
+      { word: "Shanu", meaning: "Cattle", image: cattle },
+      { word: "Shayi", meaning: "Tea", image: tea }
     ],
     practiceOptions: ["SH", "S", "CH"],
     culturalContext:
@@ -257,9 +326,9 @@ const hausaAlphabet = [
     letter: "T",
     pronunciation: "/t/",
     examples: [
-      { word: "Tashi", meaning: "Rise/Get up", image: akara },
-      { word: "Tura", meaning: "Push", image: akara },
-      { word: "Taka", meaning: "Walk", image: akara }
+      { word: "Tashi", meaning: "Rise/Get up", image: rise },
+      { word: "Tura", meaning: "Push", image: effort },
+      { word: "Taka", meaning: "Walk", image: walk }
     ],
     practiceOptions: ["T", "Ɗ", "D"],
     culturalContext:
@@ -269,9 +338,9 @@ const hausaAlphabet = [
     letter: "TS",
     pronunciation: "/t͡s/",
     examples: [
-      { word: "Tsafta", meaning: "Cleanliness", image: akara },
-      { word: "Tsuntsu", meaning: "Bird", image: akara },
-      { word: "Tsari", meaning: "Order", image: akara }
+      { word: "Tsafta", meaning: "Cleanliness", image: clean },
+      { word: "Tsuntsu", meaning: "Bird", image: bird },
+      { word: "Tsari", meaning: "Order", image: order }
     ],
     practiceOptions: ["TS", "T", "S"],
     culturalContext:
@@ -281,9 +350,9 @@ const hausaAlphabet = [
     letter: "U",
     pronunciation: "/u/",
     examples: [
-      { word: "Uwargida", meaning: "First Lady", image: akara },
-      { word: "Uba", meaning: "Father", image: akara },
-      { word: "Uje", meaning: "Bring", image: akara }
+      { word: "Uwargida", meaning: "First Lady", image: girl },
+      { word: "Uba", meaning: "Father", image: father },
+      { word: "Uje", meaning: "Bring", image: bring }
     ],
     practiceOptions: ["U", "O", "I"],
     culturalContext:
@@ -293,9 +362,9 @@ const hausaAlphabet = [
     letter: "W",
     pronunciation: "/w/",
     examples: [
-      { word: "Wata", meaning: "Month/Moon", image: akara },
-      { word: "Wasan", meaning: "Game", image: akara },
-      { word: "Wuri", meaning: "Place", image: akara }
+      { word: "Wata", meaning: "Month/Moon", image: moon },
+      { word: "Wasan", meaning: "Game", image: game },
+      { word: "Wuri", meaning: "Place", image: house }
     ],
     practiceOptions: ["W", "Y", "V"],
     culturalContext:
@@ -305,9 +374,9 @@ const hausaAlphabet = [
     letter: "Y",
     pronunciation: "/j/",
     examples: [
-      { word: "Yara", meaning: "Children", image: akara },
+      { word: "Yara", meaning: "Children", image: child },
       { word: "Yini", meaning: "Yesterday", image: akara },
-      { word: "Yanci", meaning: "Freedom", image: akara }
+      { word: "Yanci", meaning: "Freedom", image: bird }
     ],
     practiceOptions: ["Y", "J", "I"],
     culturalContext:
@@ -317,9 +386,9 @@ const hausaAlphabet = [
     letter: "Ƴ",
     pronunciation: "/ʔj/",
     examples: [
-      { word: "Ƴaƴa", meaning: "Children", image: akara },
-      { word: "Ƴaƙi", meaning: "Fight", image: akara },
-      { word: "Ƴaƙi", meaning: "War", image: akara }
+      { word: "Ƴaƴa", meaning: "Children", image: child },
+      { word: "Ƴaƙi", meaning: "Fight", image: fight },
+      { word: "Ƴaƙi", meaning: "War", image: fight }
     ],
     practiceOptions: ["Ƴ", "Y", "J"],
     culturalContext:
@@ -329,9 +398,9 @@ const hausaAlphabet = [
     letter: "Z",
     pronunciation: "/z/",
     examples: [
-      { word: "Zama", meaning: "Sit/Become", image: akara },
-      { word: "Zuci", meaning: "Heart", image: akara },
-      { word: "Zafi", meaning: "Heat", image: akara }
+      { word: "Zama", meaning: "Sit/Become", image: seat },
+      { word: "Zuci", meaning: "Heart", image: heart },
+      { word: "Zafi", meaning: "Heat", image: fire }
     ],
     practiceOptions: ["Z", "S", "TS"],
     culturalContext:

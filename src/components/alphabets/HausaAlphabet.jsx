@@ -64,12 +64,12 @@ const HausaAlphabet = () => {
         </div>
 
         {/* Main Content */}
-        <div className='w-full px-10'>
+        <div className='w-full px-10 max-tablet:px-6 max-mobile:px-0'>
 
           {/* Letter */}
           <div>
-            <p className=' text-4xl font-bold my-4 text-[#262626] '>Hausa Alphabets</p>
-            <p className='text-7xl font-bold text-center text-[#009688] my-10'>
+             <p className=' text-4xl font-bold my-4 text-[#262626] max-tablet:text-2xl'>Hausa Alphabets</p>
+            <p className='text-7xl font-bold text-center text-[#009688] my-10 max-tablet:text-4xl'>
               {current.letter}
             </p>
           </div>
@@ -91,8 +91,8 @@ const HausaAlphabet = () => {
           <div className='border-[#9d9d9d33] border-1 rounded-xl px-6 py-5 flex flex-col gap-3'>
             <p className='font-semibold text-[17px]'>Example Words</p>
             {current.examples.map((ex, idx) => (
-              <div key={idx} className='flex items-center'>
-                <img src={ex.image} alt={ex.word} className='w-[60px]' />
+              <div key={idx} className='flex items-center gap-4'>
+                <img src={ex.image} alt={ex.word} className='w-[50px]' />
                 <div>
                   <p>{ex.word}</p>
                   <p className='text-[#7a7a7a] text-[10px]'>{ex.meaning}</p>
