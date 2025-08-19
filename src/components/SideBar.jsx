@@ -44,7 +44,7 @@ const SideBar = () => {
         <div className=''>
           <div onClick={() => { setOpen(!open) }} className='flex justify-start items-center gap-4 cursor-pointer'>
             <IoMdSettings color='#009688'/>
-            Language Settings
+            Start a Language
             <FaChevronDown className=' ml-10' color='#009688'/>
 
           </div>
@@ -63,7 +63,7 @@ const SideBar = () => {
           )}
         </div>
         <div
-        onClick={() => navigate('/login')}
+        onClick={() => navigate('/')}
         className='flex justify-start items-center gap-4 cursor-pointer'>
           <TbLogout2 color='red'/>
           Logout
