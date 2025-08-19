@@ -6,6 +6,7 @@ import alphabets from '../../utils/igboAlphabet ';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import volume from '../../assets/volume.png'
 
 const IgboAlphabet = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -43,6 +44,23 @@ const IgboAlphabet = () => {
 
   const allCorrect = submitted && quizQuestions.every((q, i) => quizAnswers[i] === q.correct);
 
+
+
+
+
+
+
+  const playAudio = () => {
+    const audio = new Audio('/src/assets/beep.mp3');
+    audio.play();
+  };
+
+
+  //   const playAudio = () => {
+  //   const audio = new Audio(`/audio/${current.letter}.mp3`);
+  //   audio.play();
+  // };
+
   return (
     <div className='border-[#9d9d9d33] border-t-2'>
       <div className='flex gap-3 width'>
@@ -69,8 +87,14 @@ const IgboAlphabet = () => {
           {/* Letter */}
           <div>
             <p className=' text-4xl font-bold my-4 text-[#262626] max-tablet:text-2xl'>Igbo Alphabets</p>
-            <p className='text-7xl font-bold text-center text-[#009688] my-10 max-tablet:text-4xl'>
+            <p onClick={playAudio} className="cursor-pointer flex w-full justify-center flex-col items-center text-7xl font-bold text-center text-[#009688] my-10 max-tablet:text-4xl">
               {current.letter}
+              <img
+                className="w-[30px] hover:w-[33px] transition-all duration-500 ease-in-out"
+                src={volume}
+                alt="play sound"
+                
+              />
             </p>
           </div>
 
@@ -155,8 +179,8 @@ const IgboAlphabet = () => {
           {/* Quiz Section */}
           <hr className="my-8 border-[#9d9d9d33] border-1 rounded-4xl" />
           {!showQuiz ? (
-            <button 
-              onClick={() => setShowQuiz(true)} 
+            <button
+              onClick={() => setShowQuiz(true)}
               className="px-6 py-3 bg-[#009688] text-white rounded-lg shadow-md hover:bg-[#00796B]"
             >
               Start Quiz
@@ -190,7 +214,7 @@ const IgboAlphabet = () => {
               ))}
 
               {!submitted ? (
-                <button 
+                <button
                   onClick={handleSubmit}
                   className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700"
                 >

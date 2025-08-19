@@ -1,4 +1,77 @@
 import akara from '../assets/akara.png'
+import agbo from '../assets/images/yoruba/champagne.png'
+import ada from '../assets/images/yoruba/weapon.png'
+import bata from '../assets/images/yoruba/running-shoe.png'
+import buredi from '../assets/images/yoruba/white-bread.png'
+import belu from '../assets/images/yoruba/bell.png'
+import dudu from '../assets/images/yoruba/black-circle.png'
+import dandogo from '../assets/images/yoruba/robe.png'
+import dan from '../assets/images/yoruba/shine.png'
+import eja from '../assets/images/yoruba/fish.png'
+import efo from '../assets/images/yoruba/Vegetable.png'
+import ebo from '../assets/images/yoruba/sacrifice.png'
+import eni from '../assets/images/yoruba/people.png'
+import egbon from '../assets/images/yoruba/sister.png'
+import ebora from '../assets/images/yoruba/spirit.png'
+import fe from '../assets/images/yoruba/love.png'
+import fadaka from '../assets/images/yoruba/silver.png'
+import fo from '../assets/images/yoruba/wash.png'
+import gbe from '../assets/images/yoruba/drying.png'
+import gbogbo from '../assets/images/yoruba/all.png'
+import gaari from '../assets/images/yoruba/gaari.png'
+import gbekele from '../assets/images/yoruba/trust.png'
+import gbadun from '../assets/images/yoruba/enjoy.png'
+import gbari from '../assets/images/yoruba/accept.png'
+import ha from '../assets/images/yoruba/exclaim.png'
+import haki from '../assets/images/yoruba/hacker.png'
+import halo from '../assets/images/yoruba/hello.png'
+import iwe from '../assets/images/yoruba/books.png'
+import ilu from '../assets/images/yoruba/town.png'
+import iba from '../assets/images/yoruba/town.png'
+import je from '../assets/images/yoruba/eat.png'
+import ju from '../assets/images/yoruba/throw.png'
+import jin from '../assets/images/yoruba/fry.png'
+import ka from '../assets/images/yoruba/read.png'
+import ko from '../assets/images/yoruba/teaching.png'
+import kun from '../assets/images/yoruba/fill.png'
+import leta from '../assets/images/yoruba/letter.png'
+import lehin from '../assets/images/yoruba/behind.png'
+import ma from '../assets/images/yoruba/dont.png'
+import mo from '../assets/images/yoruba/know.png'
+import mi from '../assets/images/yoruba/me.png'
+import na from '../assets/images/yoruba/beat.png'
+import ni from '../assets/images/yoruba/have.png'
+import ninu from '../assets/images/yoruba/inside.png'
+import ounje from '../assets/images/yoruba/food.png'
+import omo from '../assets/images/yoruba/child.png'
+import rain from '../assets/images/yoruba/rain.png'
+import oba from '../assets/images/yoruba/king.png'
+import ojo from '../assets/images/yoruba/day.png'
+import okunrin from '../assets/images/yoruba/man.png'
+import pa from '../assets/images/yoruba/kill.png'
+import pe from '../assets/images/yoruba/call.png'
+import pupa from '../assets/images/yoruba/red.png'
+import rin from '../assets/images/yoruba/walk.png'
+import ro from '../assets/images/yoruba/bend.png'
+import rerin from '../assets/images/yoruba/laugh.png'
+import sun from '../assets/images/yoruba/sleep.png'
+import so from '../assets/images/yoruba/speak.png'
+import san from '../assets/images/yoruba/pay.png'
+import se from '../assets/images/yoruba/do.png'
+import soosi from '../assets/images/yoruba/church.png'
+import si from '../assets/images/yoruba/open.png'
+import ta from '../assets/images/yoruba/sell.png'
+import tun from '../assets/images/yoruba/again.png'
+import ti from '../assets/images/yoruba/that.png'
+import ugbo from '../assets/images/yoruba/farm.png'
+import ude from '../assets/images/yoruba/hunter.png'
+import wi from '../assets/images/yoruba/say.png'
+import wa from '../assets/images/yoruba/exist.png'
+import we from '../assets/images/yoruba/bath.png'
+import ya from '../assets/images/yoruba/separate.png'
+import yi from '../assets/images/yoruba/turn.png'
+import ye from '../assets/images/yoruba/worthy.png'
+
 
 
 const alphabets = [
@@ -7,8 +80,8 @@ const alphabets = [
       pronunciation: "/a/",
       examples: [
         { word: "Àkàrà", meaning: "Bean Cake", image: akara },
-        { word: "Àgbo", meaning: "Herbal Drink", image: akara },
-        { word: "Àdà", meaning: "Cutlass", image: akara }
+        { word: "Àgbo", meaning: "Herbal Drink", image: agbo },
+        { word: "Àdà", meaning: "Cutlass", image: ada }
       ],
       practiceOptions: ["A", "H", "B"],
       culturalContext:
@@ -18,9 +91,9 @@ const alphabets = [
       letter: "B",
       pronunciation: "/b/",
       examples: [
-        { word: "Bàtà", meaning: "Shoe", image: akara },
-        { word: "Búrẹ́dì", meaning: "Bread", image: akara },
-        { word: "Bẹ́lú", meaning: "Bell", image: akara }
+        { word: "Bàtà", meaning: "Shoe", image: bata },
+        { word: "Búrẹ́dì", meaning: "Bread", image: buredi },
+        { word: "Bẹ́lú", meaning: "Bell", image: belu }
       ],
       practiceOptions: ["B", "A", "D"],
       culturalContext:
@@ -30,9 +103,9 @@ const alphabets = [
       letter: "D",
       pronunciation: "/d/",
       examples: [
-        { word: "Dúdú", meaning: "Black", image: akara },
-        { word: "Dáńdógó", meaning: "Traditional Robe", image: akara },
-        { word: "Dán", meaning: "To Shine", image: akara }
+        { word: "Dúdú", meaning: "Black", image: dudu },
+        { word: "Dáńdógó", meaning: "Traditional Robe", image: dandogo },
+        { word: "Dán", meaning: "To Shine", image: dan }
       ],
       practiceOptions: ["D", "F", "E"],
       culturalContext:
@@ -42,9 +115,9 @@ const alphabets = [
       letter: "E",
       pronunciation: "/e/",
       examples: [
-        { word: "Ẹja", meaning: "Fish", image: akara },
-        { word: "Ẹ̀fọ́", meaning: "Vegetable", image: akara },
-        { word: "Ẹbọ", meaning: "Sacrifice", image: akara }
+        { word: "Ẹja", meaning: "Fish", image: eja },
+        { word: "Ẹ̀fọ́", meaning: "Vegetable", image: efo },
+        { word: "Ẹbo", meaning: "Sacrifice", image: ebo }
       ],
       practiceOptions: ["E", "Ẹ", "A"],
       culturalContext:
@@ -54,9 +127,9 @@ const alphabets = [
       letter: "Ẹ",
       pronunciation: "/ɛ/",
       examples: [
-        { word: "Ẹni", meaning: "Person", image: akara },
-        { word: "Ẹ̀gbọ́n", meaning: "Elder Sibling", image: akara },
-        { word: "Ẹbọra", meaning: "Spirit", image: akara }
+        { word: "Ẹni", meaning: "Person", image: eni },
+        { word: "Ẹ̀gbọ́n", meaning: "Elder Sibling", image: egbon },
+        { word: "Ẹbọra", meaning: "Spirit", image: ebora }
       ],
       practiceOptions: ["Ẹ", "E", "I"],
       culturalContext:
@@ -66,9 +139,9 @@ const alphabets = [
       letter: "F",
       pronunciation: "/f/",
       examples: [
-        { word: "Fẹ́", meaning: "Love", image: akara },
-        { word: "Fàdákà", meaning: "Silver", image: akara },
-        { word: "Fọ", meaning: "Wash", image: akara }
+        { word: "Fẹ́", meaning: "Love", image: fe },
+        { word: "Fàdákà", meaning: "Silver", image: fadaka },
+        { word: "Fọ", meaning: "Wash", image: fo }
       ],
       practiceOptions: ["F", "P", "V"],
       culturalContext:
@@ -78,9 +151,9 @@ const alphabets = [
       letter: "G",
       pronunciation: "/g/",
       examples: [
-        { word: "Gbẹ̀", meaning: "Dry", image: akara },
-        { word: "Gbogbo", meaning: "All", image: akara },
-        { word: "Gàárì", meaning: "Cassava Granules", image: akara }
+        { word: "Gbẹ̀", meaning: "Dry", image: gbe },
+        { word: "Gbogbo", meaning: "All", image: gbogbo },
+        { word: "Gàárì", meaning: "Cassava Granules", image: gaari }
       ],
       practiceOptions: ["G", "GB", "K"],
       culturalContext:
@@ -90,9 +163,9 @@ const alphabets = [
       letter: "GB",
       pronunciation: "/ɡ͡b/",
       examples: [
-        { word: "Gbẹ̀kẹ̀lé", meaning: "Trust", image: akara },
-        { word: "Gbádùn", meaning: "Enjoy", image: akara },
-        { word: "Gbárí", meaning: "Accept", image: akara }
+        { word: "Gbẹ̀kẹ̀lé", meaning: "Trust", image: gbekele },
+        { word: "Gbádùn", meaning: "Enjoy", image: gbadun },
+        { word: "Gbárí", meaning: "Accept", image: gbari }
       ],
       practiceOptions: ["GB", "G", "B"],
       culturalContext:
@@ -102,9 +175,9 @@ const alphabets = [
       letter: "H",
       pronunciation: "/h/",
       examples: [
-        { word: "Hà", meaning: "Exclaim", image: akara },
-        { word: "Hàkì", meaning: "Hacking", image: akara },
-        { word: "Hàlò", meaning: "Hello", image: akara }
+        { word: "Hà", meaning: "Exclaim", image: ha },
+        { word: "Hàkì", meaning: "Hacking", image: haki },
+        { word: "Hàlò", meaning: "Hello", image: halo }
       ],
       practiceOptions: ["H", "A", "E"],
       culturalContext:
@@ -114,9 +187,9 @@ const alphabets = [
       letter: "I",
       pronunciation: "/i/",
       examples: [
-        { word: "Ìwé", meaning: "Book", image: akara },
-        { word: "Ìlú", meaning: "Town", image: akara },
-        { word: "Ìbà", meaning: "Greeting", image: akara }
+        { word: "Ìwé", meaning: "Book", image: iwe },
+        { word: "Ìlú", meaning: "Town", image: ilu },
+        { word: "Ìbà", meaning: "Greeting", image: iba }
       ],
       practiceOptions: ["I", "E", "O"],
       culturalContext:
@@ -126,9 +199,9 @@ const alphabets = [
       letter: "J",
       pronunciation: "/ʤ/",
       examples: [
-        { word: "Jẹ", meaning: "Eat", image: akara },
-        { word: "Jù", meaning: "Throw", image: akara },
-        { word: "Jin", meaning: "Fry", image: akara }
+        { word: "Jẹ", meaning: "Eat", image: je },
+        { word: "Jù", meaning: "Throw", image: ju },
+        { word: "Jin", meaning: "Fry", image: jin }
       ],
       practiceOptions: ["J", "Y", "CH"],
       culturalContext:
@@ -138,9 +211,9 @@ const alphabets = [
       letter: "K",
       pronunciation: "/k/",
       examples: [
-        { word: "Kà", meaning: "Read", image: akara },
-        { word: "Kọ́", meaning: "Teach", image: akara },
-        { word: "Kún", meaning: "Fill", image: akara }
+        { word: "Kà", meaning: "Read", image: ka },
+        { word: "Kọ́", meaning: "Teach", image: ko },
+        { word: "Kún", meaning: "Fill", image: kun }
       ],
       practiceOptions: ["K", "C", "Q"],
       culturalContext:
@@ -150,9 +223,9 @@ const alphabets = [
   letter: "L",
   pronunciation: "/l/",
   examples: [
-    { word: "Lẹ́tà", meaning: "Letter (mail)", image: akara },
+    { word: "Lẹ́tà", meaning: "Letter (mail)", image: leta },
     { word: "Láti", meaning: "From", image: akara },
-    { word: "Lẹ́hìn", meaning: "Behind", image: akara }
+    { word: "Lẹ́hìn", meaning: "Behind", image: lehin }
   ],
   practiceOptions: ["L", "R", "N"],
   culturalContext:
@@ -162,9 +235,9 @@ const alphabets = [
   letter: "M",
   pronunciation: "/m/",
   examples: [
-    { word: "Má", meaning: "Don’t", image: akara },
-    { word: "Mọ́", meaning: "Know", image: akara },
-    { word: "Mí", meaning: "Me", image: akara }
+    { word: "Má", meaning: "Don’t", image: ma },
+    { word: "Mọ́", meaning: "Know", image: mo },
+    { word: "Mí", meaning: "Me", image: mi }
   ],
   practiceOptions: ["M", "N", "B"],
   culturalContext:
@@ -174,9 +247,9 @@ const alphabets = [
   letter: "N",
   pronunciation: "/n/",
   examples: [
-    { word: "Nà", meaning: "Beat", image: akara },
-    { word: "Ní", meaning: "Have/At", image: akara },
-    { word: "Nínú", meaning: "Inside", image: akara }
+    { word: "Nà", meaning: "Beat", image: na },
+    { word: "Ní", meaning: "Have/At", image: ni },
+    { word: "Nínú", meaning: "Inside", image: ninu }
   ],
   practiceOptions: ["N", "M", "R"],
   culturalContext:
@@ -186,9 +259,9 @@ const alphabets = [
   letter: "O",
   pronunciation: "/o/",
   examples: [
-    { word: "Oúnjẹ", meaning: "Food", image: akara },
-    { word: "Ọmọ", meaning: "Child", image: akara },
-    { word: "Òjò", meaning: "Rain", image: akara }
+    { word: "Oúnjẹ", meaning: "Food", image: ounje },
+    { word: "Ọmọ", meaning: "Child", image: omo },
+    { word: "Òjò", meaning: "Rain", image: rain }
   ],
   practiceOptions: ["O", "Ọ", "U"],
   culturalContext:
@@ -198,9 +271,9 @@ const alphabets = [
   letter: "Ọ",
   pronunciation: "/ɔ/",
   examples: [
-    { word: "Ọbà", meaning: "King", image: akara },
-    { word: "Ọjọ́", meaning: "Day", image: akara },
-    { word: "Ọkùnrin", meaning: "Man", image: akara }
+    { word: "Ọbà", meaning: "King", image: oba },
+    { word: "Ọjọ́", meaning: "Day", image: ojo },
+    { word: "Ọkùnrin", meaning: "Man", image: okunrin }
   ],
   practiceOptions: ["Ọ", "O", "E"],
   culturalContext:
@@ -210,9 +283,9 @@ const alphabets = [
   letter: "P",
   pronunciation: "/p/",
   examples: [
-    { word: "Pà", meaning: "Kill", image: akara },
-    { word: "Pé", meaning: "Call/Invite", image: akara },
-    { word: "Pupa", meaning: "Red", image: akara }
+    { word: "Pà", meaning: "Kill", image: pa },
+    { word: "Pé", meaning: "Call/Invite", image: pe },
+    { word: "Pupa", meaning: "Red", image: pupa }
   ],
   practiceOptions: ["P", "B", "F"],
   culturalContext:
@@ -222,9 +295,9 @@ const alphabets = [
   letter: "R",
   pronunciation: "/r/",
   examples: [
-    { word: "Rìn", meaning: "Walk", image: akara },
-    { word: "Rọ̀", meaning: "Bend", image: akara },
-    { word: "Rẹ́rìn", meaning: "Laugh", image: akara }
+    { word: "Rìn", meaning: "Walk", image: rin },
+    { word: "Rọ̀", meaning: "Bend", image: ro },
+    { word: "Rẹ́rìn", meaning: "Laugh", image: rerin }
   ],
   practiceOptions: ["R", "L", "N"],
   culturalContext:
@@ -234,9 +307,9 @@ const alphabets = [
   letter: "S",
   pronunciation: "/s/",
   examples: [
-    { word: "Sùn", meaning: "Sleep", image: akara },
-    { word: "Sọ", meaning: "Speak", image: akara },
-    { word: "Sán", meaning: "Pay", image: akara }
+    { word: "Sùn", meaning: "Sleep", image: sun },
+    { word: "Sọ", meaning: "Speak", image: so },
+    { word: "Sán", meaning: "Pay", image: san }
   ],
   practiceOptions: ["S", "Ṣ", "Z"],
   culturalContext:
@@ -246,9 +319,9 @@ const alphabets = [
   letter: "Ṣ",
   pronunciation: "/ʃ/",
   examples: [
-    { word: "Ṣe", meaning: "Do", image: akara },
-    { word: "Ṣọ́ọ̀ṣì", meaning: "Church", image: akara },
-    { word: "Ṣí", meaning: "Open", image: akara }
+    { word: "Ṣe", meaning: "Do", image: se },
+    { word: "Ṣọ́ọ̀ṣì", meaning: "Church", image: soosi },
+    { word: "Ṣí", meaning: "Open", image: si }
   ],
   practiceOptions: ["Ṣ", "S", "Sh"],
   culturalContext:
@@ -258,9 +331,9 @@ const alphabets = [
   letter: "T",
   pronunciation: "/t/",
   examples: [
-    { word: "Tà", meaning: "Sell", image: akara },
-    { word: "Tún", meaning: "Again", image: akara },
-    { word: "Tí", meaning: "That/Which", image: akara }
+    { word: "Tà", meaning: "Sell", image: ta },
+    { word: "Tún", meaning: "Again", image: tun },
+    { word: "Tí", meaning: "That/Which", image: ti }
   ],
   practiceOptions: ["T", "D", "P"],
   culturalContext:
@@ -271,8 +344,8 @@ const alphabets = [
   pronunciation: "/u/",
   examples: [
     { word: "U", meaning: "Loanword usage", image: akara },
-    { word: "Ùgbó", meaning: "Farm", image: akara },
-    { word: "Ùdẹ̀", meaning: "Hunter", image: akara }
+    { word: "Ùgbó", meaning: "Farm", image: ugbo },
+    { word: "Ùdẹ̀", meaning: "Hunter", image: ude }
   ],
   practiceOptions: ["U", "O", "Ọ"],
   culturalContext:
@@ -282,9 +355,9 @@ const alphabets = [
   letter: "W",
   pronunciation: "/w/",
   examples: [
-    { word: "Wí", meaning: "Say", image: akara },
-    { word: "Wà", meaning: "Be/Exist", image: akara },
-    { word: "Wẹ̀", meaning: "Bathe", image: akara }
+    { word: "Wí", meaning: "Say", image: wi },
+    { word: "Wà", meaning: "Be/Exist", image: wa },
+    { word: "Wẹ̀", meaning: "Bathe", image: we }
   ],
   practiceOptions: ["W", "Y", "V"],
   culturalContext:
@@ -294,9 +367,9 @@ const alphabets = [
   letter: "Y",
   pronunciation: "/j/",
   examples: [
-    { word: "Yà", meaning: "Separate", image: akara },
-    { word: "Yí", meaning: "Turn", image: akara },
-    { word: "Yẹ́", meaning: "Be Worthy", image: akara }
+    { word: "Yà", meaning: "Separate", image: ya },
+    { word: "Yí", meaning: "Turn", image: yi },
+    { word: "Yẹ́", meaning: "Be Worthy", image: ye }
   ],
   practiceOptions: ["Y", "I", "J"],
   culturalContext:

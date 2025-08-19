@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@config {
+  darkMode: "class";
+}
+
+
 
 @theme{
     --breakpoint-desktop:1105px;
