@@ -29,12 +29,12 @@ const Navbar = () => {
     max-mobile:px-4 max-mobile:pt-4
     '>
       <div>
-        <img onClick={() => navigate('/')} src={logo} alt="" className='w-[80px] max-mobile:w-[50px] cursor-pointer' />
+        <img onClick={() => navigate('/home')} src={logo} alt="" className='w-[80px] max-mobile:w-[50px] cursor-pointer' />
       </div>
       <div className=' flex justify-center items-center gap-7 max-mobile:text-[13px] font-semibold cursor-pointer'>
-        <p onClick={() => navigate('/')}>Home</p>
-        <p onClick={() => navigate('dashboard')}>Dashboard</p>
-        <p onClick={() => navigate('about')}>About</p>
+        <p onClick={() => navigate('/home')}>Home</p>
+        <p onClick={() => navigate('/dashboard')}>Dashboard</p>
+        <p onClick={() => navigate('/about')}>About</p>
       </div>
       <div className=' flex justify-center items-center gap-7 cursor-pointer'>
         <IoPersonOutline size={20} color='#009688' className='max-mobile:hidden' />
