@@ -7,6 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import volume from '../../assets/volume.png'
+import soundwave from '../../assets/sound.png'
 
 const YorubaAlphabet = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -49,9 +50,17 @@ const YorubaAlphabet = () => {
 
 
 
-  const playAudio = (src) => {
-    const audio = new Audio(src);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playAudio = (sound) => {
+    const audio = new Audio(sound);
+    setIsPlaying(true);
     audio.play();
+
+    // Reset when finished
+    audio.onended = () => {
+      setIsPlaying(false);
+    };
   };
   return (
     <div className='border-[#9d9d9d33] border-t-2'>
@@ -77,15 +86,17 @@ const YorubaAlphabet = () => {
         <div className='w-full px-10 max-tablet:px-6 max-mobile:px-0'>
           {/* Letter */}
           <div>
-            <p className=' text-4xl font-bold my-4 text-[#262626] max-tablet:text-2xl'>Yoruba Alphabets</p>
+            <p className="text-4xl font-bold my-4 text-[#262626] max-tablet:text-2xl">
+              Yoruba Alphabets
+            </p>
             <p
               onClick={() => playAudio(current.sound)}
               className="cursor-pointer flex w-full justify-center flex-col items-center text-7xl font-bold text-center text-[#009688] my-10 max-tablet:text-4xl"
             >
               {current.letter}
               <img
-                className="w-[30px] hover:w-[33px] transition-all duration-500 ease-in-out"
-                src={volume}
+                className="w-[30px]"
+                src={isPlaying ? soundwave : volume}
                 alt="play sound"
               />
             </p>
