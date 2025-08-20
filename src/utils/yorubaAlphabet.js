@@ -74,308 +74,373 @@ import ye from '../assets/images/yoruba/worthy.png'
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import A from '../assets/audio/yoruba/Letter A.m4a';
+import B from '../assets/audio/yoruba/Letter b.m4a';
+import D from '../assets/audio/yoruba/Letter d.m4a';
+import E from '../assets/audio/yoruba/Letter E.m4a';
+import Ẹ from '../assets/audio/yoruba/Letter Ẹ.m4a';
+import F from '../assets/audio/yoruba/Letter F.m4a';
+import G from '../assets/audio/yoruba/Letter g.m4a';
+import GB from '../assets/audio/yoruba/Letter gb.m4a';
+import H from '../assets/audio/yoruba/Letter h.m4a';
+import I from '../assets/audio/yoruba/Letter i.m4a';
+import J from '../assets/audio/yoruba/Letter j.m4a';
+import K from '../assets/audio/yoruba/Letter k.m4a';
+import L from '../assets/audio/yoruba/Letter L.m4a';
+import M from '../assets/audio/yoruba/Letter M.m4a';
+import N from '../assets/audio/yoruba/Letter N.m4a';
+import O from '../assets/audio/yoruba/Letter O.m4a';
+import Ọ from '../assets/audio/yoruba/Letter Ọ.m4a';
+import P from '../assets/audio/yoruba/Letter P.m4a';
+import R from '../assets/audio/yoruba/Letter R.m4a';
+import S from '../assets/audio/yoruba/Letter S.m4a';
+import Ṣ from '../assets/audio/yoruba/Letter ss.m4a';
+import T from '../assets/audio/yoruba/Letter T.m4a';
+import U from '../assets/audio/yoruba/Letter U.m4a';
+import W from '../assets/audio/yoruba/Letter w.m4a';
+import Y from '../assets/audio/yoruba/Letter Y.m4a';
+
 const alphabets = [
-    {
-      letter: "A",
-      pronunciation: "/a/",
-      examples: [
-        { word: "Àkàrà", meaning: "Bean Cake", image: akara },
-        { word: "Àgbo", meaning: "Herbal Drink", image: agbo },
-        { word: "Àdà", meaning: "Cutlass", image: ada }
-      ],
-      practiceOptions: ["A", "H", "B"],
-      culturalContext:
-        'In Yoruba culture, the "A" sound is fundamental, often appearing in names and greetings, symbolizing foundation and origin.'
-    },
-    {
-      letter: "B",
-      pronunciation: "/b/",
-      examples: [
-        { word: "Bàtà", meaning: "Shoe", image: bata },
-        { word: "Búrẹ́dì", meaning: "Bread", image: buredi },
-        { word: "Bẹ́lú", meaning: "Bell", image: belu }
-      ],
-      practiceOptions: ["B", "A", "D"],
-      culturalContext:
-        'The letter "B" appears in many Yoruba words, often representing warmth, welcome, and daily objects.'
-    },
-    {
-      letter: "D",
-      pronunciation: "/d/",
-      examples: [
-        { word: "Dúdú", meaning: "Black", image: dudu },
-        { word: "Dáńdógó", meaning: "Traditional Robe", image: dandogo },
-        { word: "Dán", meaning: "To Shine", image: dan }
-      ],
-      practiceOptions: ["D", "F", "E"],
-      culturalContext:
-        'The "D" sound is common in Yoruba descriptive words, often conveying strength and identity.'
-    },
-    {
-      letter: "E",
-      pronunciation: "/e/",
-      examples: [
-        { word: "Ẹja", meaning: "Fish", image: eja },
-        { word: "Ẹ̀fọ́", meaning: "Vegetable", image: efo },
-        { word: "Ẹbo", meaning: "Sacrifice", image: ebo }
-      ],
-      practiceOptions: ["E", "Ẹ", "A"],
-      culturalContext:
-        'The letter "E" is widely used in Yoruba and often marks verbs and nouns tied to daily life.'
-    },
-    {
-      letter: "Ẹ",
-      pronunciation: "/ɛ/",
-      examples: [
-        { word: "Ẹni", meaning: "Person", image: eni },
-        { word: "Ẹ̀gbọ́n", meaning: "Elder Sibling", image: egbon },
-        { word: "Ẹbọra", meaning: "Spirit", image: ebora }
-      ],
-      practiceOptions: ["Ẹ", "E", "I"],
-      culturalContext:
-        'Ẹ is unique to Yoruba orthography and carries sounds not found in English, central to clear expression.'
-    },
-    {
-      letter: "F",
-      pronunciation: "/f/",
-      examples: [
-        { word: "Fẹ́", meaning: "Love", image: fe },
-        { word: "Fàdákà", meaning: "Silver", image: fadaka },
-        { word: "Fọ", meaning: "Wash", image: fo }
-      ],
-      practiceOptions: ["F", "P", "V"],
-      culturalContext:
-        'The "F" sound often conveys actions and descriptions, appearing in verbs and adjectives.'
-    },
-    {
-      letter: "G",
-      pronunciation: "/g/",
-      examples: [
-        { word: "Gbẹ̀", meaning: "Dry", image: gbe },
-        { word: "Gbogbo", meaning: "All", image: gbogbo },
-        { word: "Gàárì", meaning: "Cassava Granules", image: gaari }
-      ],
-      practiceOptions: ["G", "GB", "K"],
-      culturalContext:
-        'The "G" sound in Yoruba is a hard consonant often associated with descriptive and emphatic words.'
-    },
-    {
-      letter: "GB",
-      pronunciation: "/ɡ͡b/",
-      examples: [
-        { word: "Gbẹ̀kẹ̀lé", meaning: "Trust", image: gbekele },
-        { word: "Gbádùn", meaning: "Enjoy", image: gbadun },
-        { word: "Gbárí", meaning: "Accept", image: gbari }
-      ],
-      practiceOptions: ["GB", "G", "B"],
-      culturalContext:
-        'The GB sound is unique to Yoruba and some African languages, a co-articulated consonant crucial for meaning.'
-    },
-    {
-      letter: "H",
-      pronunciation: "/h/",
-      examples: [
-        { word: "Hà", meaning: "Exclaim", image: ha },
-        { word: "Hàkì", meaning: "Hacking", image: haki },
-        { word: "Hàlò", meaning: "Hello", image: halo }
-      ],
-      practiceOptions: ["H", "A", "E"],
-      culturalContext:
-        'The letter "H" is less common in Yoruba but appears in expressive sounds and borrowed words.'
-    },
-    {
-      letter: "I",
-      pronunciation: "/i/",
-      examples: [
-        { word: "Ìwé", meaning: "Book", image: iwe },
-        { word: "Ìlú", meaning: "Town", image: ilu },
-        { word: "Ìbà", meaning: "Greeting", image: iba }
-      ],
-      practiceOptions: ["I", "E", "O"],
-      culturalContext:
-        'The "I" vowel is a high front vowel, key to many Yoruba nouns and verbs.'
-    },
-    {
-      letter: "J",
-      pronunciation: "/ʤ/",
-      examples: [
-        { word: "Jẹ", meaning: "Eat", image: je },
-        { word: "Jù", meaning: "Throw", image: ju },
-        { word: "Jin", meaning: "Fry", image: jin }
-      ],
-      practiceOptions: ["J", "Y", "CH"],
-      culturalContext:
-        'The "J" sound is common in action words in Yoruba, especially related to food and movement.'
-    },
-    {
-      letter: "K",
-      pronunciation: "/k/",
-      examples: [
-        { word: "Kà", meaning: "Read", image: ka },
-        { word: "Kọ́", meaning: "Teach", image: ko },
-        { word: "Kún", meaning: "Fill", image: kun }
-      ],
-      practiceOptions: ["K", "C", "Q"],
-      culturalContext:
-        'K is a strong consonant sound in Yoruba, used in many verbs and imperative forms.'
-    },
-    {
-  letter: "L",
-  pronunciation: "/l/",
-  examples: [
-    { word: "Lẹ́tà", meaning: "Letter (mail)", image: leta },
-    { word: "Láti", meaning: "From", image: akara },
-    { word: "Lẹ́hìn", meaning: "Behind", image: lehin }
-  ],
-  practiceOptions: ["L", "R", "N"],
-  culturalContext:
-    'The "L" sound in Yoruba is soft and common in polite expressions, greetings, and formal speech.'
-},
-{
-  letter: "M",
-  pronunciation: "/m/",
-  examples: [
-    { word: "Má", meaning: "Don’t", image: ma },
-    { word: "Mọ́", meaning: "Know", image: mo },
-    { word: "Mí", meaning: "Me", image: mi }
-  ],
-  practiceOptions: ["M", "N", "B"],
-  culturalContext:
-    'M is a nasal sound in Yoruba, often carrying emphasis in personal pronouns and commands.'
-},
-{
-  letter: "N",
-  pronunciation: "/n/",
-  examples: [
-    { word: "Nà", meaning: "Beat", image: na },
-    { word: "Ní", meaning: "Have/At", image: ni },
-    { word: "Nínú", meaning: "Inside", image: ninu }
-  ],
-  practiceOptions: ["N", "M", "R"],
-  culturalContext:
-    'The "N" sound is nasal and is a key consonant in many Yoruba verbs and prepositions.'
-},
-{
-  letter: "O",
-  pronunciation: "/o/",
-  examples: [
-    { word: "Oúnjẹ", meaning: "Food", image: ounje },
-    { word: "Ọmọ", meaning: "Child", image: omo },
-    { word: "Òjò", meaning: "Rain", image: rain }
-  ],
-  practiceOptions: ["O", "Ọ", "U"],
-  culturalContext:
-    'The "O" vowel is rounded and open, appearing in many nouns, greetings, and descriptive words.'
-},
-{
-  letter: "Ọ",
-  pronunciation: "/ɔ/",
-  examples: [
-    { word: "Ọbà", meaning: "King", image: oba },
-    { word: "Ọjọ́", meaning: "Day", image: ojo },
-    { word: "Ọkùnrin", meaning: "Man", image: okunrin }
-  ],
-  practiceOptions: ["Ọ", "O", "E"],
-  culturalContext:
-    'Ọ is a distinct Yoruba vowel sound, deeper than "O", often used in royal titles and cultural expressions.'
-},
-{
-  letter: "P",
-  pronunciation: "/p/",
-  examples: [
-    { word: "Pà", meaning: "Kill", image: pa },
-    { word: "Pé", meaning: "Call/Invite", image: pe },
-    { word: "Pupa", meaning: "Red", image: pupa }
-  ],
-  practiceOptions: ["P", "B", "F"],
-  culturalContext:
-    'P is a forceful sound in Yoruba, often used in descriptive words and commands.'
-},
-{
-  letter: "R",
-  pronunciation: "/r/",
-  examples: [
-    { word: "Rìn", meaning: "Walk", image: rin },
-    { word: "Rọ̀", meaning: "Bend", image: ro },
-    { word: "Rẹ́rìn", meaning: "Laugh", image: rerin }
-  ],
-  practiceOptions: ["R", "L", "N"],
-  culturalContext:
-    'The Yoruba "R" is rolled or tapped, adding rhythm and musicality to speech.'
-},
-{
-  letter: "S",
-  pronunciation: "/s/",
-  examples: [
-    { word: "Sùn", meaning: "Sleep", image: sun },
-    { word: "Sọ", meaning: "Speak", image: so },
-    { word: "Sán", meaning: "Pay", image: san }
-  ],
-  practiceOptions: ["S", "Ṣ", "Z"],
-  culturalContext:
-    'S is a sharp consonant in Yoruba, used widely in commands, actions, and descriptive phrases.'
-},
-{
-  letter: "Ṣ",
-  pronunciation: "/ʃ/",
-  examples: [
-    { word: "Ṣe", meaning: "Do", image: se },
-    { word: "Ṣọ́ọ̀ṣì", meaning: "Church", image: soosi },
-    { word: "Ṣí", meaning: "Open", image: si }
-  ],
-  practiceOptions: ["Ṣ", "S", "Sh"],
-  culturalContext:
-    'Ṣ is a unique Yoruba sound similar to "sh" in English, and is vital in many cultural and religious terms.'
-},
-{
-  letter: "T",
-  pronunciation: "/t/",
-  examples: [
-    { word: "Tà", meaning: "Sell", image: ta },
-    { word: "Tún", meaning: "Again", image: tun },
-    { word: "Tí", meaning: "That/Which", image: ti }
-  ],
-  practiceOptions: ["T", "D", "P"],
-  culturalContext:
-    'T is a crisp consonant in Yoruba, common in action words and sentence connectors.'
-},
-{
-  letter: "U",
-  pronunciation: "/u/",
-  examples: [
-    { word: "U", meaning: "Loanword usage", image: akara },
-    { word: "Ùgbó", meaning: "Farm", image: ugbo },
-    { word: "Ùdẹ̀", meaning: "Hunter", image: ude }
-  ],
-  practiceOptions: ["U", "O", "Ọ"],
-  culturalContext:
-    'U is less common in native Yoruba words but appears in borrowed terms and regional dialects.'
-},
-{
-  letter: "W",
-  pronunciation: "/w/",
-  examples: [
-    { word: "Wí", meaning: "Say", image: wi },
-    { word: "Wà", meaning: "Be/Exist", image: wa },
-    { word: "Wẹ̀", meaning: "Bathe", image: we }
-  ],
-  practiceOptions: ["W", "Y", "V"],
-  culturalContext:
-    'W is smooth and flowing, common in verbs and descriptive expressions in Yoruba.'
-},
-{
-  letter: "Y",
-  pronunciation: "/j/",
-  examples: [
-    { word: "Yà", meaning: "Separate", image: ya },
-    { word: "Yí", meaning: "Turn", image: yi },
-    { word: "Yẹ́", meaning: "Be Worthy", image: ye }
-  ],
-  practiceOptions: ["Y", "I", "J"],
-  culturalContext:
-    'The Yoruba "Y" is a palatal sound that adds softness and flow to names and verbs.'
-}
+  {
+    letter: "A",
+    pronunciation: "/a/",
+    sound: A,
+    examples: [
+      { word: "Àkàrà", meaning: "Bean Cake", image: akara },
+      { word: "Àgbo", meaning: "Herbal Drink", image: agbo },
+      { word: "Àdà", meaning: "Cutlass", image: ada }
+    ],
+    practiceOptions: ["A", "H", "B"],
+    culturalContext:
+      'In Yoruba culture, the "A" sound is fundamental, often appearing in names and greetings, symbolizing foundation and origin.'
+  },
+  {
+    letter: "B",
+    pronunciation: "/b/",
+    sound: B,
+    examples: [
+      { word: "Bàtà", meaning: "Shoe", image: bata },
+      { word: "Búrẹ́dì", meaning: "Bread", image: buredi },
+      { word: "Bẹ́lú", meaning: "Bell", image: belu }
+    ],
+    practiceOptions: ["B", "A", "D"],
+    culturalContext:
+      'The letter "B" appears in many Yoruba words, often representing warmth, welcome, and daily objects.'
+  },
+  {
+    letter: "D",
+    pronunciation: "/d/",
+    sound: D,
+    examples: [
+      { word: "Dúdú", meaning: "Black", image: dudu },
+      { word: "Dáńdógó", meaning: "Traditional Robe", image: dandogo },
+      { word: "Dán", meaning: "To Shine", image: dan }
+    ],
+    practiceOptions: ["D", "F", "E"],
+    culturalContext:
+      'The "D" sound is common in Yoruba descriptive words, often conveying strength and identity.'
+  },
+  {
+    letter: "E",
+    pronunciation: "/e/",
+    sound: E,
+    examples: [
+      { word: "Ẹja", meaning: "Fish", image: eja },
+      { word: "Ẹ̀fọ́", meaning: "Vegetable", image: efo },
+      { word: "Ẹbo", meaning: "Sacrifice", image: ebo }
+    ],
+    practiceOptions: ["E", "Ẹ", "A"],
+    culturalContext:
+      'The letter "E" is widely used in Yoruba and often marks verbs and nouns tied to daily life.'
+  },
+  {
+    letter: "Ẹ",
+    pronunciation: "/ɛ/",
+    sound: Ẹ,
+    examples: [
+      { word: "Ẹni", meaning: "Person", image: eni },
+      { word: "Ẹ̀gbọ́n", meaning: "Elder Sibling", image: egbon },
+      { word: "Ẹbọra", meaning: "Spirit", image: ebora }
+    ],
+    practiceOptions: ["Ẹ", "E", "I"],
+    culturalContext:
+      'Ẹ is unique to Yoruba orthography and carries sounds not found in English, central to clear expression.'
+  },
+  {
+    letter: "F",
+    pronunciation: "/f/",
+    sound: F,
+    examples: [
+      { word: "Fẹ́", meaning: "Love", image: fe },
+      { word: "Fàdákà", meaning: "Silver", image: fadaka },
+      { word: "Fọ", meaning: "Wash", image: fo }
+    ],
+    practiceOptions: ["F", "P", "V"],
+    culturalContext:
+      'The "F" sound often conveys actions and descriptions, appearing in verbs and adjectives.'
+  },
+  {
+    letter: "G",
+    pronunciation: "/g/",
+    sound: G,
+    examples: [
+      { word: "Gbẹ̀", meaning: "Dry", image: gbe },
+      { word: "Gbogbo", meaning: "All", image: gbogbo },
+      { word: "Gàárì", meaning: "Cassava Granules", image: gaari }
+    ],
+    practiceOptions: ["G", "GB", "K"],
+    culturalContext:
+      'The "G" sound in Yoruba is a hard consonant often associated with descriptive and emphatic words.'
+  },
+  {
+    letter: "GB",
+    pronunciation: "/ɡ͡b/",
+    sound: GB,
+    examples: [
+      { word: "Gbẹ̀kẹ̀lé", meaning: "Trust", image: gbekele },
+      { word: "Gbádùn", meaning: "Enjoy", image: gbadun },
+      { word: "Gbárí", meaning: "Accept", image: gbari }
+    ],
+    practiceOptions: ["GB", "G", "B"],
+    culturalContext:
+      'The GB sound is unique to Yoruba and some African languages, a co-articulated consonant crucial for meaning.'
+  },
+  {
+    letter: "H",
+    pronunciation: "/h/",
+    sound: H,
+    examples: [
+      { word: "Hà", meaning: "Exclaim", image: ha },
+      { word: "Hàkì", meaning: "Hacking", image: haki },
+      { word: "Hàlò", meaning: "Hello", image: halo }
+    ],
+    practiceOptions: ["H", "A", "E"],
+    culturalContext:
+      'The letter "H" is less common in Yoruba but appears in expressive sounds and borrowed words.'
+  },
+  {
+    letter: "I",
+    pronunciation: "/i/",
+    sound: I,
+    examples: [
+      { word: "Ìwé", meaning: "Book", image: iwe },
+      { word: "Ìlú", meaning: "Town", image: ilu },
+      { word: "Ìbà", meaning: "Greeting", image: iba }
+    ],
+    practiceOptions: ["I", "E", "O"],
+    culturalContext:
+      'The "I" vowel is a high front vowel, key to many Yoruba nouns and verbs.'
+  },
+  {
+    letter: "J",
+    pronunciation: "/ʤ/",
+    sound: J,
+    examples: [
+      { word: "Jẹ", meaning: "Eat", image: je },
+      { word: "Jù", meaning: "Throw", image: ju },
+      { word: "Jin", meaning: "Fry", image: jin }
+    ],
+    practiceOptions: ["J", "Y", "CH"],
+    culturalContext:
+      'The "J" sound is common in action words in Yoruba, especially related to food and movement.'
+  },
+  {
+    letter: "K",
+    pronunciation: "/k/",
+    sound: K,
+    examples: [
+      { word: "Kà", meaning: "Read", image: ka },
+      { word: "Kọ́", meaning: "Teach", image: ko },
+      { word: "Kún", meaning: "Fill", image: kun }
+    ],
+    practiceOptions: ["K", "C", "Q"],
+    culturalContext:
+      'K is a strong consonant sound in Yoruba, used in many verbs and imperative forms.'
+  },
+  {
+    letter: "L",
+    pronunciation: "/l/",
+    sound: L,
+    examples: [
+      { word: "Lẹ́tà", meaning: "Letter (mail)", image: leta },
+      { word: "Láti", meaning: "From", image: akara },
+      { word: "Lẹ́hìn", meaning: "Behind", image: lehin }
+    ],
+    practiceOptions: ["L", "R", "N"],
+    culturalContext:
+      'The "L" sound in Yoruba is soft and common in polite expressions, greetings, and formal speech.'
+  },
+  {
+    letter: "M",
+    pronunciation: "/m/",
+    sound: M,
+    examples: [
+      { word: "Má", meaning: "Don’t", image: ma },
+      { word: "Mọ́", meaning: "Know", image: mo },
+      { word: "Mí", meaning: "Me", image: mi }
+    ],
+    practiceOptions: ["M", "N", "B"],
+    culturalContext:
+      'M is a nasal sound in Yoruba, often carrying emphasis in personal pronouns and commands.'
+  },
+  {
+    letter: "N",
+    pronunciation: "/n/",
+    sound: N,
+    examples: [
+      { word: "Nà", meaning: "Beat", image: na },
+      { word: "Ní", meaning: "Have/At", image: ni },
+      { word: "Nínú", meaning: "Inside", image: ninu }
+    ],
+    practiceOptions: ["N", "M", "R"],
+    culturalContext:
+      'The "N" sound is nasal and is a key consonant in many Yoruba verbs and prepositions.'
+  },
+  {
+    letter: "O",
+    pronunciation: "/o/",
+    sound: O,
+    examples: [
+      { word: "Oúnjẹ", meaning: "Food", image: ounje },
+      { word: "Ọmọ", meaning: "Child", image: omo },
+      { word: "Òjò", meaning: "Rain", image: rain }
+    ],
+    practiceOptions: ["O", "Ọ", "U"],
+    culturalContext:
+      'The "O" vowel is rounded and open, appearing in many nouns, greetings, and descriptive words.'
+  },
+  {
+    letter: "Ọ",
+    pronunciation: "/ɔ/",
+    sound: Ọ,
+    examples: [
+      { word: "Ọbà", meaning: "King", image: oba },
+      { word: "Ọjọ́", meaning: "Day", image: ojo },
+      { word: "Ọkùnrin", meaning: "Man", image: okunrin }
+    ],
+    practiceOptions: ["Ọ", "O", "E"],
+    culturalContext:
+      'Ọ is a distinct Yoruba vowel sound, deeper than "O", often used in royal titles and cultural expressions.'
+  },
+  {
+    letter: "P",
+    pronunciation: "/p/",
+    sound: P,
+    examples: [
+      { word: "Pà", meaning: "Kill", image: pa },
+      { word: "Pé", meaning: "Call/Invite", image: pe },
+      { word: "Pupa", meaning: "Red", image: pupa }
+    ],
+    practiceOptions: ["P", "B", "F"],
+    culturalContext:
+      'P is a forceful sound in Yoruba, often used in descriptive words and commands.'
+  },
+  {
+    letter: "R",
+    pronunciation: "/r/",
+    sound: R,
+    examples: [
+      { word: "Rìn", meaning: "Walk", image: rin },
+      { word: "Rọ̀", meaning: "Bend", image: ro },
+      { word: "Rẹ́rìn", meaning: "Laugh", image: rerin }
+    ],
+    practiceOptions: ["R", "L", "N"],
+    culturalContext:
+      'The Yoruba "R" is rolled or tapped, adding rhythm and musicality to speech.'
+  },
+  {
+    letter: "S",
+    pronunciation: "/s/",
+    sound: S,
+    examples: [
+      { word: "Sùn", meaning: "Sleep", image: sun },
+      { word: "Sọ", meaning: "Speak", image: so },
+      { word: "Sán", meaning: "Pay", image: san }
+    ],
+    practiceOptions: ["S", "Ṣ", "Z"],
+    culturalContext:
+      'S is a sharp consonant in Yoruba, used widely in commands, actions, and descriptive phrases.'
+  },
+  {
+    letter: "Ṣ",
+    pronunciation: "/ʃ/",
+    sound: Ṣ,
+    examples: [
+      { word: "Ṣe", meaning: "Do", image: se },
+      { word: "Ṣọ́ọ̀ṣì", meaning: "Church", image: soosi },
+      { word: "Ṣí", meaning: "Open", image: si }
+    ],
+    practiceOptions: ["Ṣ", "S", "Sh"],
+    culturalContext:
+      'Ṣ is a unique Yoruba sound similar to "sh" in English, and is vital in many cultural and religious terms.'
+  },
+  {
+    letter: "T",
+    pronunciation: "/t/",
+    sound: T,
+    examples: [
+      { word: "Tà", meaning: "Sell", image: ta },
+      { word: "Tún", meaning: "Again", image: tun },
+      { word: "Tí", meaning: "That/Which", image: ti }
+    ],
+    practiceOptions: ["T", "D", "P"],
+    culturalContext:
+      'T is a crisp consonant in Yoruba, common in action words and sentence connectors.'
+  },
+  {
+    letter: "U",
+    pronunciation: "/u/",
+    sound: U,
+    examples: [
+      { word: "U", meaning: "Loanword usage", image: akara },
+      { word: "Ùgbó", meaning: "Farm", image: ugbo },
+      { word: "Ùdẹ̀", meaning: "Hunter", image: ude }
+    ],
+    practiceOptions: ["U", "O", "Ọ"],
+    culturalContext:
+      'U is less common in native Yoruba words but appears in borrowed terms and regional dialects.'
+  },
+  {
+    letter: "W",
+    pronunciation: "/w/",
+    sound: W,
+    examples: [
+      { word: "Wí", meaning: "Say", image: wi },
+      { word: "Wà", meaning: "Be/Exist", image: wa },
+      { word: "Wẹ̀", meaning: "Bathe", image: we }
+    ],
+    practiceOptions: ["W", "Y", "V"],
+    culturalContext:
+      'W is smooth and flowing, common in verbs and descriptive expressions in Yoruba.'
+  },
+  {
+    letter: "Y",
+    pronunciation: "/j/",
+    sound: Y,
+    examples: [
+      { word: "Yà", meaning: "Separate", image: ya },
+      { word: "Yí", meaning: "Turn", image: yi },
+      { word: "Yẹ́", meaning: "Be Worthy", image: ye }
+    ],
+    practiceOptions: ["Y", "I", "J"],
+    culturalContext:
+      'The Yoruba "Y" is a palatal sound that adds softness and flow to names and verbs.'
+  }
+];
 
-  ];
-
-  export default alphabets;
+export default alphabets;

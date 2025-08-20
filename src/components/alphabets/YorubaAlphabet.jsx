@@ -6,6 +6,7 @@ import alphabets from '../../utils/yorubaAlphabet';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import volume from '../../assets/volume.png'
 
 const YorubaAlphabet = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -43,10 +44,19 @@ const YorubaAlphabet = () => {
 
   const allCorrect = submitted && quizQuestions.every((q, i) => quizAnswers[i] === q.correct);
 
+
+
+
+
+
+  const playAudio = (src) => {
+    const audio = new Audio(src);
+    audio.play();
+  };
   return (
     <div className='border-[#9d9d9d33] border-t-2'>
       <div className='flex gap-3 width'>
-        
+
         {/* Sidebar Alphabet List */}
         <div className="border-[#9d9d9d33] border-r-2 rounded w-[200px] p-5 pr-1 pl-0 flex flex-col gap-5">
           {alphabets.map((item, index) => (
@@ -67,9 +77,17 @@ const YorubaAlphabet = () => {
         <div className='w-full px-10 max-tablet:px-6 max-mobile:px-0'>
           {/* Letter */}
           <div>
-             <p className=' text-4xl font-bold my-4 text-[#262626] max-tablet:text-2xl'>Yoruba Alphabets</p>
-            <p className='text-7xl font-bold text-center text-[#009688] my-10 max-tablet:text-4xl'>
+            <p className=' text-4xl font-bold my-4 text-[#262626] max-tablet:text-2xl'>Igbo Alphabets</p>
+            <p
+              onClick={() => playAudio(current.sound)}
+              className="cursor-pointer flex w-full justify-center flex-col items-center text-7xl font-bold text-center text-[#009688] my-10 max-tablet:text-4xl"
+            >
               {current.letter}
+              <img
+                className="w-[30px] hover:w-[33px] transition-all duration-500 ease-in-out"
+                src={volume}
+                alt="play sound"
+              />
             </p>
           </div>
 
@@ -153,8 +171,8 @@ const YorubaAlphabet = () => {
           {/* Quiz Section */}
           <hr className="my-8 border-[#9d9d9d33] border-1 rounded-4xl" />
           {!showQuiz ? (
-            <button 
-              onClick={() => setShowQuiz(true)} 
+            <button
+              onClick={() => setShowQuiz(true)}
               className="px-6 py-3 bg-[#009688] text-white rounded-lg shadow-md hover:bg-[#00796B]"
             >
               Start Quiz
@@ -188,7 +206,7 @@ const YorubaAlphabet = () => {
               ))}
 
               {!submitted ? (
-                <button 
+                <button
                   onClick={handleSubmit}
                   className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700"
                 >
