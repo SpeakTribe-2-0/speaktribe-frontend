@@ -77,7 +77,7 @@ const YorubaAlphabet = () => {
         <div className='w-full px-10 max-tablet:px-6 max-mobile:px-0'>
           {/* Letter */}
           <div>
-            <p className=' text-4xl font-bold my-4 text-[#262626] max-tablet:text-2xl'>Igbo Alphabets</p>
+            <p className=' text-4xl font-bold my-4 text-[#262626] max-tablet:text-2xl'>Yoruba Alphabets</p>
             <p
               onClick={() => playAudio(current.sound)}
               className="cursor-pointer flex w-full justify-center flex-col items-center text-7xl font-bold text-center text-[#009688] my-10 max-tablet:text-4xl"
