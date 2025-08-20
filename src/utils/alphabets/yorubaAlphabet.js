@@ -1,76 +1,76 @@
-import akara from '../assets/akara.png'
-import agbo from '../assets/images/yoruba/champagne.png'
-import ada from '../assets/images/yoruba/weapon.png'
-import bata from '../assets/images/yoruba/running-shoe.png'
-import buredi from '../assets/images/yoruba/white-bread.png'
-import belu from '../assets/images/yoruba/bell.png'
-import dudu from '../assets/images/yoruba/black-circle.png'
-import dandogo from '../assets/images/yoruba/robe.png'
-import dan from '../assets/images/yoruba/shine.png'
-import eja from '../assets/images/yoruba/fish.png'
-import efo from '../assets/images/yoruba/vegetable.png'
-import ebo from '../assets/images/yoruba/sacrifice.png'
-import eni from '../assets/images/yoruba/people.png'
-import egbon from '../assets/images/yoruba/sister.png'
-import ebora from '../assets/images/yoruba/spirit.png'
-import fe from '../assets/images/yoruba/love.png'
-import fadaka from '../assets/images/yoruba/silver.png'
-import fo from '../assets/images/yoruba/wash.png'
-import gbe from '../assets/images/yoruba/drying.png'
-import gbogbo from '../assets/images/yoruba/all.png'
-import gaari from '../assets/images/yoruba/gaari.png'
-import gbekele from '../assets/images/yoruba/trust.png'
-import gbadun from '../assets/images/yoruba/enjoy.png'
-import gbari from '../assets/images/yoruba/accept.png'
-import ha from '../assets/images/yoruba/exclaim.png'
-import haki from '../assets/images/yoruba/hacker.png'
-import halo from '../assets/images/yoruba/hello.png'
-import iwe from '../assets/images/yoruba/books.png'
-import ilu from '../assets/images/yoruba/town.png'
-import iba from '../assets/images/yoruba/town.png'
-import je from '../assets/images/yoruba/eat.png'
-import ju from '../assets/images/yoruba/throw.png'
-import jin from '../assets/images/yoruba/fry.png'
-import ka from '../assets/images/yoruba/read.png'
-import ko from '../assets/images/yoruba/teaching.png'
-import kun from '../assets/images/yoruba/fill.png'
-import leta from '../assets/images/yoruba/letter.png'
-import lehin from '../assets/images/yoruba/behind.png'
-import ma from '../assets/images/yoruba/dont.png'
-import mo from '../assets/images/yoruba/know.png'
-import mi from '../assets/images/yoruba/me.png'
-import na from '../assets/images/yoruba/beat.png'
-import ni from '../assets/images/yoruba/have.png'
-import ninu from '../assets/images/yoruba/inside.png'
-import ounje from '../assets/images/yoruba/food.png'
-import omo from '../assets/images/yoruba/child.png'
-import rain from '../assets/images/yoruba/rain.png'
-import oba from '../assets/images/yoruba/king.png'
-import ojo from '../assets/images/yoruba/day.png'
-import okunrin from '../assets/images/yoruba/man.png'
-import pa from '../assets/images/yoruba/kill.png'
-import pe from '../assets/images/yoruba/call.png'
-import pupa from '../assets/images/yoruba/red.png'
-import rin from '../assets/images/yoruba/walk.png'
-import ro from '../assets/images/yoruba/bend.png'
-import rerin from '../assets/images/yoruba/laugh.png'
-import sun from '../assets/images/yoruba/sleep.png'
-import so from '../assets/images/yoruba/speak.png'
-import san from '../assets/images/yoruba/pay.png'
-import se from '../assets/images/yoruba/do.png'
-import soosi from '../assets/images/yoruba/church.png'
-import si from '../assets/images/yoruba/open.png'
-import ta from '../assets/images/yoruba/sell.png'
-import tun from '../assets/images/yoruba/again.png'
-import ti from '../assets/images/yoruba/that.png'
-import ugbo from '../assets/images/yoruba/farm.png'
-import ude from '../assets/images/yoruba/hunter.png'
-import wi from '../assets/images/yoruba/say.png'
-import wa from '../assets/images/yoruba/exist.png'
-import we from '../assets/images/yoruba/bath.png'
-import ya from '../assets/images/yoruba/separate.png'
-import yi from '../assets/images/yoruba/turn.png'
-import ye from '../assets/images/yoruba/worthy.png'
+import akara from '../../assets/akara.png'
+import agbo from '../../assets/images/yoruba/champagne.png'
+import ada from '../../assets/images/yoruba/weapon.png'
+import bata from '../../assets/images/yoruba/running-shoe.png'
+import buredi from '../../assets/images/yoruba/white-bread.png'
+import belu from '../../assets/images/yoruba/bell.png'
+import dudu from '../../assets/images/yoruba/black-circle.png'
+import dandogo from '../../assets/images/yoruba/robe.png'
+import dan from '../../assets/images/yoruba/shine.png'
+import eja from '../../assets/images/yoruba/fish.png'
+import efo from '../../assets/images/yoruba/vegetable.png'
+import ebo from '../../assets/images/yoruba/sacrifice.png'
+import eni from '../../assets/images/yoruba/people.png'
+import egbon from '../../assets/images/yoruba/sister.png'
+import ebora from '../../assets/images/yoruba/spirit.png'
+import fe from '../../assets/images/yoruba/love.png'
+import fadaka from '../../assets/images/yoruba/silver.png'
+import fo from '../../assets/images/yoruba/wash.png'
+import gbe from '../../assets/images/yoruba/drying.png'
+import gbogbo from '../../assets/images/yoruba/all.png'
+import gaari from '../../assets/images/yoruba/gaari.png'
+import gbekele from '../../assets/images/yoruba/trust.png'
+import gbadun from '../../assets/images/yoruba/enjoy.png'
+import gbari from '../../assets/images/yoruba/accept.png'
+import ha from '../../assets/images/yoruba/exclaim.png'
+import haki from '../../assets/images/yoruba/hacker.png'
+import halo from '../../assets/images/yoruba/hello.png'
+import iwe from '../../assets/images/yoruba/books.png'
+import ilu from '../../assets/images/yoruba/town.png'
+import iba from '../../assets/images/yoruba/town.png'
+import je from '../../assets/images/yoruba/eat.png'
+import ju from '../../assets/images/yoruba/throw.png'
+import jin from '../../assets/images/yoruba/fry.png'
+import ka from '../../assets/images/yoruba/read.png'
+import ko from '../../assets/images/yoruba/teaching.png'
+import kun from '../../assets/images/yoruba/fill.png'
+import leta from '../../assets/images/yoruba/letter.png'
+import lehin from '../../assets/images/yoruba/behind.png'
+import ma from '../../assets/images/yoruba/dont.png'
+import mo from '../../assets/images/yoruba/know.png'
+import mi from '../../assets/images/yoruba/me.png'
+import na from '../../assets/images/yoruba/beat.png'
+import ni from '../../assets/images/yoruba/have.png'
+import ninu from '../../assets/images/yoruba/inside.png'
+import ounje from '../../assets/images/yoruba/food.png'
+import omo from '../../assets/images/yoruba/child.png'
+import rain from '../../assets/images/yoruba/rain.png'
+import oba from '../../assets/images/yoruba/king.png'
+import ojo from '../../assets/images/yoruba/day.png'
+import okunrin from '../../assets/images/yoruba/man.png'
+import pa from '../../assets/images/yoruba/kill.png'
+import pe from '../../assets/images/yoruba/call.png'
+import pupa from '../../assets/images/yoruba/red.png'
+import rin from '../../assets/images/yoruba/walk.png'
+import ro from '../../assets/images/yoruba/bend.png'
+import rerin from '../../assets/images/yoruba/laugh.png'
+import sun from '../../assets/images/yoruba/sleep.png'
+import so from '../../assets/images/yoruba/speak.png'
+import san from '../../assets/images/yoruba/pay.png'
+import se from '../../assets/images/yoruba/do.png'
+import soosi from '../../assets/images/yoruba/church.png'
+import si from '../../assets/images/yoruba/open.png'
+import ta from '../../assets/images/yoruba/sell.png'
+import tun from '../../assets/images/yoruba/again.png'
+import ti from '../../assets/images/yoruba/that.png'
+import ugbo from '../../assets/images/yoruba/farm.png'
+import ude from '../../assets/images/yoruba/hunter.png'
+import wi from '../../assets/images/yoruba/say.png'
+import wa from '../../assets/images/yoruba/exist.png'
+import we from '../../assets/images/yoruba/bath.png'
+import ya from '../../assets/images/yoruba/separate.png'
+import yi from '../../assets/images/yoruba/turn.png'
+import ye from '../../assets/images/yoruba/worthy.png'
 
 
 
@@ -89,31 +89,31 @@ import ye from '../assets/images/yoruba/worthy.png'
 
 
 
-import A from '../assets/audio/yoruba/Letter A.m4a';
-import B from '../assets/audio/yoruba/Letter b.m4a';
-import D from '../assets/audio/yoruba/Letter d.m4a';
-import E from '../assets/audio/yoruba/Letter E.m4a';
-import Ẹ from '../assets/audio/yoruba/Letter Ẹ.m4a';
-import F from '../assets/audio/yoruba/Letter F.m4a';
-import G from '../assets/audio/yoruba/Letter g.m4a';
-import GB from '../assets/audio/yoruba/Letter gb.m4a';
-import H from '../assets/audio/yoruba/Letter h.m4a';
-import I from '../assets/audio/yoruba/Letter I.m4a';
-import J from '../assets/audio/yoruba/Letter j.m4a';
-import K from '../assets/audio/yoruba/Letter k.m4a';
-import L from '../assets/audio/yoruba/Letter L.m4a';
-import M from '../assets/audio/yoruba/Letter M.m4a';
-import N from '../assets/audio/yoruba/Letter N.m4a';
-import O from '../assets/audio/yoruba/Letter O.m4a';
-import Ọ from '../assets/audio/yoruba/Letter Ọ.m4a';
-import P from '../assets/audio/yoruba/Letter P.m4a';
-import R from '../assets/audio/yoruba/Letter R.m4a';
-import S from '../assets/audio/yoruba/Letter S.m4a';
-import Ṣ from '../assets/audio/yoruba/Letter ss.m4a';
-import T from '../assets/audio/yoruba/Letter T.m4a';
-import U from '../assets/audio/yoruba/Letter U.m4a';
-import W from '../assets/audio/yoruba/Letter w.m4a';
-import Y from '../assets/audio/yoruba/Letter Y.m4a';
+import A from '../../assets/audio/yoruba/Letter A.m4a';
+import B from '../../assets/audio/yoruba/Letter b.m4a';
+import D from '../../assets/audio/yoruba/Letter d.m4a';
+import E from '../../assets/audio/yoruba/Letter E.m4a';
+import Ẹ from '../../assets/audio/yoruba/Letter Ẹ.m4a';
+import F from '../../assets/audio/yoruba/Letter F.m4a';
+import G from '../../assets/audio/yoruba/Letter g.m4a';
+import GB from '../../assets/audio/yoruba/Letter gb.m4a';
+import H from '../../assets/audio/yoruba/Letter h.m4a';
+import I from '../../assets/audio/yoruba/Letter I.m4a';
+import J from '../../assets/audio/yoruba/Letter j.m4a';
+import K from '../../assets/audio/yoruba/Letter k.m4a';
+import L from '../../assets/audio/yoruba/Letter L.m4a';
+import M from '../../assets/audio/yoruba/Letter M.m4a';
+import N from '../../assets/audio/yoruba/Letter N.m4a';
+import O from '../../assets/audio/yoruba/Letter O.m4a';
+import Ọ from '../../assets/audio/yoruba/Letter Ọ.m4a';
+import P from '../../assets/audio/yoruba/Letter P.m4a';
+import R from '../../assets/audio/yoruba/Letter R.m4a';
+import S from '../../assets/audio/yoruba/Letter S.m4a';
+import Ṣ from '../../assets/audio/yoruba/Letter ss.m4a';
+import T from '../../assets/audio/yoruba/Letter T.m4a';
+import U from '../../assets/audio/yoruba/Letter U.m4a';
+import W from '../../assets/audio/yoruba/Letter w.m4a';
+import Y from '../../assets/audio/yoruba/Letter Y.m4a';
 
 const alphabets = [
   {
