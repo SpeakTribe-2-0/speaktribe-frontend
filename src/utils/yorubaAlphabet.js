@@ -98,7 +98,7 @@ import F from '../assets/audio/yoruba/Letter F.m4a';
 import G from '../assets/audio/yoruba/Letter g.m4a';
 import GB from '../assets/audio/yoruba/Letter gb.m4a';
 import H from '../assets/audio/yoruba/Letter h.m4a';
-import I from '../assets/audio/yoruba/Letter i.m4a';
+import I from '../assets/audio/yoruba/Letter I.m4a';
 import J from '../assets/audio/yoruba/Letter j.m4a';
 import K from '../assets/audio/yoruba/Letter k.m4a';
 import L from '../assets/audio/yoruba/Letter L.m4a';
