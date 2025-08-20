@@ -93,7 +93,7 @@ const YorubaWords = () => {
 
         {/* Matching Exercise */}
         <div id="matching">
-          <MatchingExercise items={VOCAB} onGameUpdate={setGameStats} resetSignal={resetSignal} />
+          <MatchingExercise items={VOCAB} onGameUpdate={setGameStats} resetSignal={resetSignal} navigateTo='/yoruba-sentence' word='Yoruba'/>
         </div>
       </div>
     </div>

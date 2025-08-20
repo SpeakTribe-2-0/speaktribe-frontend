@@ -18,6 +18,9 @@ import IgboAlphabet from './components/alphabets/IgboAlphabet';
 import YorubaWords from './components/words/YorubaWords';
 import HausaWords from './components/words/HausaWords';
 import IgboWords from './components/words/IgboWords';
+import YorubaSentence from './components/sentences/YorubaSentence';
+import HausaSentence from './components/sentences/HausaSentence';
+import IgboSentence from './components/sentences/IgboSentence';
 
 const AppContent = () => {
   const location = useLocation();
@@ -49,6 +52,11 @@ const AppContent = () => {
         <Route path="/yoruba-word" element={<YorubaWords />} />
         <Route path="/hausa-word" element={<HausaWords />} />
         <Route path="/igbo-word" element={<IgboWords />} />
+
+        {/* sentences */}
+        <Route path="/yoruba-sentence" element={<YorubaSentence />} />
+        <Route path="/hausa-sentence" element={<HausaSentence />} />
+        <Route path="/igbo-sentence" element={<IgboSentence />} />
       </Routes>
 
       <Footer />

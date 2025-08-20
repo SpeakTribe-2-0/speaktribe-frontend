@@ -1,11 +1,13 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 /** Utility */
 const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
-const MatchingExercise = ({ items, onGameUpdate, resetSignal }) => {
+const MatchingExercise = ({ items, onGameUpdate, resetSignal, navigateTo, word }) => {
+  const navigate = useNavigate();
   const total = items.length;
 
   // prepare left & right lists
@@ -150,16 +152,16 @@ const MatchingExercise = ({ items, onGameUpdate, resetSignal }) => {
       className="border-2 border-[#9d9d9d33] rounded-xl px-6 py-5 mt-8 flex flex-col gap-4"
     >
       {/* Header + stats */}
-      <div className="flex justify-between items-center  max-tablet: flex-col max-tablet:gap-3">
+      <div className="flex justify-between items-center max-tablet:flex-col max-tablet:gap-3">
         <h2 className="font-semibold text-lg">🎮 Test Your Knowledge</h2>
         <div className="flex gap-2">
-          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded max-mobile:text-[12px]">
+          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded">
             Score: {score}/{total}
           </span>
-          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded max-mobile:text-[12px]">
+          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded">
             🔥 Streak: {streak}
           </span>
-          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded max-mobile:text-[12px]">
+          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded">
             🏆 Best: {bestStreak}
           </span>
           <button
@@ -181,76 +183,91 @@ const MatchingExercise = ({ items, onGameUpdate, resetSignal }) => {
         />
       </div>
 
-      {/* Matching grid */}
-      <div className="grid md:grid-cols-2 gap-5">
-        {/* Yoruba Words */}
-        <div>
-          <h3 className="font-semibold mb-2">Yoruba Words</h3>
-          <div className="grid gap-3">
-            <AnimatePresence>
-              {left.map((item, idx) => (
-                <motion.button
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                    scale: selectedLeft?.index === idx ? 1.05 : 1,
-                  }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={() => onClickLeft(idx)}
-                  className={`px-3 py-2 rounded border text-left w-full ${
-                    selectedLeft?.index === idx
-                      ? "border-[#009688] bg-[#0096880f]"
-                      : "border-gray-300 bg-white"
-                  }`}
-                >
-                  <p className="font-medium">{item.text}</p>
-                  <p className="text-xs text-gray-500 italic">{item.pron}</p>
-                </motion.button>
-              ))}
-            </AnimatePresence>
+      {!done ? (
+        // Matching grid
+        <div className="grid md:grid-cols-2 gap-5">
+          {/* Yoruba Words */}
+          <div>
+            <h3 className="font-semibold mb-2">{word} Words</h3>
+            <div className="grid gap-3">
+              <AnimatePresence>
+                {left.map((item, idx) => (
+                  <motion.button
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                      scale: selectedLeft?.index === idx ? 1.05 : 1,
+                    }}
+                    exit={{ opacity: 0, x: -30 }}
+                    transition={{ duration: 0.3 }}
+                    onClick={() => onClickLeft(idx)}
+                    className={`px-3 py-2 rounded border text-left w-full ${
+                      selectedLeft?.index === idx
+                        ? "border-[#009688] bg-[#0096880f]"
+                        : "border-gray-300 bg-white"
+                    }`}
+                  >
+                    <p className="font-medium">{item.text}</p>
+                    <p className="text-xs text-gray-500 italic">{item.pron}</p>
+                  </motion.button>
+                ))}
+              </AnimatePresence>
+            </div>
           </div>
-        </div>
 
-        {/* English Meanings */}
-        <div>
-          <h3 className="font-semibold mb-2">English Meanings</h3>
-          <div className="grid gap-3">
-            <AnimatePresence>
-              {right.map((item, idx) => (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                    scale: selectedRight?.index === idx ? 1.05 : 1,
-                    ...(wrongShake === item.id
-                      ? { x: [-5, 5, -5, 5, 0] }
-                      : {}),
-                  }}
-                  exit={{ opacity: 0, x: 30 }}
-                  transition={{ duration: 0.4 }}
-                  onClick={() => onClickRight(idx)}
-                  className={`px-3 py-2 rounded border cursor-pointer w-full ${
-                    selectedRight?.index === idx
-                      ? "border-[#009688] bg-[#0096880f]"
-                      : "border-gray-300 bg-white"
-                  } ${
-                    wrongShake === item.id ? "border-red-500 bg-red-50" : ""
-                  }`}
-                >
-                  {item.text}
-                </motion.div>
-              ))}
-            </AnimatePresence>
+          {/* English Meanings */}
+          <div>
+            <h3 className="font-semibold mb-2">English Meanings</h3>
+            <div className="grid gap-3">
+              <AnimatePresence>
+                {right.map((item, idx) => (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                      scale: selectedRight?.index === idx ? 1.05 : 1,
+                      ...(wrongShake === item.id
+                        ? { x: [-5, 5, -5, 5, 0] }
+                        : {}),
+                    }}
+                    exit={{ opacity: 0, x: 30 }}
+                    transition={{ duration: 0.4 }}
+                    onClick={() => onClickRight(idx)}
+                    className={`px-3 py-2 rounded border cursor-pointer w-full ${
+                      selectedRight?.index === idx
+                        ? "border-[#009688] bg-[#0096880f]"
+                        : "border-gray-300 bg-white"
+                    } ${
+                      wrongShake === item.id ? "border-red-500 bg-red-50" : ""
+                    }`}
+                  >
+                    {item.text}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        // ✅ When done show button
+        <div className="flex flex-col items-center gap-4 py-6">
+          <h3 className="text-xl font-semibold text-[#009688]">
+            🎉 You’ve completed the quiz!
+          </h3>
+          <button
+            onClick={() => navigate(navigateTo)}
+            className="px-5 py-2 rounded-lg bg-[#009688] text-white hover:bg-[#00796b] transition"
+          >
+            👉 Go to Sentences
+          </button>
+        </div>
+      )}
     </motion.div>
   );
 };

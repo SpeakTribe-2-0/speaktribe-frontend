@@ -150,7 +150,7 @@ const VOCAB = [
 
         {/* Matching Exercise */}
         <div id="matching">
-        <MatchingExercise items={VOCAB} onGameUpdate={setGameStats} resetSignal={resetSignal} />
+        <MatchingExercise items={VOCAB} onGameUpdate={setGameStats} resetSignal={resetSignal} navigateTo='/hausa-sentence' word='Hausa'/>
         </div>
       </div>
     </div>

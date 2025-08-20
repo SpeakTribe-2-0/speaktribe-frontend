@@ -150,7 +150,7 @@ const IgboWords = () => {
 
         {/* Matching Exercise */}
         <div id="matching">
-          <MatchingExercise items={VOCAB} onGameUpdate={setGameStats} resetSignal={resetSignal} />
+          <MatchingExercise items={VOCAB} onGameUpdate={setGameStats} resetSignal={resetSignal} navigateTo='/igbo-sentence' word='Igbo'/>
         </div>
       </div>
     </div>
