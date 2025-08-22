@@ -144,6 +144,26 @@ const MatchingExercise = ({ items, onGameUpdate, resetSignal, navigateTo, word }
   const score = matched.length;
   const progressPct = Math.round((score / total) * 100);
 
+
+
+// ✅ Save progress to localStorage whenever score/streak/bestStreak updates
+useEffect(() => {
+  if (total > 0) {
+    const progressData = {
+      word,        // language label (Yoruba / Hausa / Igbo etc.)
+      score,
+      total,
+      progressPct,
+      streak,
+      bestStreak,
+      date: new Date().toISOString(),
+    };
+
+    // Save uniquely per language
+    localStorage.setItem(`quizProgress_${word}`, JSON.stringify(progressData));
+  }
+}, [score, total, streak, bestStreak, word]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

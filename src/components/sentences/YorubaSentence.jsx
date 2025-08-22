@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const YorubaSentence = () => {
   const allSentences = [
@@ -28,14 +28,20 @@ const YorubaSentence = () => {
   const [current, setCurrent] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [quizStarted, setQuizStarted] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // === helper: shuffle array ===
+  // simulate fetching
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500); // 1.5s fake loading
+  }, []);
+
   const shuffle = (arr) => [...arr].sort(() => 0.5 - Math.random());
 
   const startQuiz = () => {
     const shuffled = shuffle(allSentences).slice(0, 10);
 
-    // build quiz with options (1 correct + 3 wrongs)
     const preparedQuiz = shuffled.map((q) => {
       const wrongOptions = shuffle(allSentences.filter((s) => s.translation !== q.translation)).slice(0, 3);
       const options = shuffle([q, ...wrongOptions]);
@@ -59,6 +65,16 @@ const YorubaSentence = () => {
       setFeedback("❌ Try again!");
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center w-full h-[60vh]">
+        <p className="text-lg font-semibold animate-pulse text-[#009688]">
+          ⏳ Loading Yoruba Sentences...
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-10">
@@ -94,7 +110,6 @@ const YorubaSentence = () => {
           </div>
         ) : current < quizSentences.length ? (
           <div className="space-y-4">
-            {/* Progress bar */}
             <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
               <div
                 className="bg-[#009688] h-2 rounded-full"
