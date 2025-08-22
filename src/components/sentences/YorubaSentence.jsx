@@ -1,29 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import allSentences from "../../utils/sentence/yorubaSentence";
 
 const YorubaSentence = () => {
-  const allSentences = [
-    { native: "Mo n lọ si ile-iwe", translation: "I am going to school", pronunciation: "Mo n lo see ee-le-ee-we" },
-    { native: "Bawo ni o se wa?", translation: "How are you?", pronunciation: "Ba-wo ni o se wa?" },
-    { native: "O seun", translation: "Thank you", pronunciation: "O she-un" },
-    { native: "Jowo fun mi ni omi", translation: "Please give me water", pronunciation: "Jo-wo fun mi ni omi" },
-    { native: "Mo feran e", translation: "I love you", pronunciation: "Mo feh-ran eh" },
-    { native: "Kini oruko re?", translation: "What is your name?", pronunciation: "Kee-nee oh-roo-koh reh?" },
-    { native: "Oruko mi ni Tunde", translation: "My name is Tunde", pronunciation: "Oh-roo-koh mee nee Tunde" },
-    { native: "Mo fe jeun", translation: "I want to eat", pronunciation: "Mo feh jeh-oon" },
-    { native: "O dara", translation: "It is good", pronunciation: "Oh dah-rah" },
-    { native: "Mo n sun", translation: "I am sleeping", pronunciation: "Mo n soon" },
-    { native: "Jowo duro", translation: "Please wait", pronunciation: "Jo-wo doo-roh" },
-    { native: "Mo n ka iwe", translation: "I am reading a book", pronunciation: "Mo n kah ee-weh" },
-    { native: "E ku owuro", translation: "Good morning", pronunciation: "Eh koo oh-woo-roh" },
-    { native: "E ku ale", translation: "Good evening", pronunciation: "Eh koo ah-leh" },
-    { native: "Mo n ṣiṣẹ", translation: "I am working", pronunciation: "Mo n she-shay" },
-    { native: "E jowo, e ran mi lowo", translation: "Please help me", pronunciation: "Eh jo-wo, eh ran mee lo-wo" },
-    { native: "O n dun mi", translation: "I am happy", pronunciation: "Oh n doon mee" },
-    { native: "Mo n gbe ni Lagos", translation: "I live in Lagos", pronunciation: "Mo n gbeh nee Lagos" },
-    { native: "Se o le ran mi lowo?", translation: "Can you help me?", pronunciation: "Sheh oh leh ran mee lo-wo?" },
-    { native: "Mo fe ra ounje", translation: "I want to buy food", pronunciation: "Mo feh rah oon-jeh" }
-  ];
-
   const [quizSentences, setQuizSentences] = useState([]);
   const [current, setCurrent] = useState(0);
   const [feedback, setFeedback] = useState("");
@@ -69,52 +48,88 @@ const YorubaSentence = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center w-full h-[60vh]">
-        <p className="text-lg font-semibold animate-pulse text-[#009688]">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="text-lg font-semibold text-[#009688]"
+        >
           ⏳ Loading Yoruba Sentences...
-        </p>
+        </motion.p>
       </div>
     );
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6 space-y-10">
+    <div className="width mx-auto p-6 space-y-10">
       {/* === Study Section === */}
       <div>
-        <h2 className="text-3xl font-bold mb-6 text-center">📖 Learn Yoruba Sentences</h2>
-        <div className="grid md:grid-cols-2 gap-4">
+        <motion.h2
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-bold mb-6 text-center"
+        >
+          📖 Learn Yoruba Sentences
+        </motion.h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {allSentences.map((s, i) => (
-            <div
+            <motion.div
               key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
               className="p-4 border-[#9d9d9d33] border rounded-xl bg-white shadow hover:shadow-lg transition"
             >
               <p className="text-lg font-semibold">{s.native}</p>
               <p className="text-gray-600 italic">{s.translation}</p>
               <p className="text-[#009688] font-semibold text-sm mt-1">🔊 {s.pronunciation}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
       {/* === Quiz Section === */}
-      <div className="p-6 border rounded-2xl shadow-md bg-white">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="p-6 border rounded-2xl shadow-md bg-white"
+      >
         {!quizStarted ? (
-          <div className="text-center space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center space-y-4"
+          >
             <h3 className="text-xl font-semibold">🎯 Test Your Knowledge</h3>
             <p className="text-gray-600">Take a 10-question quiz from the sentences above.</p>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="px-5 py-2 bg-[#009688] text-white rounded-lg hover:bg-[#519992]"
               onClick={startQuiz}
             >
               Start Quiz
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         ) : current < quizSentences.length ? (
-          <div className="space-y-4">
+          <motion.div
+            key={current} // forces re-animation on each question
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="space-y-4"
+          >
             <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-              <div
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${((current + 1) / quizSentences.length) * 100}%` }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
                 className="bg-[#009688] h-2 rounded-full"
-                style={{ width: `${((current + 1) / quizSentences.length) * 100}%` }}
-              ></div>
+              />
             </div>
 
             <h3 className="text-lg font-semibold">
@@ -126,8 +141,10 @@ const YorubaSentence = () => {
 
             <div className="grid gap-3">
               {quizSentences[current].options.map((opt, idx) => (
-                <button
+                <motion.button
                   key={idx}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
                   className={`px-4 py-2 rounded-lg border-[#9d9d9d33] border-2 transition ${
                     feedback === "✅ Correct!" && opt.translation === quizSentences[current].translation
                       ? "bg-[#009688] text-white"
@@ -136,24 +153,39 @@ const YorubaSentence = () => {
                   onClick={() => handleAnswer(opt.translation)}
                 >
                   {opt.translation}
-                </button>
+                </motion.button>
               ))}
             </div>
-            {feedback && <p className="font-medium mt-3">{feedback}</p>}
-          </div>
+            {feedback && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="font-medium mt-3"
+              >
+                {feedback}
+              </motion.p>
+            )}
+          </motion.div>
         ) : (
-          <div className="text-center space-y-4">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="text-center space-y-4"
+          >
             <h2 className="text-2xl font-bold text-green-600">🎉 You completed the quiz!</h2>
             <p className="text-gray-700">Awesome job! You’ve answered all 10 questions.</p>
-            <button
-              className="px-5 py-2 bg-[#009688] text-white rounded-lg hover:bg-blue-700"
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-5 py-2 bg-[#009688] text-white rounded-lg hover:bg-green-800"
               onClick={startQuiz}
             >
               🔄 Restart Quiz
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 };
