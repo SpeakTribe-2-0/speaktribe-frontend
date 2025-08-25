@@ -83,13 +83,13 @@ const HausaWords = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white border border-[#88888833] rounded-xl w-[270px] px-4 py-6 shadow-sm"
+                  className=" border border-[#88888833] rounded-xl w-[270px] h-[300px] bg-white px-4 py-6 shadow-sm"
                 >
                   <p className="text-[#009688] font-semibold text-lg">{word}</p>
                   <p className="text-gray-500 text-sm italic">{pronunciation}</p>
                   <p className="font-semibold">{meaning}</p>
-                  <div className="py-6 flex justify-center">
-                    <img src={image} alt={word} className="w-[70px]" />
+                  <div className="py-6 flex justify-center h-[150px]">
+                    <img src={image} alt={word} className="w-[70px] shadow-2xl rounded" />
                   </div>
                   <p className="text-gray-600 text-sm italic">{eg}</p>
                   <p className="text-gray-600 text-sm">{english}</p>
