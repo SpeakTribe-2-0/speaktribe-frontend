@@ -32,31 +32,31 @@ const AppContent = () => {
 
       <Routes>
         {/* home */}
-        <Route path="/" element={<GetStarted />} />
+        <Route path='/' element={<GetStarted />} />
 
         {/* auth */}
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/signup' element={<SignupPage />} />
 
         {/* site pages */}
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/about" element={<About />} />
+        <Route path='/home' element={<HomePage />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/about' element={<About />} />
 
         {/* alphabets */}
-        <Route path="/yoruba-alphabet" element={<YorubaAlphabet />} />
-        <Route path="/hausa-alphabet" element={<HausaAlphabet />} />
-        <Route path="/igbo-alphabet" element={<IgboAlphabet />} />
+        <Route path='/yoruba-alphabet' element={<YorubaAlphabet />} />
+        <Route path='/hausa-alphabet' element={<HausaAlphabet />} />
+        <Route path='/igbo-alphabet' element={<IgboAlphabet />} />
 
         {/* words */}
-        <Route path="/yoruba-word" element={<YorubaWords />} />
-        <Route path="/hausa-word" element={<HausaWords />} />
-        <Route path="/igbo-word" element={<IgboWords />} />
+        <Route path='/yoruba-word' element={<YorubaWords />} />
+        <Route path='/hausa-word' element={<HausaWords />} />
+        <Route path='/igbo-word' element={<IgboWords />} />
 
         {/* sentences */}
-        <Route path="/yoruba-sentence" element={<YorubaSentence />} />
-        <Route path="/hausa-sentence" element={<HausaSentence />} />
-        <Route path="/igbo-sentence" element={<IgboSentence />} />
+        <Route path='/yoruba-sentence' element={<YorubaSentence />} />
+        <Route path='/hausa-sentence' element={<HausaSentence />} />
+        <Route path='/igbo-sentence' element={<IgboSentence />} />
       </Routes>
 
       <Footer />

@@ -1,13 +1,15 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import useProgress from '../../hooks/useProgress';
 
 /** Utility */
-const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 
 const MatchingExercise = ({ items, onGameUpdate, resetSignal, navigateTo, word }) => {
   const navigate = useNavigate();
+  const { saveProgress } = useProgress(word);
   const total = items.length;
 
   // prepare left & right lists
@@ -83,38 +85,35 @@ const MatchingExercise = ({ items, onGameUpdate, resetSignal, navigateTo, word }
 
   // handle match result
   const handlePairResult = (isCorrect, pairId, leftIndex, rightIndex) => {
-    setAttempts((a) => a + 1);
+    setAttempts(a => a + 1);
 
     if (isCorrect) {
-      setStreak((s) => {
+      setStreak(s => {
         const ns = s + 1;
-        setBestStreak((b) => Math.max(b, ns));
+        setBestStreak(b => Math.max(b, ns));
         return ns;
       });
 
       const l = left[leftIndex];
       const r = right[rightIndex];
-      setMatched((m) => [
-        ...m,
-        { id: pairId, leftText: l.text, rightText: r.text },
-      ]);
+      setMatched(m => [...m, { id: pairId, leftText: l.text, rightText: r.text }]);
 
-      setLeft((arr) => arr.filter((_, i) => i !== leftIndex));
-      setRight((arr) => arr.filter((_, i) => i !== rightIndex));
+      setLeft(arr => arr.filter((_, i) => i !== leftIndex));
+      setRight(arr => arr.filter((_, i) => i !== rightIndex));
 
       setSelectedLeft(null);
       setSelectedRight(null);
-      toast.success("✅ Correct Match!");
+      toast.success('✅ Correct Match!');
     } else {
       setStreak(0);
       setWrongShake(pairId);
-      toast.error("❌ Wrong match, try again!");
+      toast.error('❌ Wrong match, try again!');
       setTimeout(() => setWrongShake(null), 600);
     }
   };
 
   // click handlers
-  const onClickLeft = (idx) => {
+  const onClickLeft = idx => {
     if (done) return;
     if (selectedLeft?.index === idx) {
       setSelectedLeft(null);
@@ -123,7 +122,7 @@ const MatchingExercise = ({ items, onGameUpdate, resetSignal, navigateTo, word }
     setSelectedLeft({ index: idx, id: left[idx].id });
   };
 
-  const onClickRight = (idx) => {
+  const onClickRight = idx => {
     if (done) return;
 
     if (selectedLeft) {
@@ -144,72 +143,53 @@ const MatchingExercise = ({ items, onGameUpdate, resetSignal, navigateTo, word }
   const score = matched.length;
   const progressPct = Math.round((score / total) * 100);
 
-
-
-// ✅ Save progress to localStorage whenever score/streak/bestStreak updates
-useEffect(() => {
-  if (total > 0) {
-    const progressData = {
-      word,        // language label (Yoruba / Hausa / Igbo etc.)
-      score,
-      total,
-      progressPct,
-      streak,
-      bestStreak,
-      date: new Date().toISOString(),
-    };
-
-    // Save uniquely per language
-    localStorage.setItem(`quizProgress_${word}`, JSON.stringify(progressData));
-  }
-}, [score, total, streak, bestStreak, word]);
+  // ✅ Save progress to localStorage whenever score/streak/bestStreak updates
+  useEffect(() => {
+    if (total > 0) {
+      saveProgress('Words', score, total);
+    }
+  }, [score, total, saveProgress]);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="border-2 border-[#9d9d9d33] rounded-xl px-6 py-5 mt-8 flex flex-col gap-4"
-    >
+      className='border-2 border-[#9d9d9d33] rounded-xl px-6 py-5 mt-8 flex flex-col gap-4'>
       {/* Header + stats */}
-      <div className="flex justify-between items-center max-tablet:flex-col max-tablet:gap-3">
-        <h2 className="font-semibold text-lg">🎮 Test Your Knowledge</h2>
-        <div className="flex gap-2">
-          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded">
+      <div className='flex justify-between items-center max-tablet:flex-col max-tablet:gap-3'>
+        <h2 className='font-semibold text-lg'>🎮 Test Your Knowledge</h2>
+        <div className='flex gap-2'>
+          <span className='text-sm bg-[#0096880f] px-3 py-1 rounded'>
             Score: {score}/{total}
           </span>
-          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded">
-            🔥 Streak: {streak}
-          </span>
-          <span className="text-sm bg-[#0096880f] px-3 py-1 rounded">
-            🏆 Best: {bestStreak}
-          </span>
+          <span className='text-sm bg-[#0096880f] px-3 py-1 rounded'>🔥 Streak: {streak}</span>
+          <span className='text-sm bg-[#0096880f] px-3 py-1 rounded'>🏆 Best: {bestStreak}</span>
           <button
             onClick={reset}
-            className="text-sm px-3 py-1 rounded bg-[#e8f5f5] text-[#009688] hover:bg-[#d4efef]"
-          >
+            className='text-sm px-3 py-1 rounded bg-[#e8f5f5] text-[#009688] hover:bg-[#d4efef]'>
             Reset
           </button>
         </div>
       </div>
 
       {/* Progress bar */}
-      <div className="w-full h-2 bg-[#eef3f3] rounded overflow-hidden">
+      <div className='w-full h-2 bg-[#eef3f3] rounded overflow-hidden'>
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${progressPct}%` }}
           transition={{ duration: 0.5 }}
-          className="h-2 bg-[#009688] rounded"
+          className='h-2 bg-[#009688] rounded'
         />
       </div>
 
       {!done ? (
         // Matching grid
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className='grid md:grid-cols-2 gap-5'>
           {/* Yoruba Words */}
           <div>
-            <h3 className="font-semibold mb-2">{word} Words</h3>
-            <div className="grid gap-3">
+            <h3 className='font-semibold mb-2'>{word} Words</h3>
+            <div className='grid gap-3'>
               <AnimatePresence>
                 {left.map((item, idx) => (
                   <motion.button
@@ -226,12 +206,11 @@ useEffect(() => {
                     onClick={() => onClickLeft(idx)}
                     className={`px-3 py-2 rounded border text-left w-full ${
                       selectedLeft?.index === idx
-                        ? "border-[#009688] bg-[#0096880f]"
-                        : "border-gray-300 bg-white"
-                    }`}
-                  >
-                    <p className="font-medium">{item.text}</p>
-                    <p className="text-xs text-gray-500 italic">{item.pron}</p>
+                        ? 'border-[#009688] bg-[#0096880f]'
+                        : 'border-gray-300 bg-white'
+                    }`}>
+                    <p className='font-medium'>{item.text}</p>
+                    <p className='text-xs text-gray-500 italic'>{item.pron}</p>
                   </motion.button>
                 ))}
               </AnimatePresence>
@@ -240,8 +219,8 @@ useEffect(() => {
 
           {/* English Meanings */}
           <div>
-            <h3 className="font-semibold mb-2">English Meanings</h3>
-            <div className="grid gap-3">
+            <h3 className='font-semibold mb-2'>English Meanings</h3>
+            <div className='grid gap-3'>
               <AnimatePresence>
                 {right.map((item, idx) => (
                   <motion.div
@@ -252,21 +231,16 @@ useEffect(() => {
                       opacity: 1,
                       x: 0,
                       scale: selectedRight?.index === idx ? 1.05 : 1,
-                      ...(wrongShake === item.id
-                        ? { x: [-5, 5, -5, 5, 0] }
-                        : {}),
+                      ...(wrongShake === item.id ? { x: [-5, 5, -5, 5, 0] } : {}),
                     }}
                     exit={{ opacity: 0, x: 30 }}
                     transition={{ duration: 0.4 }}
                     onClick={() => onClickRight(idx)}
                     className={`px-3 py-2 rounded border cursor-pointer w-full ${
                       selectedRight?.index === idx
-                        ? "border-[#009688] bg-[#0096880f]"
-                        : "border-gray-300 bg-white"
-                    } ${
-                      wrongShake === item.id ? "border-red-500 bg-red-50" : ""
-                    }`}
-                  >
+                        ? 'border-[#009688] bg-[#0096880f]'
+                        : 'border-gray-300 bg-white'
+                    } ${wrongShake === item.id ? 'border-red-500 bg-red-50' : ''}`}>
                     {item.text}
                   </motion.div>
                 ))}
@@ -276,14 +250,11 @@ useEffect(() => {
         </div>
       ) : (
         // ✅ When done show button
-        <div className="flex flex-col items-center gap-4 py-6">
-          <h3 className="text-xl font-semibold text-[#009688]">
-            🎉 You’ve completed the quiz!
-          </h3>
+        <div className='flex flex-col items-center gap-4 py-6'>
+          <h3 className='text-xl font-semibold text-[#009688]'>🎉 You’ve completed the quiz!</h3>
           <button
             onClick={() => navigate(navigateTo)}
-            className="px-5 py-2 rounded-lg bg-[#009688] text-white hover:bg-[#00796b] transition"
-          >
+            className='px-5 py-2 rounded-lg bg-[#009688] text-white hover:bg-[#00796b] transition'>
             👉 Go to Sentences
           </button>
         </div>

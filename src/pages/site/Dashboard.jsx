@@ -2,12 +2,13 @@ import SideBar from '../../components/SideBar';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import useProgress from '../../hooks/useProgress';
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState('Yoruba');
-  const [progress, setProgress] = useState(null);
   const navigate = useNavigate();
+  const { languageProgress, overallProgress, loadAllProgress } = useProgress(selectedLanguage);
 
   // Available languages
   const languages = ['Igbo', 'Yoruba', 'Hausa'];
@@ -23,22 +24,20 @@ const Dashboard = () => {
     }
   }, []);
 
-  // Load progress when language changes
+  // Load progress when language changes or a global progress update event is dispatched
   useEffect(() => {
-    const key = `quizProgress_${selectedLanguage}`;
-    const storedProgress = localStorage.getItem(key);
+    loadAllProgress();
 
-    if (storedProgress) {
-      try {
-        const parsedProgress = JSON.parse(storedProgress);
-        setProgress(parsedProgress);
-      } catch (error) {
-        setProgress(null);
-      }
-    } else {
-      setProgress(null);
-    }
-  }, [selectedLanguage]);
+    const handleProgressUpdate = () => {
+      loadAllProgress();
+    };
+
+    window.addEventListener('progressUpdate', handleProgressUpdate);
+
+    return () => {
+      window.removeEventListener('progressUpdate', handleProgressUpdate);
+    };
+  }, [selectedLanguage, loadAllProgress]);
 
   // Handle card click
   const handleCardClick = section => {
@@ -54,31 +53,23 @@ const Dashboard = () => {
     }
   };
 
-  // Calculate overall progress percentage
-  const calculateOverallProgress = () => {
-    if (!progress) return 0;
-    return progress.progressPct || 0;
-  };
-
-  // Determine if a section is unlocked based on 33.33% progress rule
+  // Determine if a section is unlocked based on previous section completion
   const isSectionUnlocked = section => {
     const sectionIndex = sections.indexOf(section);
-    const overallProgress = calculateOverallProgress();
+    if (sectionIndex === 0) return true; // Alphabet is always unlocked
 
-    // Each section requires 33.33% progress from previous sections
-    const requiredProgress = sectionIndex * 33.33;
-    return overallProgress >= requiredProgress;
+    const previousSection = sections[sectionIndex - 1];
+    return languageProgress[previousSection]?.progressPct === 100;
   };
 
-  // Get section progress percentage (all sections use the same overall progress)
+  // Get section progress percentage
   const getSectionProgress = section => {
-    return calculateOverallProgress();
+    return languageProgress[section]?.progressPct || 0;
   };
 
   // Check if section is completed
   const isSectionCompleted = section => {
-    const progressPercentage = calculateOverallProgress();
-    return progressPercentage === 100;
+    return languageProgress[section]?.progressPct === 100;
   };
 
   return (
@@ -125,11 +116,11 @@ const Dashboard = () => {
           <div className='w-full bg-gray-200 rounded-full h-4 mb-3'>
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: `${calculateOverallProgress()}%` }}
+              animate={{ width: `${overallProgress}%` }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
               className='bg-[#009688] h-4 rounded-full'></motion.div>
           </div>
-          <p className='text-lg font-medium'>{calculateOverallProgress()}% Completed</p>
+          <p className='text-lg font-medium'>{overallProgress}% Completed</p>
         </motion.div>
 
         {/* Learning Sections */}
@@ -169,10 +160,9 @@ const Dashboard = () => {
 
                 {completed && <p className='text-green-600 font-medium'>✓ Completed</p>}
 
-                {!unlocked && (
+                {!unlocked && index > 0 && (
                   <p className='text-sm text-gray-500 mt-2'>
-                    Complete {Math.max(0, index * 33.33 - calculateOverallProgress()).toFixed(1)}%
-                    more to unlock
+                    Complete {sections[index - 1]} to unlock
                   </p>
                 )}
               </motion.div>
