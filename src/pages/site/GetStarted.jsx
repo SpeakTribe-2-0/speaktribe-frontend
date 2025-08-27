@@ -110,10 +110,10 @@ const GetStarted = () => {
         <section className=' w-[40%] max-tablet:w-[85%] max-tablet:mx-auto'>
           <h1 className=' text-[#263238] text-[40px] font-bold text-center mb-3 max-mobile:text-[30px]'>Languages to Explore....</h1>
           <p className=' text-[18px] font-serif text-[#7a7a7a] max-mobile:text-center max-mobile:text-[16px] '>Speak Tribe currently supports Yoruba, Igbo, and Hausa — three of Nigeria’s most widely spoken languages. Each course is designed to help you speak confidently in real-life situations, from simple greetings to everyday conversations. Whether you're learning for travel, work, or personal growth, you'll pick up useful words, phrases, and cultural tips that make communication easier.</p>
-          <ul className=' flex justify-center mt-8 max-mobile:justify-center max-mobile:gap-12'>
-            <a href=""><li className=' bg-[#009688] text-[18px] font-light p-2 hover:bg-[#388E3C] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px]'>Yorùbá</li></a>
-            <a href=""><li className='  bg-[#009688] text-[18px] font-light px-4 py-2 hover:bg-[#388E3C] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px]'>Igbo</li></a>
-            <a href=""><li className='  bg-[#009688] text-[18px] font-light p-2 hover:bg-[#388E3C] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px]'>Hausa</li></a>
+          <ul className=' flex justify-center mt-8 max-mobile:justify-center max-mobile:gap-3 gap-10'>
+            <a href=""><li className=' bg-[#009688] text-[18px] font-light p-2 hover:bg-[#014942] text-white max-mobile:text-[12px] min-desktop:text-[23px] rounded-2xl w-[150px] max-mobile:w-[100px] text-center transition-all duration-500 ease-in-out'>Yorùbá</li></a>
+            <a href=""><li className='  bg-[#009688] text-[18px] font-light py-2 hover:bg-[#014942] text-white max-mobile:text-[12px] min-desktop:text-[23px] rounded-2xl w-[150px] max-mobile:w-[100px] text-center transition-all duration-500 ease-in-out'>Igbo</li></a>
+            <a href=""><li className='  bg-[#009688] text-[18px] font-light p-2 hover:bg-[#014942] text-white max-mobile:text-[12px] min-desktop:text-[23px] rounded-2xl w-[150px] max-mobile:w-[100px] text-center transition-all duration-500 ease-in-out'>Hausa</li></a>
           </ul>
         </section>
         <section>
@@ -172,10 +172,10 @@ const GetStarted = () => {
             </p>
           </div>
           <div className=" flex gap-4 mt-4 items-center max-tablet:justify-center">
-            <button className="   bg-[#009688] text-[16px] font-light p-3 hover:bg-[#388E3C] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px]">
+            <button className="   bg-[#009688] text-[16px] font-light p-3 rounded-2xl transition-all duration-500 ease-in-out hover:bg-[#014942] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px]">
               Get Started
             </button>
-            <button className=" bg-[#009688] text-[17px] font-light p-3 hover:bg-[#388E3C] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px] px-4">
+            <button className=" bg-[#009688] text-[17px] font-light p-3 rounded-2xl transition-all duration-500 ease-in-out hover:bg-[#014942] text-white hover:rounded-[10px] max-mobile:text-[14px] min-desktop:text-[23px] px-4">
               Sign Up
             </button>
           </div>
