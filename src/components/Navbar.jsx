@@ -59,7 +59,7 @@ const Navbar = () => {
       </div>
 
       <div className='flex justify-center items-center gap-7 cursor-pointer relative'>
-        <IoPersonOutline size={20} color='#009688' className='max-mobile:hidden' />
+        <IoPersonOutline size={20} color='#009688' className='hidden' />
 
         {/* User Profile with Initial */}
         <div
@@ -101,7 +101,7 @@ const Navbar = () => {
               </button>
               <button
                 onClick={() => {
-                  navigate('/profile');
+                  // navigate('/profile');
                   setShowUserMenu(false);
                 }}
                 className='w-full text-left px-3 py-2 rounded hover:bg-gray-100'>
