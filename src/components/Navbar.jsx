@@ -110,7 +110,7 @@ const Navbar = () => {
               <button
                 onClick={() => {
                   localStorage.removeItem('user');
-                  navigate('/login');
+                  navigate('/');
                   setShowUserMenu(false);
                 }}
                 className='w-full text-left px-3 py-2 rounded hover:bg-gray-100 text-red-600'>
@@ -211,7 +211,7 @@ const Navbar = () => {
               <button
                 onClick={() => {
                   localStorage.removeItem('user');
-                  navigate('/login');
+                  navigate('/');
                   setShowUserMenu(false);
                 }}
                 className='w-full bg-[#00968759] my-5 font-semibold px-3 py-2 rounded hover:bg-gray-100 text-red-600 text-center'>
