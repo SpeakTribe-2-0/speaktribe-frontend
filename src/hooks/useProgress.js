@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-const useProgress = language => {
+const useProgress = (language) => {
   const [languageProgress, setLanguageProgress] = useState({});
   const sections = ['Alphabet', 'Words', 'Sentences'];
 
@@ -8,7 +8,7 @@ const useProgress = language => {
     if (!language) return;
 
     const allProgress = {};
-    sections.forEach(section => {
+    sections.forEach((section) => {
       const key = `progress_${language}_${section}`;
       const storedProgress = localStorage.getItem(key);
       if (storedProgress) {
@@ -20,7 +20,8 @@ const useProgress = language => {
     setLanguageProgress(allProgress);
   }, [language]);
 
-  const saveProgress = (section, score, total) => {
+  // ✅ Memoize saveProgress to prevent infinite re-renders
+  const saveProgress = useCallback((section, score, total) => {
     if (!language || !section) return;
 
     const progressPct = Math.round((score / total) * 100);
@@ -34,14 +35,14 @@ const useProgress = language => {
     const key = `progress_${language}_${section}`;
     localStorage.setItem(key, JSON.stringify(progressData));
 
-    setLanguageProgress(prev => ({
+    setLanguageProgress((prev) => ({
       ...prev,
       [section]: progressData,
     }));
 
-    // Dispatch a custom event to notify other components of progress update
+    // Dispatch event for other components
     window.dispatchEvent(new Event('progressUpdate'));
-  };
+  }, [language]);
 
   const overallProgress = () => {
     const totalProgress = sections.reduce((acc, section) => {

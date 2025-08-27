@@ -43,8 +43,8 @@ const Dashboard = () => {
   const handleCardClick = section => {
     const routeMap = {
       Alphabet: `/${selectedLanguage.toLowerCase()}-alphabet`,
-      Words: `/${selectedLanguage.toLowerCase()}-words`,
-      Sentences: `/${selectedLanguage.toLowerCase()}-sentences`,
+      Words: `/${selectedLanguage.toLowerCase()}-word`,
+      Sentences: `/${selectedLanguage.toLowerCase()}-sentence`,
     };
 
     const route = routeMap[section];
@@ -158,7 +158,7 @@ const Dashboard = () => {
 
                 <p className='mb-2'>{progressPercentage}% Completed</p>
 
-                {completed && <p className='text-green-600 font-medium'>✓ Completed</p>}
+                {completed && <p className='text-[#009688] font-medium'>✓ Completed</p>}
 
                 {!unlocked && index > 0 && (
                   <p className='text-sm text-gray-500 mt-2'>

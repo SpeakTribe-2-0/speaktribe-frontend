@@ -215,7 +215,7 @@ const IgboAlphabet = () => {
               {!submitted ? (
                 <button
                   onClick={handleSubmit}
-                  className='px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700'>
+                  className='px-6 py-3 bg-[#009688] text-white rounded-lg shadow-md hover:bg-[#075a52]'>
                   Submit Quiz
                 </button>
               ) : (

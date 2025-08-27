@@ -78,7 +78,7 @@ const Navbar = () => {
         {/* User Menu Dropdown */}
         {showUserMenu && (
           <div
-            className='absolute right-0 top-12 bg-white rounded-lg shadow-xl p-4 w-64 z-50 border border-gray-200'
+            className='absolute right-0 top-12 bg-white rounded-lg shadow-xl p-4 w-[350px] z-50 border border-[#009688]'
             onClick={e => e.stopPropagation()}>
             <div className='flex items-center gap-3 mb-4 pb-3 border-b'>
               <div className='rounded-full w-[40px] h-[40px] bg-[#009688] text-white font-bold text-xl flex items-center justify-center'>

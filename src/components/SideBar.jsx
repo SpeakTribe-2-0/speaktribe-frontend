@@ -49,7 +49,7 @@ const SideBar = () => {
 
           </div>
           {open && (
-            <div className='mt-3 text-[16px] font-semibold flex flex-col gap-3'>
+            <div className='mt-3 text-[16px] font-semibold flex flex-col gap-3 '>
               <p  
               onClick={() => navigate('/yoruba-alphabet')}
               className=' hover:bg-[#F5FAF5] w-full pl-8 transition-colors duration-500 cursor-pointer rounded ease-in-out '>Yoruba</p>
