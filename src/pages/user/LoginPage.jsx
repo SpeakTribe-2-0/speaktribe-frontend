@@ -8,8 +8,10 @@ import { motion } from "framer-motion";
 import Logo from "../../assets/speakTribe-logo.png";
 import learningImage from "../../assets/undraw_reading-time_gcvc.svg";
 import baseUrl from "../../utils/baseUrl";
-
+import { Eye, EyeOff } from "lucide-react";
 const LoginPage = () => {
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -49,7 +51,7 @@ const LoginPage = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="width flex flex-wrap gap-[60px] items-center justify-center bg-[#0096871b] p-18 rounded-2xl"
+        className="width flex flex-wrap gap-[60px] items-center justify-center bg-[#0096871b] p-18 max-mobile:p-5 max-mobile:bg-[#00968700] rounded-2xl"
       >
         <img
           src={learningImage}
@@ -57,7 +59,7 @@ const LoginPage = () => {
           className="w-[400px] hidden md:block"
         />
 
-        <div className="max-w-[400px] w-full p-6 bg-[#ffffffc7] rounded-2xl shadow-md">
+        <div className="max-w-[400px]  max-mobile:w-full w-full p-6 bg-[#ffffffc7] rounded-2xl shadow-md">
           <img src={Logo} alt="SpeakTribe Logo" className="w-[80px] mb-4" />
 
           <motion.h1
@@ -83,8 +85,9 @@ const LoginPage = () => {
               className="w-full p-2 mb-4 border rounded-md outline-none border-[#2632381e] placeholder:text-[13px] placeholder:text-[#333]"
               required
             />
+            <div className="relative w-full">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Password"
                 value={formData.password}
@@ -92,6 +95,16 @@ const LoginPage = () => {
                 className="w-full p-2 mb-6 border rounded-md outline-none border-[#2632381e] placeholder:text-[13px] placeholder:text-[#333]"
                 required
               />
+
+              {/* Toggle Eye Button */}
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-2 text-gray-500"
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
             <button
               type="submit"
               className="w-full bg-[#009688] text-white py-2 rounded-md hover:bg-[#00796B] transition"
