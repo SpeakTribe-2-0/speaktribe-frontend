@@ -11,7 +11,7 @@ import { IoPeopleOutline } from "react-icons/io5";
 
 import ahmed from '../../assets/team/ahmed.jpg'
 import muhammed from '../../assets/team/muhammed.jpg'
-import ariyo from '../../assets/team/ariyo.jpg'
+import ariyo from '../../assets/team/Ariyo.jpg'
 const About = () => {
   const groupMembers = [
     { name: 'Ahmed Suleiman', position: 'Team-Leader', work: 'Full-Stack', image: ahmed },
