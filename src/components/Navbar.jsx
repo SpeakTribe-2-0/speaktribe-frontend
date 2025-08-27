@@ -42,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='flex justify-between items-center px-10 pb-6 pt-2 relative max-mobile:px-4 max-mobile:pt-4'>
+    <div className=' fixed top-0 left-0 w-full z-50 flex justify-between items-center px-10 pb-6 pt-2 max-mobile:px-4 max-mobile:pt-4 backdrop-blur-md bg-white/30 shadow-sm'>
       <div>
         <img
           onClick={() => navigate('/home')}

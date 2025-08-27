@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const HomePage = () => {
   const navigate = useNavigate();
   return (
-    <div className=" ">
+    <div className=" pt-24">
       <div className="   mx-auto ">
         <section className=" relative ">
           <div className="overflow-hidden">

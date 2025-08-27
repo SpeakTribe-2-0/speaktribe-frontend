@@ -73,7 +73,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className='flex'>
+    <div className='flex pt-24'>
       <SideBar />
 
       <div className='p-6 w-full'>

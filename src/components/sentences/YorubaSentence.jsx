@@ -58,7 +58,7 @@ const YorubaSentence = () => {
 
   if (loading) {
     return (
-      <div className='flex justify-center items-center w-full h-[60vh]'>
+      <div className='flex justify-center items-center w-full h-[60vh] pt-24'>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0] }}

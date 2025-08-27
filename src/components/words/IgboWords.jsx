@@ -32,7 +32,7 @@ const IgboWords = () => {
   };
 
   return (
-    <div className='px-6 py-6 gap-9 flex border-t-2 border-[#9d9d9d33]'>
+    <div className='px-6 py-6 gap-9 flex border-t-2 border-[#9d9d9d33] pt-24'>
       {/* Sidebar (always visible) */}
       <div className='w-[300px] flex flex-col justify-between gap-10 border-2 px-4 py-10 border-[#9d9d9d33] rounded-xl max-tablet:hidden'>
         <div className='flex flex-col gap-4'>

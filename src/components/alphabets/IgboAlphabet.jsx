@@ -59,7 +59,7 @@ const IgboAlphabet = () => {
   // };
 
   return (
-    <div className='border-[#9d9d9d33] border-t-2'>
+    <div className='border-[#9d9d9d33] border-t-2 pt-24'>
       <div className='flex gap-3 width'>
         {/* Sidebar Alphabet List */}
         <div className='border-[#9d9d9d33] border-r-2 rounded w-[200px] p-5 pr-1 pl-0 flex flex-col gap-5'>

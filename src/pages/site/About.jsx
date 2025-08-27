@@ -234,7 +234,7 @@ const About = () => {
   ]
   return (
     <div className=" flex gap-8 width
-    max-tablet:gap-6 max-tablet:px-3
+    max-tablet:gap-6 max-tablet:px-3 pt-24
     ">
       <SideBar />
       <div>
