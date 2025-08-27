@@ -90,8 +90,12 @@ const IgboWords = () => {
                   <p className='text-[#009688] font-semibold text-lg'>{word}</p>
                   <p className='text-gray-500 text-sm italic'>{pronunciation}</p>
                   <p className='font-semibold'>{meaning}</p>
-                  <div className='py-6 flex justify-center h-[150px]'>
-                    <img src={image} alt={word} className='w-[70px] shadow-2xl rounded' />
+                  <div className='py-6 flex justify-center h-[150px] '>
+                    <img
+                      src={image}
+                      alt={word}
+                      className='w-[100px] h-[100px] object-contain mx-auto '
+                    />
                   </div>
                   <p className='text-gray-600 text-sm italic'>{eg}</p>
                   <p className='text-gray-600 text-sm'>{english}</p>
