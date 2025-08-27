@@ -207,6 +207,16 @@ const Navbar = () => {
                   </p>
                 </div>
               )}
+
+              <button
+                onClick={() => {
+                  localStorage.removeItem('user');
+                  navigate('/login');
+                  setShowUserMenu(false);
+                }}
+                className='w-full bg-[#00968759] my-5 font-semibold px-3 py-2 rounded hover:bg-gray-100 text-red-600 text-center'>
+                Logout
+              </button>
             </div>
           </div>
         </div>
