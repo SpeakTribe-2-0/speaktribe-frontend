@@ -82,7 +82,7 @@ const Dashboard = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className='text-2xl font-bold mb-6'>
-          Welcome back, {user?.displayName || 'Learner'}!
+          Welcome back, {user?.displayName || 'Learner'}! 😉
         </motion.h1>
 
         {/* Language Selector - Modern Styling */}
