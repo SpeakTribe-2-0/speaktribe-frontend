@@ -35,8 +35,8 @@ const LoginPage = () => {
         setLoading(false);
         const parsedUser = JSON.parse(userDetails);
         parsedUser.language == null
-          ? navigate("/about")
-          : navigate("/dashboard");
+          ? navigate("/home")
+          : navigate("/home");
       }, 1000);
     } catch (err) {
       const message = err.response?.data?.message || "Login failed.";

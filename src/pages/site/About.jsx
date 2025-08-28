@@ -12,18 +12,22 @@ import { IoPeopleOutline } from "react-icons/io5";
 import ahmed from '../../assets/team/ahmed.jpg'
 import muhammed from '../../assets/team/muhammed.jpg'
 import ariyo from '../../assets/team/Ariyo.jpg'
+import olori from '../../assets/team/olori.jpg'
+import adex from '../../assets/team/adex.jpg'
+import bigbaby from '../../assets/team/bigbaby.jpg'
+import Tomiwa from '../../assets/team/Tomiwa.jpg'
 const About = () => {
   const groupMembers = [
     { name: 'Ahmed Suleiman', position: 'Team-Leader', work: 'Full-Stack', image: ahmed },
     { name: 'Hameedah Lawal', position: 'Ass-Team-Leader', work: 'Frontend', image: team },
     { name: 'Blessing Gbadamosi', position: 'Member', work: 'Frontend', image: team },
     { name: 'Blessing Gbadamosi', position: 'Member', work: 'Frontend / Tester', image: team },
-    { name: 'Blessing Gbadamosi', position: 'Member', work: 'Product Manager', image: team },
+    { name: 'Barakat Akodu', position: 'Member', work: 'Product Manager', image: bigbaby },
     { name: 'Blessing Gbadamosi', position: 'Member', work: 'Frontend', image: team },
-    { name: 'Blessing Gbadamosi', position: 'Member', work: 'Research', image: team },
+    { name: 'Adeniyi Tomiwa', position: 'Member', work: 'Research', image: Tomiwa },
     { name: 'Muhammad Barkindo', position: 'Member', work: 'Research', image: muhammed },
-    { name: 'Blessing Gbadamosi', position: 'Member', work: 'Research', image: team },
-    { name: 'Blessing Gbadamosi', position: 'Member', work: 'Research', image: team },
+    { name: 'Adeyemi Gbolahan', position: 'Member', work: 'Research', image: adex },
+    { name: 'Adeoluwa Yetunde', position: 'Member', work: 'Research', image: olori },
     { name: 'Ariyo Blessing', position: 'Member', work: 'Research', image: ariyo },
     { name: 'Blessing Gbadamosi', position: 'Member', work: 'Research', image: team },
   ]
@@ -39,7 +43,7 @@ const About = () => {
     max-tablet:gap-3 max-tablet:px-3 pt-22
     ">
       <SideBar />
-      <div className=' '>
+      <div className=''>
         <div className=' flex flex-col gap-8'>
           <div className=' flex flex-col gap-8 max-mobile:gap-4'>
             <p className=' text-[40px] leading-11 w-[60%] mx-auto font-semibold text-center
@@ -54,9 +58,9 @@ const About = () => {
               SpeakTribe is more than just a language app; it's a vibrant community dedicated to fostering cultural connection and linguistic mastery. We believe learning a new language opens up a new worlds, and we're here to guide you every step of the way.
             </p>
           </div>
-          <div className=' flex justify-center w-[1000px] mx-auto
-          max-tablet:w-[500px]
-          max-mobile:w-[350px]
+          <div className=' flex justify-center w-[900px] mx-auto
+          max-tablet:w-[450px]
+          max-mobile:w-[320px]
           '>
             <img src={selection} alt="" className=' rounded-2xl' />
           </div>
@@ -131,9 +135,9 @@ const About = () => {
           <p className=' text-[#7a7a7a] text-[14px] w-[70%] mx-auto
           max-tablet:w-[90%]
           '>SpeakTribe was born from a simple yet profound idea: that language learning should be an adventure, not a chore. Our founders, a group of passionate linguists and technologists, envisioned a platform that celebrated the journey of acquiring a new language, making it feel as natural and enriching as joining a new community.</p>
-          <div className=' flex justify-center w-[1000px] mx-auto
-          max-tablet:w-[500px]
-          max-mobile:w-[350px]
+          <div className=' flex justify-center w-[900px] mx-auto
+          max-tablet:w-[450px]
+          max-mobile:w-[320px]
           '>
             <img src={selection2} alt="" className=' rounded-2xl' />
           </div>

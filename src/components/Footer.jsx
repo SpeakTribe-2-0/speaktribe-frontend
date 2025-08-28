@@ -10,11 +10,11 @@ const Footer = () => {
     max-mobile:px-5 max-mobile:mt-5
     '>
       <div className='flex items-center justify-between gap-10 max-mobile:gap-3'>
-        <p>Learn</p>
-        <p>Company</p>
-        <p>Support</p>
+        <p className=' cursor-pointer'>Learn</p>
+        <p className=' cursor-pointer'>Company</p>
+        <p className=' cursor-pointer'>Support</p>
       </div>
-      <div className='flex items-center justify-between gap-10 max-mobile:gap-3'>
+      <div className='flex items-center justify-between gap-10 max-mobile:gap-3 cursor-pointer'>
         <FaLinkedin />
         <AiFillInstagram />
         <BsTwitterX />

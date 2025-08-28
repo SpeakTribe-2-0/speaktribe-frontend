@@ -35,12 +35,12 @@ const SideBar = () => {
           <TbLayoutDashboardFilled color='#009688'/>
           Dashboard
         </div>
-        <div  
+        {/* <div  
         onClick={() => navigate('')}
         className='flex justify-start items-center gap-4 cursor-pointer'>
           <IoPeople color='#009688'/>
           Account Settings
-        </div>
+        </div> */}
         <div className=''>
           <div onClick={() => { setOpen(!open) }} className='flex justify-start items-center gap-4 cursor-pointer'>
             <IoMdSettings color='#009688'/>
