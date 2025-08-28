@@ -38,7 +38,7 @@ const Navbar = () => {
     if (user?.firstName) {
       return user.firstName.charAt(0).toUpperCase();
     }
-    return 'A';
+    return '';
   };
 
   return (
