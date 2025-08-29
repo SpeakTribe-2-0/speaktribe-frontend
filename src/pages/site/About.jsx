@@ -22,7 +22,7 @@ const About = () => {
     { name: 'Ahmed Suleiman', position: 'Team-Leader', work: 'Full-Stack', image: ahmed },
     { name: 'Hameedah Lawal', position: 'Ass-Team-Leader', work: 'Frontend', image: team },
     { name: 'Blessing Gbadamosi', position: 'Member', work: 'Frontend', image: team },
-    { name: 'Micheal John', position: 'Member', work: 'Frontend / Tester', image: john },
+    { name: 'Michael John', position: 'Member', work: 'Frontend / Tester', image: john },
     { name: 'Barakat Akodu', position: 'Member', work: 'Product Manager', image: bigbaby },
     { name: 'Adeniyi Tomiwa', position: 'Member', work: 'Research', image: Tomiwa },
     { name: 'Muhammad Barkindo', position: 'Member', work: 'Research', image: muhammed },
