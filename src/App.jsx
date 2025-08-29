@@ -26,10 +26,13 @@ import  QrCode  from '../src/pages/site/QrCode';
 const AppContent = () => {
   const location = useLocation();
 
+  // pages where navbar and footer should not show
+  const hideNavAndFooter = ['/', '/login', '/signup'];
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* Show Navbar unless on /getStarted */}
-      {!['/', '/login', '/signup'].includes(location.pathname) && <Navbar />}
+      {/* Show Navbar unless hidden */}
+      {!hideNavAndFooter.includes(location.pathname) && <Navbar />}
 
       {/* Main content takes up space */}
       <div style={{ flex: 1 }}>
@@ -65,11 +68,12 @@ const AppContent = () => {
         </Routes>
       </div>
 
-      {/* Footer always at the bottom */}
-      <Footer />
+      {/* Show Footer unless hidden */}
+      {!hideNavAndFooter.includes(location.pathname) && <Footer />}
     </div>
   );
 };
+
 
 const App = () => {
   return (
