@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const HomePage = () => {
   const navigate = useNavigate();
   return (
-    <div className=" pt-18">
+    <div className=" pt-18 max-mobile:pt-15">
       <div className="   mx-auto ">
         <section className=" relative ">
           <div className="overflow-hidden">

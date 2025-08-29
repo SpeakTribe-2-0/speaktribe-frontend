@@ -37,9 +37,9 @@ const GetStarted = () => {
           max-tablet:flex-col max-tablet:items-center
           '>
         <section className=' w-[40%] flex flex-col gap-5 items-end  justify-center 
-      max-tablet:w-[70%]
+      max-tablet:w-[70%] max-mobile:w-[90%]
       '>
-          <h1 className=' text-[#263238] text-[40px] font-bold leading-[50px] text-center '>
+          <h1 className=' text-[#263238] text-[40px] font-bold leading-[50px] text-center max-mobile:text-[30px] max-mobile:leading-[40px]'>
             “Your Language. Your Power.
             <span className=' items-baseline inline-block text-[#009688]'><FaHeadSideCough /></span>”
           </h1>
