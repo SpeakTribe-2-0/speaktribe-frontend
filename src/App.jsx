@@ -21,6 +21,7 @@ import IgboWords from './components/words/IgboWords';
 import YorubaSentence from './components/sentences/YorubaSentence';
 import HausaSentence from './components/sentences/HausaSentence';
 import IgboSentence from './components/sentences/IgboSentence';
+import  QrCode  from '../src/pages/site/QrCode';
 
 const AppContent = () => {
   const location = useLocation();
@@ -57,6 +58,10 @@ const AppContent = () => {
         <Route path='/yoruba-sentence' element={<YorubaSentence />} />
         <Route path='/hausa-sentence' element={<HausaSentence />} />
         <Route path='/igbo-sentence' element={<IgboSentence />} />
+
+
+
+        <Route path='/qrcode' element={<QrCode />} />
       </Routes>
 
       <Footer />
