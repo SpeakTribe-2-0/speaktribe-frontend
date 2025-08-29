@@ -33,7 +33,7 @@ const About = () => {
   ]
 
   const features1 = [
-    { icon: <IoMicOutline size={25} color='#009688' />, heading: 'Speaking Practice', text: 'Engage in real-time conversations with AI tutors and native speakers. Improve your pronunciation and conversational flow.' },
+    // { icon: <IoMicOutline size={25} color='#009688' />, heading: 'Speaking Practice', text: 'Engage in real-time conversations with AI tutors and native speakers. Improve your pronunciation and conversational flow.' },
     { icon: <GiBookmarklet size={25} color='#009688' />, heading: 'Interactive Lessons', text: 'Explore engaging lessons tailored to your proficiency, covering grammar, vocabulary, and cultural insights.' },
     { icon: <GiProgression size={25} color='#009688' />, heading: 'Progress Tracking', text: 'Monitor your language journey with detailed statistics, personalized insights, and clear milestones.' },
     { icon: <IoPeopleOutline size={25} color='#009688' />, heading: 'Community Support', text: 'Connect with a global tribe of language learners. Share tips, practice together, and grow your network.' },
@@ -55,7 +55,7 @@ const About = () => {
             <p className=' w-[65%] text-[#7a7a7a] mx-auto
             max-tablet:w-[86%]
             '>
-              SpeakTribe is more than just a language app; it's a vibrant community dedicated to fostering cultural connection and linguistic mastery. We believe learning a new language opens up a new worlds, and we're here to guide you every step of the way.
+              SpeakTribe is more than a language app — it’s a community that connects cultures and helps you master new languages, opening doors to new worlds.
             </p>
           </div>
           <div className=' flex justify-center w-[900px] mx-auto
@@ -78,12 +78,12 @@ const About = () => {
           <p className=' text-[#7a7a7a] text-[14px] w-[70%] mx-auto
           max-tablet:w-[90%]
           '>
-            At SpeakTribe, our mission is to break down language barriers and build bridges between diverse cultures. We provide an immersive and intuitive platform where learners can master new languages while exploring the rich tapestry of global communities. Our unique, tribal-inspired approach emphasizes natural conversation, cultural context, and a supportive learning environment, ensuring that every user finds their voice and connects with others authentically.
+            At SpeakTribe, our mission is to break language barriers and connect cultures through an immersive, conversation-driven platform that makes learning authentic and engaging.
           </p>
           <p className=' text-[#7a7a7a] text-[14px] w-[70%] mx-auto
           max-tablet:w-[90%]
           '>
-            We are committed to making language learning accessible, enjoyable, and effective for everyone, from beginners taking their first steps to advanced speakers refining their fluency. By blending cutting-edge technology with time-honored teaching methodologies, SpeakTribe empowers you to communicate with confidence and embrace the world's linguistic diversity.
+            We make language learning accessible, enjoyable, and effective for all levels. With smart tech and proven methods, SpeakTribe empowers you to communicate confidently and embrace global diversity.
           </p>
         </div>
 
@@ -134,7 +134,7 @@ const About = () => {
           <p className=' font-semibold text-[27px] text-center'>The Story Behind SpeakTribe</p>
           <p className=' text-[#7a7a7a] text-[14px] w-[70%] mx-auto
           max-tablet:w-[90%]
-          '>SpeakTribe was born from a simple yet profound idea: that language learning should be an adventure, not a chore. Our founders, a group of passionate linguists and technologists, envisioned a platform that celebrated the journey of acquiring a new language, making it feel as natural and enriching as joining a new community.</p>
+          '>SpeakTribe was founded on the belief that language learning should be an adventure—natural, fun, and enriching, not a chore.</p>
           <div className=' flex justify-center w-[900px] mx-auto
           max-tablet:w-[450px]
           max-mobile:w-[320px]
@@ -143,7 +143,7 @@ const About = () => {
           </div>
           <p className=' text-[#7a7a7a] text-[14px] w-[70%] mx-auto
           max-tablet:w-[90%]
-          '>Inspired by the resilience and diversity of global tribes, we crafted a learning ecosystem that prioritizes engagement, mutual support, and practical application. Every feature, from our AI conversation partners to our interactive cultural lessons, is designed to immerse you in the language and its context, fostering genuine understanding and lasting fluency. Join us, and become part of the SpeakTribe.</p>
+          '>SpeakTribe makes language learning fun and immersive through interactive games and cultural lessons, helping you achieve lasting fluency.</p>
         </div>
 
         <hr className="my-8 border-[#9d9d9d33] border-1 rounded-4xl hidden max-tablet:block" />
@@ -157,7 +157,7 @@ const About = () => {
               <div key={index} className="flex flex-col gap-3 text-center  justify-center items-center">
                 <div className="px-4">
                   <div>
-                    <img src={data.image} alt="" className="w-[90px] bg-center bg-no-repeat aspect-square bg-cover rounded-full" />
+                    <img src={data.image} alt="" className="w-[90px] border-2 border-[#009688] bg-center bg-no-repeat aspect-square bg-cover rounded-full" />
                   </div>
                 </div>
                 <div>
@@ -177,10 +177,10 @@ const About = () => {
         <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4 place-items-center">
 
           {groupMembers.map((data, index) => (
-            <div key={index} className="flex flex-col gap-3 text-center  justify-center items-center">
+            <div key={index} className="flex flex-col gap-3 text-center justify-center items-center">
               <div className="px-4">
-                <div>
-                  <img src={data.image} alt="" className="w-[90px] bg-center bg-no-repeat aspect-square bg-cover rounded-full" />
+                <div className=''>
+                  <img src={data.image} alt="" className="w-[90px] border-2 border-[#009688] bg-center bg-no-repeat aspect-square bg-cover rounded-full" />
                 </div>
               </div>
               <div>

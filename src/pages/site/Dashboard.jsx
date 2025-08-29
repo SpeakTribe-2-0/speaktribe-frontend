@@ -11,7 +11,7 @@ const Dashboard = () => {
   const { languageProgress, overallProgress, loadAllProgress } = useProgress(selectedLanguage);
 
   // Available languages
-  const languages = ['Igbo', 'Yoruba', 'Hausa'];
+  const languages = [ 'Yoruba','Igbo', 'Hausa'];
 
   // Sections to display
   const sections = ['Alphabet', 'Words', 'Sentences'];

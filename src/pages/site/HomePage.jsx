@@ -40,9 +40,9 @@ const HomePage = () => {
         <section className="width flex justify-around w-full max-tablet:flex-col mb-24">
 
 
-          <div className=" w-[30%] max-tablet:w-[90%] mx-auto gap-4 flex flex-col shadow-2xl pb-5 max-tablet:mb-10">
+          <div className=" w-[30%] max-tablet:w-[90%] mx-auto gap-4 flex flex-col shadow-2xl pb-5 max-tablet:mb-10 rounded-b-2xl">
 
-            <div className="">
+            <div className="mx-auto">
               <img
                 src="./igboWoman.png"
                 alt=""
@@ -85,8 +85,8 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className=" w-[30%] max-tablet:w-[90%] mx-auto  gap-4 flex flex-col shadow-2xl pb-5  max-tablet:mb-10">
-            <div className="">
+          <div className=" w-[30%] max-tablet:w-[90%] mx-auto  gap-4 flex flex-col shadow-2xl pb-5  max-tablet:mb-10 rounded-b-2xl">
+            <div className="mx-auto">
               <img
                 src="./yorubaMan.png"
                 alt=""
@@ -130,9 +130,9 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className=" w-[30%] max-tablet:w-[90%] mx-auto gap-4 flex flex-col shadow-2xl pb-5">
+          <div className=" w-[30%] max-tablet:w-[90%] mx-auto gap-4 flex flex-col shadow-2xl pb-5 rounded-b-2xl ">
 
-            <div className="">
+            <div className="mx-auto">
               <img
                 src="./hausa.jpg"
                 alt=""

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IoPersonOutline } from 'react-icons/io5';
 import logo from '../assets/speakTribe-logo.png';
 import { FaHome } from 'react-icons/fa';
@@ -15,6 +15,24 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const menuRef = useRef(null); // ✅ reference to the whole menu
+
+  // const getUserInitial = () => "U"; // example
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // if click is outside menu, close it
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowUserMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -58,13 +76,14 @@ const Navbar = () => {
         <p onClick={() => navigate('/about')}>About</p>
       </div>
 
-      <div className='flex justify-center items-center gap-7 cursor-pointer relative'>
+      <div ref={menuRef} className='relative flex justify-center items-center gap-7 cursor-pointer '>
         <IoPersonOutline size={20} color='#009688' className='hidden' />
 
         {/* User Profile with Initial */}
         <div
           onClick={() => setShowUserMenu(!showUserMenu)}
-          className='rounded-full w-[40px] h-[40px] bg-[#009688] max-mobile:hidden text-white font-bold text-xl flex items-center justify-center cursor-pointer relative'>
+          className="rounded-full w-[40px] h-[40px] bg-[#009688] hover:bg-white hover:text-[#009688] hover:border-[#009688] hover:border transition-all duration-400 ease-in-out max-mobile:hidden text-white font-bold text-xl flex items-center justify-center cursor-pointer"
+        >
           {getUserInitial()}
         </div>
 
