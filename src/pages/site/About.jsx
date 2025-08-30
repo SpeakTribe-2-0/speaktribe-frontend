@@ -1,7 +1,7 @@
 import SideBar from '../../components/SideBar'
 import selection from '../../assets/Selection.png'
 import selection2 from '../../assets/Selection (1).png'
-import team from '../../assets/team.png'
+import team from '../../assets/team/user.png'
 import { IoMicOutline } from "react-icons/io5";
 import { GiBookmarklet } from "react-icons/gi";
 import { GiProgression } from "react-icons/gi";
