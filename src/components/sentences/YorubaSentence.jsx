@@ -78,7 +78,7 @@ const YorubaSentence = () => {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className='text-3xl font-bold mb-6 text-center'>
+          className='text-3xl font-bold mb-6 text-center max-mobile:text-[20px]'>
           📖 Learn Yoruba Sentences
         </motion.h2>
 
