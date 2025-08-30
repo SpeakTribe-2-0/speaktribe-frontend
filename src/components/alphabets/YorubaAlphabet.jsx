@@ -63,9 +63,9 @@ const YorubaAlphabet = () => {
   };
   return (
     <div className='border-[#9d9d9d33] border-t-2 pt-24 '>
-      <div className='flex gap-3 width '>
+      <div className='flex gap-3 width  pr-3'>
         {/* Sidebar Alphabet List */}
-        <div className='border-[#9d9d9d33] border-r-2 rounded w-[200px] p-5 pr-1 pl-0 flex flex-col gap-5 max-mobile:w-[50px] max-mobile:text-[12px]'>
+        <div className='border-[#9d9d9d33] border-r-2 rounded w-[200px] p-5 pr-1 pl-0 flex flex-col gap-5 max-mobile:w-[55px] max-mobile:text-[12px]'>
           {alphabets.map((item, index) => (
             <div
               key={index}
@@ -80,7 +80,7 @@ const YorubaAlphabet = () => {
         </div>
 
         {/* Main Content */}
-        <div className='w-full px-10 max-tablet:px-6 max-mobile:px-0'>
+        <div className='w-full px-10 max-tablet:px-6 max-mobile:px-0 '>
           {/* Letter */}
           <div>
             <p className='text-4xl font-bold my-4 text-[#262626] max-tablet:text-2xl'>

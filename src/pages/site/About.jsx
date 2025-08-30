@@ -17,11 +17,12 @@ import adex from '../../assets/team/adex.jpg'
 import bigbaby from '../../assets/team/bigbaby.jpg'
 import Tomiwa from '../../assets/team/Tomiwa.jpg'
 import john from '../../assets/team/john.jpg'
+import blessing from '../../assets/team/blessing.jpg'
 const About = () => {
   const groupMembers = [
     { name: 'Ahmed Suleiman', position: 'Team-Leader', work: 'Full-Stack', image: ahmed },
     { name: 'Hameedah Lawal', position: 'Ass-Team-Leader', work: 'Frontend', image: team },
-    { name: 'Blessing Gbadamosi', position: 'Member', work: 'Frontend', image: team },
+    { name: 'Blessing Gbadamosi', position: 'Member', work: 'Frontend', image: blessing },
     { name: 'Michael John', position: 'Member', work: 'Frontend / Tester', image: john },
     { name: 'Barakat Akodu', position: 'Member', work: 'Product Manager', image: bigbaby },
     { name: 'Adeniyi Tomiwa', position: 'Member', work: 'Research', image: Tomiwa },
