@@ -108,12 +108,12 @@ const Dashboard = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className='bg-white shadow rounded-lg p-6 mb-8'>
+          className='bg-[#00968721] shadow rounded-lg p-6 mb-8'>
           <h2 className='text-xl font-semibold mb-4'>Your Progress</h2>
           <p className='mb-2'>
             <strong>Current Language:</strong> {selectedLanguage}
           </p>
-          <div className='w-full bg-gray-200 rounded-full h-4 mb-3'>
+          <div className='w-full bg-white rounded-full h-4 mb-3'>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${overallProgress}%` }}

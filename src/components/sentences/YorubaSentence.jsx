@@ -71,7 +71,7 @@ const YorubaSentence = () => {
   }
 
   return (
-    <div className='width mx-auto p-6 space-y-10'>
+    <div className='width mx-auto p-6 space-y-10 pt-24'>
       {/* === Study Section === */}
       <div>
         <motion.h2

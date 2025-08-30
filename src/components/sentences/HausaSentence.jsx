@@ -58,7 +58,7 @@ const HausaSentence = () => {
 
   if (loading) {
     return (
-      <div className='flex justify-center items-center w-full h-[60vh] pt-24'>
+      <div className='flex justify-center items-center w-full h-[60vh] '>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0] }}
@@ -71,7 +71,7 @@ const HausaSentence = () => {
   }
 
   return (
-    <div className='width mx-auto p-6 space-y-10'>
+    <div className='width mx-auto p-6 space-y-10 pt-24'>
       {/* === Study Section === */}
       <div>
         <motion.h2

@@ -71,14 +71,14 @@ const IgboSentence = () => {
   }
 
   return (
-    <div className='width mx-auto p-6 space-y-10 pt-24'>
+    <div className='width mx-auto p-6 space-y-10 '>
       {/* === Study Section === */}
       <div>
         <motion.h2
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className='text-3xl font-bold mb-6 text-center'>
+          className='text-3xl font-bold mb-6 text-center pt-24'>
           📖 Learn Igbo Sentences
         </motion.h2>
 
