@@ -18,6 +18,7 @@ import bigbaby from '../../assets/team/bigbaby.jpg'
 import Tomiwa from '../../assets/team/Tomiwa.jpg'
 import john from '../../assets/team/john.jpg'
 import blessing from '../../assets/team/blessing.jpg'
+import mira from '../../assets/team/mira.jpg'
 const About = () => {
   const groupMembers = [
     { name: 'Ahmed Suleiman', position: 'Team-Leader', work: 'Full-Stack', image: ahmed },
@@ -30,6 +31,7 @@ const About = () => {
     { name: 'Adeyemi Gbolahan', position: 'Member', work: 'Research', image: adex },
     { name: 'Adeoluwa Yetunde', position: 'Member', work: 'Research', image: olori },
     { name: 'Ariyo Blessing', position: 'Member', work: 'Research', image: ariyo },
+    { name: 'Yaramola Blessing', position: 'Member', work: 'Research', image: mira},
   ]
 
   const features1 = [
