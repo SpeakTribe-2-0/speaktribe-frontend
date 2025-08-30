@@ -60,9 +60,9 @@ const IgboAlphabet = () => {
 
   return (
     <div className='border-[#9d9d9d33] border-t-2 pt-24'>
-      <div className='flex gap-3 width'>
+      <div className='flex gap-3 width  pr-3'>
         {/* Sidebar Alphabet List */}
-        <div className='border-[#9d9d9d33] border-r-2 rounded w-[200px] p-5 pr-1 pl-0 flex flex-col gap-5'>
+        <div className='border-[#9d9d9d33] border-r-2 rounded w-[200px] p-5 pr-1 pl-0 flex flex-col gap-5 max-mobile:w-[55px] max-mobile:text-[12px]'>
           {alphabets.map((item, index) => (
             <div
               key={index}
@@ -70,8 +70,8 @@ const IgboAlphabet = () => {
               className={`cursor-pointer px-5 py-0.5 rounded-[6px] flex items-center gap-2 
                 ${selectedIndex === index ? 'bg-[#0096872e]' : 'bg-transparent'}
               `}>
-              <PiSneakerMoveFill />
-              <p>{item.letter}</p>
+              <PiSneakerMoveFill className=' max-mobile:hidden'/>
+              <p className=''>{item.letter}</p>
             </div>
           ))}
         </div>
