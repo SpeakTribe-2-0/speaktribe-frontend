@@ -49,10 +49,10 @@ const GetStarted = () => {
           <div className=' flex justify-center gap-4 mx-auto w-full '>
             <button
               onClick={() => navigate('/signup')}
-              className=' bg-[#009688] w-[40%] text-[14px] text-[#fff] py-2 rounded '> Begin Your Journey!</button>
+              className=' bg-[#009688] w-[40%] max-mobile:w-[30%] text-[14px] text-[#fff] py-2 rounded '> Begin Your Journey!</button>
             <button
               onClick={() => navigate('/login')}
-              className=' bg-[#009688] w-[40%] text-[14px] text-[#fff] py-2 rounded '> Already have an account?</button>
+              className=' bg-[#009688] w-[40%] max-mobile:text-[13px] max-mobile:w-[30%] max-mobile:px-2 text-[14px] text-[#fff] py-2 rounded '> Already have an account?</button>
           </div>
         </section>
         <section className='' >
