@@ -11,12 +11,12 @@ const Footer = () => {
     max-tablet:px-14
     max-mobile:px-5 max-mobile:mt-5
     '>
-      <div className='flex items-center justify-between gap-10 max-mobile:gap-3'>
+      <div className='flex items-center justify-between gap-10 max-mobile:gap-3 max-mobile:text-[13px]'>
         <p className=' cursor-pointer'>Learn</p>
         <p className=' cursor-pointer'>Company</p>
         <p onClick={() => navigate('/qrcode')} className=' cursor-pointer'>QrCode</p>
       </div>
-      <div className='flex items-center justify-between gap-10 max-mobile:gap-3 cursor-pointer'>
+      <div className='flex items-center justify-between gap-10 max-mobile:gap-3 cursor-pointer max-mobile:text-[13px]'>
         <FaLinkedin />
         <AiFillInstagram />
         <BsTwitterX />
