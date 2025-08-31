@@ -1,7 +1,6 @@
 import SideBar from '../../components/SideBar'
 import selection from '../../assets/Selection.png'
 import selection2 from '../../assets/Selection (1).png'
-import team from '../../assets/team/user.png'
 import { IoMicOutline } from "react-icons/io5";
 import { GiBookmarklet } from "react-icons/gi";
 import { GiProgression } from "react-icons/gi";
@@ -19,18 +18,19 @@ import Tomiwa from '../../assets/team/Tomiwa.jpg'
 import john from '../../assets/team/john.jpg'
 import blessing from '../../assets/team/blessing.jpg'
 import mira from '../../assets/team/mira.jpg'
+import Hameedah from '../../assets/team/hameedah.jpg'
 const About = () => {
   const groupMembers = [
     { name: 'Ahmed Suleiman', position: 'Team-Leader', work: 'Full-Stack', image: ahmed },
-    { name: 'Hameedah Lawal', position: 'Ass-Team-Leader', work: 'Frontend', image: team },
+    { name: 'Hameedah Lawal', position: 'Ass-Team-Leader', work: 'Frontend', image: Hameedah },
     { name: 'Blessing Gbadamosi', position: 'Member', work: 'Frontend', image: blessing },
     { name: 'Michael John', position: 'Member', work: 'Frontend / Tester', image: john },
     { name: 'Barakat Akodu', position: 'Member', work: 'Product Manager', image: bigbaby },
-    { name: 'Adeniyi Tomiwa', position: 'Member', work: 'Research', image: Tomiwa },
     { name: 'Muhammad Barkindo', position: 'Member', work: 'Research', image: muhammed },
     { name: 'Adeyemi Gbolahan', position: 'Member', work: 'Research', image: adex },
     { name: 'Adeoluwa Yetunde', position: 'Member', work: 'Research', image: olori },
     { name: 'Ariyo Blessing', position: 'Member', work: 'Research', image: ariyo },
+    { name: 'Adeniyi Tomiwa', position: 'Member', work: 'Research', image: Tomiwa },
     { name: 'Yaramola Blessing', position: 'Member', work: 'Research', image: mira},
   ]
 
