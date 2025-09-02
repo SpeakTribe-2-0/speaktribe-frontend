@@ -154,13 +154,13 @@ useEffect(() => {
                 </div>
 
                 {/* Navigation Buttons */}
-                <div className="flex justify-between items-center mt-6 ">
+                <div className="flex justify-between items-center mt-6 max-mobile:flex-col-reverse max-mobile:gap-3">
                   <button
                     onClick={() =>
                       setSelectedIndex((prev) => Math.max(prev - 1, 0))
                     }
                     disabled={selectedIndex === 0}
-                    className={`px-6 py-2 rounded-lg font-semibold transition-all max-mobile:text-[12px] ${
+                    className={`px-6 py-2 rounded-lg font-semibold transition-all max-mobile:text-[12px] max-mobile:bg-blue-500 ${
                       selectedIndex === 0
                         ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                         : "bg-[#009688] text-white hover:bg-[#00796B]"
@@ -206,7 +206,7 @@ useEffect(() => {
                           Math.min(prev + 1, dailyBatch.length - 1)
                         )
                       }
-                      className="px-6 py-2 bg-[#009688] text-white rounded-lg font-semibold hover:bg-[#00796B] transition-all"
+                      className="px-6 py-2 bg-[#009688] text-white rounded-lg font-semibold hover:bg-[#00796B] transition-all max-mobile:text-[12px]"
                     >
                       Next
                     </button>
