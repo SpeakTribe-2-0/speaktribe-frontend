@@ -485,7 +485,7 @@ const Chat = () => {
           transition={{ type: "spring", damping: 20 }}
           className="fixed md:static inset-y-0 left-0 w-64 bg-white/90 backdrop-blur-lg shadow-xl z-30 flex flex-col"
         >
-          <div className="p-4 border-b border-gray-200">
+          <div className="p-4 border-b border-gray-200 pt-18">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-bold text-gray-800">Languages</h2>
               <button
@@ -498,7 +498,7 @@ const Chat = () => {
           </div>
           
           <div className="flex-1 overflow-y-auto p-4">
-            <div className="space-y-3">
+            <div className="space-y-3 ">
               {Object.entries(teachers).map(([key, teacher]) => (
                 <motion.div
                   key={key}

@@ -78,10 +78,16 @@ const Navbar = () => {
         <p onClick={() => navigate('/about')}>About</p>
       </div>
 
-      <div ref={menuRef} className='relative flex justify-center items-center gap-7 max-mobile:gap-3 cursor-pointer '>
+      <div ref={menuRef} className='relative flex justify-center items-center gap-7 max-mobile:gap-4 cursor-pointer '>
         <IoPersonOutline size={20} color='#009688' className='hidden' />
         {/* <RiRobot3Fill size={20} onClick={() => navigate('/chat')} color='blue' className='hidden max-mobile:block' /> */}
-        <img src={robot} alt="" onClick={() => navigate('/chat')} className='hidden max-mobile:block w-6'/>
+        <img
+          src={robot}
+          alt="Chat bot"
+          onClick={() => navigate('/chat')}
+          className="hidden max-mobile:block w-6 animate-bounce cursor-pointer"
+        />
+
         {/* User Profile with Initial */}
         <div
           onClick={() => setShowUserMenu(!showUserMenu)}
