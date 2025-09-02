@@ -404,9 +404,9 @@ const Chat = () => {
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#009688] focus:border-[#009688] transition-all"
                   >
                     <option value="">Select background</option>
-                    <option value="yoruba">🌺 Yoruba</option>
-                    <option value="hausa">🌙 Hausa</option>
-                    <option value="igbo">🦋 Igbo</option>
+                    <option value="yoruba">🍇 Yoruba</option>
+                    <option value="hausa">🍉 Hausa</option>
+                    <option value="igbo">🥭 Igbo</option>
                     <option value="other">🌍 Other</option>
                   </select>
                 </motion.div>
