@@ -9,6 +9,7 @@ import { IoMdSettings } from 'react-icons/io';
 import { FaChevronDown } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { RiRobot3Fill } from "react-icons/ri";
+import robot from '../assets/robot.png'
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -71,16 +72,16 @@ const Navbar = () => {
         />
       </div>
 
-      <div className='flex justify-center items-center gap-7 max-mobile:text-[13px] font-semibold cursor-pointer'>
+      <div className='flex justify-center items-center gap-7 max-mobile:text-[12px] max-mobile:gap-2 font-semibold cursor-pointer'>
         <p onClick={() => navigate('/home')}>Home</p>
         <p onClick={() => navigate('/dashboard')}>Dashboard</p>
         <p onClick={() => navigate('/about')}>About</p>
       </div>
 
-      <div ref={menuRef} className='relative flex justify-center items-center gap-7 cursor-pointer '>
+      <div ref={menuRef} className='relative flex justify-center items-center gap-7 max-mobile:gap-3 cursor-pointer '>
         <IoPersonOutline size={20} color='#009688' className='hidden' />
-        <RiRobot3Fill onClick={() => navigate('/chat')} color='#009688' className='hidden max-mobile:block' />
-        
+        {/* <RiRobot3Fill size={20} onClick={() => navigate('/chat')} color='blue' className='hidden max-mobile:block' /> */}
+        <img src={robot} alt="" onClick={() => navigate('/chat')} className='hidden max-mobile:block w-6'/>
         {/* User Profile with Initial */}
         <div
           onClick={() => setShowUserMenu(!showUserMenu)}
