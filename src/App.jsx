@@ -23,6 +23,7 @@ import HausaSentence from './components/sentences/HausaSentence';
 import IgboSentence from './components/sentences/IgboSentence';
 import  QrCode  from '../src/pages/site/QrCode';
 import Chat from './pages/site/Chat';
+import Robo from './pages/Robo';
 
 const AppContent = () => {
   const location = useLocation();
@@ -30,8 +31,15 @@ const AppContent = () => {
   // pages where navbar and footer should not show
   const hideNavAndFooter = ['/', '/login', '/signup'];
 
+  // pages where Robo should not show
+  const hideRobo = ['/chat', '/login', '/signup', ];
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} className='relative'>
+      {/* Show Robo unless hidden */}
+      {!hideRobo.some(path => location.pathname.startsWith(path)) && <Robo />}
+
+
       {/* Show Navbar unless hidden */}
       {!hideNavAndFooter.includes(location.pathname) && <Navbar />}
 
@@ -75,6 +83,7 @@ const AppContent = () => {
     </div>
   );
 };
+
 
 
 const App = () => {

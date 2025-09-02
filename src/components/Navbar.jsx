@@ -81,28 +81,7 @@ const Navbar = () => {
       <div ref={menuRef} className='relative flex justify-center items-center gap-7 max-mobile:gap-4 cursor-pointer '>
         <IoPersonOutline size={20} color='#009688' className='hidden' />
         {/* <RiRobot3Fill size={20} onClick={() => navigate('/chat')} color='blue' className='hidden max-mobile:block' /> */}
-        <style>
-          {`
-          @keyframes bounce {
-            0%, 100% {
-              transform: translateY(0);
-            }
-            50% {
-              transform: translateY(-12px);
-            }
-          }
-          .bounce {
-            animation: bounce 1s infinite;
-          }
-        `}
-        </style>
-
-        <img
-          src={robot}
-          alt=""
-          onClick={() => navigate('/chat')}
-          className="w-6 bounce cursor-pointer"
-        />
+        
 
 
 
