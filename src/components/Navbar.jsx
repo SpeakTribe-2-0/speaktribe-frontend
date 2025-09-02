@@ -83,10 +83,11 @@ const Navbar = () => {
         {/* <RiRobot3Fill size={20} onClick={() => navigate('/chat')} color='blue' className='hidden max-mobile:block' /> */}
         <img
           src={robot}
-          alt="Chat bot"
+          alt=""
           onClick={() => navigate('/chat')}
-          className="hidden max-mobile:block w-6 animate-bounce cursor-pointer"
+          className="md:hidden w-6 animate-bounce cursor-pointer bg-amber-300"
         />
+
 
         {/* User Profile with Initial */}
         <div
