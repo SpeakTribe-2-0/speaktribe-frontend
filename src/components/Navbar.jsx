@@ -85,8 +85,9 @@ const Navbar = () => {
           src={robot}
           alt=""
           onClick={() => navigate('/chat')}
-          className="md:hidden w-6 animate-bounce cursor-pointer bg-amber-300"
+          className="hidden max-mobile:block w-6 bounce cursor-pointer"
         />
+
 
 
         {/* User Profile with Initial */}
