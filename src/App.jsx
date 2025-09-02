@@ -22,6 +22,7 @@ import YorubaSentence from './components/sentences/YorubaSentence';
 import HausaSentence from './components/sentences/HausaSentence';
 import IgboSentence from './components/sentences/IgboSentence';
 import  QrCode  from '../src/pages/site/QrCode';
+import Chat from './pages/site/Chat';
 
 const AppContent = () => {
   const location = useLocation();
@@ -64,6 +65,7 @@ const AppContent = () => {
           <Route path='/hausa-sentence' element={<HausaSentence />} />
           <Route path='/igbo-sentence' element={<IgboSentence />} />
 
+          <Route path='/chat' element={<Chat />} />
           <Route path='/qrcode' element={<QrCode />} />
         </Routes>
       </div>

@@ -7,6 +7,7 @@ import { IoMdSettings } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
+import { RiRobot3Fill } from "react-icons/ri";
 
 
 const SideBar = () => {
@@ -28,6 +29,12 @@ const SideBar = () => {
         className='flex justify-start items-center gap-4 cursor-pointer'>
           <IoIosInformationCircle color='#009688'/>
           About
+        </div>
+        <div  
+        onClick={() => navigate('/chat')}
+        className='flex justify-start items-center gap-4 cursor-pointer'>
+          <RiRobot3Fill color='#009688'/>
+          Chat with Your AI
         </div>
         <div  
         onClick={() => navigate('/dashboard')}

@@ -8,6 +8,7 @@ import { IoPeople } from 'react-icons/io5';
 import { IoMdSettings } from 'react-icons/io';
 import { FaChevronDown } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { RiRobot3Fill } from "react-icons/ri";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -78,7 +79,8 @@ const Navbar = () => {
 
       <div ref={menuRef} className='relative flex justify-center items-center gap-7 cursor-pointer '>
         <IoPersonOutline size={20} color='#009688' className='hidden' />
-
+        <RiRobot3Fill onClick={() => navigate('/chat')} color='#009688' className='hidden max-mobile:block' />
+        
         {/* User Profile with Initial */}
         <div
           onClick={() => setShowUserMenu(!showUserMenu)}
