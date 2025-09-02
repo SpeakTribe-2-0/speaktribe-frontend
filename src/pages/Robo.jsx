@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const Robo = () => {
   const navigate = useNavigate()
   return (
-    <div className=' right-20 max-mobile:right-10 bottom-[70px] fixed z-[60] text-center flex items-center flex-col'>
+    <div className=' right-20 max-mobile:right-5 bottom-[70px] fixed z-[60] text-center flex items-center flex-col'>
       <style>
         {`
           @keyframes bounce {
@@ -31,7 +31,7 @@ const Robo = () => {
         src={robot}
         alt=""
         onClick={() => navigate('/chat')}
-        className="w-10 bounce cursor-pointer max-mobile:w-6"
+        className="w-10 bounce cursor-pointer max-mobile:w-5"
       />
       <p className="outlined-text max-mobile:text-[11px] text-[13px]">Chat with AI</p>
     </div>
