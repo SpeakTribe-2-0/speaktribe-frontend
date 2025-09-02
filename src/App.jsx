@@ -32,12 +32,12 @@ const AppContent = () => {
   const hideNavAndFooter = ['/', '/login', '/signup'];
 
   // pages where Robo should not show
-  const hideRobo = ['/chat', '/login', '/signup', ];
+  const hideRobo = ['/chat', '/login', '/signup','/' ];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} className='relative'>
       {/* Show Robo unless hidden */}
-      {!hideRobo.some(path => location.pathname.startsWith(path)) && <Robo />}
+      {!hideRobo.includes(location.pathname) && <Robo />}
 
 
       {/* Show Navbar unless hidden */}

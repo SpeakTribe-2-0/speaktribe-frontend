@@ -6,7 +6,7 @@ const Robo = () => {
   const navigate = useNavigate()
   return (
     <div className=' right-20 max-mobile:right-10 bottom-[70px] fixed z-[60] text-center flex items-center flex-col'>
-       <style>
+      <style>
         {`
           @keyframes bounce {
             0%, 100% {
@@ -26,7 +26,7 @@ const Robo = () => {
           }
         `}
       </style>
-      
+
       <img
         src={robot}
         alt=""
