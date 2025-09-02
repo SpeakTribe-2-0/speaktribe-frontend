@@ -22,18 +22,18 @@ const IgboAlphabet = () => {
   const batchSize = 5;
   const totalDays = Math.ceil(alphabets.length / batchSize);
 
-useEffect(() => {
-  const savedDayProgress = localStorage.getItem(`progress_Igbo_Alphabet`);
+  useEffect(() => {
+    const savedDayProgress = localStorage.getItem(`progress_Igbo_Alphabet`);
 
-  if (savedDayProgress) {
-    try {
-      const parsedProgress = JSON.parse(savedDayProgress);
-      setDayIndex(parsedProgress.score); // assuming `score` is a property
-    } catch (error) {
-      console.error("Failed to parse saved progress", error);
+    if (savedDayProgress) {
+      try {
+        const parsedProgress = JSON.parse(savedDayProgress);
+        setDayIndex(parsedProgress.score); // assuming `score` is a property
+      } catch (error) {
+        console.error("Failed to parse saved progress", error);
+      }
     }
-  }
-}, []);
+  }, []);
 
   // Slice 5 alphabets for today
   const dailyBatch = alphabets.slice(dayIndex * batchSize, dayIndex * batchSize + batchSize);
@@ -154,17 +154,16 @@ useEffect(() => {
                 </div>
 
                 {/* Navigation Buttons */}
-                <div className="flex justify-between items-center mt-6">
+                <div className="flex justify-between items-center mt-6 ">
                   <button
                     onClick={() =>
                       setSelectedIndex((prev) => Math.max(prev - 1, 0))
                     }
                     disabled={selectedIndex === 0}
-                    className={`px-6 py-2 rounded-lg font-semibold transition-all ${
-                      selectedIndex === 0
+                    className={`px-6 py-2 rounded-lg font-semibold transition-all max-mobile:text-[12px] ${selectedIndex === 0
                         ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                         : "bg-[#009688] text-white hover:bg-[#00796B]"
-                    }`}
+                      }`}
                   >
                     Previous
                   </button>
@@ -175,7 +174,7 @@ useEffect(() => {
                         onClick={() => setShowQuiz(true)}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-6 py-2 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700"
+                        className="px-6 py-2 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 max-mobile:text-[12px] max-mobile:px-4"
                       >
                         Take Quiz
                       </motion.button>
@@ -183,15 +182,15 @@ useEffect(() => {
                         onClick={() => {
                           setDayIndex((prev) => prev + 1);
                           setSelectedIndex(0);
-                           saveProgress(
-                          "Alphabet",
-                          dayIndex + 1,
-                          totalDays
-                        );
+                          saveProgress(
+                            "Alphabet",
+                            dayIndex + 1,
+                            totalDays
+                          );
                         }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-6 py-2 bg-[#009688] text-white rounded-lg shadow-md hover:bg-[#00796B] transition"
+                        className="px-6 py-2 bg-[#009688] text-white rounded-lg shadow-md hover:bg-[#00796B] transition max-mobile:text-[12px] max-mobile:px-2 "
                         disabled={dayIndex === totalDays - 1} // disable continue on last day
                       >
                         {dayIndex === totalDays - 1
@@ -229,11 +228,10 @@ useEffect(() => {
                     {q.options.map((opt, idx) => (
                       <label
                         key={idx}
-                        className={`flex items-center gap-2 px-3 py-2 rounded-lg border cursor-pointer ${
-                          quizAnswers[i] === opt
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg border cursor-pointer ${quizAnswers[i] === opt
                             ? "bg-[#e0f2f1] border-[#009688]"
                             : "hover:bg-gray-50"
-                        }`}
+                          }`}
                       >
                         <input
                           type="radio"
@@ -249,11 +247,10 @@ useEffect(() => {
                   </div>
                   {submitted && (
                     <p
-                      className={`mt-2 text-sm ${
-                        quizAnswers[i] === q.correct
+                      className={`mt-2 text-sm ${quizAnswers[i] === q.correct
                           ? "text-green-600"
                           : "text-red-600"
-                      }`}
+                        }`}
                     >
                       {quizAnswers[i] === q.correct
                         ? "✅ Correct"

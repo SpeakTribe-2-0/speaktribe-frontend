@@ -154,13 +154,13 @@ useEffect(() => {
                 </div>
 
                 {/* Navigation Buttons */}
-                <div className="flex justify-between items-center mt-6">
+                <div className="flex justify-between items-center mt-6 ">
                   <button
                     onClick={() =>
                       setSelectedIndex((prev) => Math.max(prev - 1, 0))
                     }
                     disabled={selectedIndex === 0}
-                    className={`px-6 py-2 rounded-lg font-semibold transition-all ${
+                    className={`px-6 py-2 rounded-lg font-semibold transition-all max-mobile:text-[12px] ${
                       selectedIndex === 0
                         ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                         : "bg-[#009688] text-white hover:bg-[#00796B]"
@@ -175,7 +175,7 @@ useEffect(() => {
                         onClick={() => setShowQuiz(true)}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-6 py-2 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700"
+                        className="px-6 py-2 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 max-mobile:text-[12px] max-mobile:px-4"
                       >
                         Take Quiz
                       </motion.button>
@@ -191,7 +191,7 @@ useEffect(() => {
                         }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-6 py-2 bg-[#009688] text-white rounded-lg shadow-md hover:bg-[#00796B] transition"
+                        className="px-6 py-2 bg-[#009688] text-white rounded-lg shadow-md hover:bg-[#00796B] transition max-mobile:text-[12px] max-mobile:px-2 "
                         disabled={dayIndex === totalDays - 1} // disable continue on last day
                       >
                         {dayIndex === totalDays - 1
