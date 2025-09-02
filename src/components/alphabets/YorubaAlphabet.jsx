@@ -89,7 +89,7 @@ useEffect(() => {
                 className="bg-white shadow-lg rounded-2xl p-6"
               >
                 {/* Header */}
-                <h1 className="text-3xl font-bold text-[#262626] mb-4">
+                <h1 className="text-3xl font-bold text-[#262626] mb-4 max-mobile:text-[25px] max-mobile:text-center">
                   Yoruba Alphabets — Day {dayIndex + 1} / {totalDays}
                 </h1>
 
@@ -160,7 +160,7 @@ useEffect(() => {
                       setSelectedIndex((prev) => Math.max(prev - 1, 0))
                     }
                     disabled={selectedIndex === 0}
-                    className={`px-6 py-2 rounded-lg font-semibold transition-all max-mobile:text-[12px] max-mobile:bg-blue-500 ${
+                    className={`px-6 py-2 rounded-lg font-semibold transition-all max-mobile:text-[12px] max-mobile:bg-blue-500 max-mobile:text-white ${
                       selectedIndex === 0
                         ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                         : "bg-[#009688] text-white hover:bg-[#00796B]"
