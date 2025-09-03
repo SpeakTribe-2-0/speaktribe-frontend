@@ -24,6 +24,7 @@ import IgboSentence from './components/sentences/IgboSentence';
 import  QrCode  from '../src/pages/site/QrCode';
 import Chat from './pages/site/Chat';
 import Robo from './pages/Robo';
+import VerifyOtpPage from './pages/user/VerifyOtp';
 
 const AppContent = () => {
   const location = useLocation();
@@ -32,7 +33,7 @@ const AppContent = () => {
   const hideNavAndFooter = ['/', '/login', '/signup'];
 
   // pages where Robo should not show
-  const hideRobo = ['/chat', '/login', '/signup','/' ];
+  const hideRobo = ['/chat', '/login', '/signup','/', '/verify-otp' ];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} className='relative'>
@@ -52,6 +53,7 @@ const AppContent = () => {
           {/* auth */}
           <Route path='/login' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
+          <Route path='/verify-otp' element={<VerifyOtpPage />} />
 
           {/* site pages */}
           <Route path='/home' element={<HomePage />} />
