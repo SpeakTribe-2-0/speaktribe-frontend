@@ -15,7 +15,7 @@ import GetStarted from './pages/site/GetStarted';
 import YorubaAlphabet from './components/alphabets/YorubaAlphabet';
 import HausaAlphabet from './components/alphabets/HausaAlphabet';
 import IgboAlphabet from './components/alphabets/IgboAlphabet';
-import YorubaWords from './components/words/YorubaWords';
+import YorubaWords from './components/words/YorubaWords'
 import HausaWords from './components/words/HausaWords';
 import IgboWords from './components/words/IgboWords';
 import YorubaSentence from './components/sentences/YorubaSentence';
@@ -25,6 +25,10 @@ import  QrCode  from '../src/pages/site/QrCode';
 import Chat from './pages/site/Chat';
 import Robo from './pages/Robo';
 import VerifyOtpPage from './pages/user/VerifyOtp';
+
+
+
+
 
 const AppContent = () => {
   const location = useLocation();
@@ -54,6 +58,9 @@ const AppContent = () => {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
           <Route path='/verify-otp' element={<VerifyOtpPage />} />
+
+
+
 
           {/* site pages */}
           <Route path='/home' element={<HomePage />} />

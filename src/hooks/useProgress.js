@@ -1,3 +1,4 @@
+// hooks/useProgress.js
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "../supabaseClient";
 
@@ -9,15 +10,12 @@ const useProgress = (language) => {
 
   const sections = ["Alphabet", "Words", "Sentences"];
 
-  // Load all progress for the current user and language
   const loadAllProgress = useCallback(async () => {
     try {
       setLoading(true);
 
-      // Supabase v2 getUser
-      const { data: { user }, error: authError } = await supabase.auth.getUser();
-
-      if (authError || !user) {
+      const { data: { user: currentUser }, error: authError } = await supabase.auth.getUser();
+      if (authError || !currentUser) {
         console.error("Auth error:", authError);
         setUser(null);
         setLanguageProgress({});
@@ -25,86 +23,116 @@ const useProgress = (language) => {
         return;
       }
 
-      setUser(user);
+      setUser(currentUser);
+
+      console.log("🔍 Fetching progress for:", { user: currentUser.id, language });
 
       const { data, error } = await supabase
         .from("user_progress")
         .select("*")
-        .eq("user_id", user.id)
+        .eq("user_id", currentUser.id)
         .eq("language", language);
 
       if (error) {
-        console.error("Supabase fetch error:", error);
+        console.error("❌ Supabase fetch error:", error);
         return;
       }
+
+      console.log("📥 Fetched data:", data);
 
       const progressData = {};
       let totalProgress = 0;
 
-      sections.forEach(section => {
-        const sectionData = data?.find(item => item.section === section);
+      sections.forEach((section) => {
+        const sectionData = data?.find((item) => item.section === section);
+        const completedDays = sectionData?.completed_days || 0;
+        const totalDays = sectionData?.total_days || 1;
+        const progressPct = totalDays > 0 ? Math.round((completedDays / totalDays) * 100) : 0;
+
         progressData[section] = {
-          completedDays: sectionData?.completed_days || 0,
-          totalDays: sectionData?.total_days || 1,
-          progressPct: sectionData?.progress_pct ?? 0, // Prevent NaN
+          completedDays,
+          totalDays,
+          progressPct,
         };
-        totalProgress += progressData[section].progressPct;
+
+        totalProgress += progressPct;
       });
 
       setLanguageProgress(progressData);
       setOverallProgress(sections.length ? Math.round(totalProgress / sections.length) : 0);
 
+      console.log("✅ Progress loaded:", { languageProgress: progressData, overallProgress: Math.round(totalProgress / sections.length) });
     } catch (err) {
-      console.error("Network error in loadAllProgress:", err);
+      console.error("❌ Network error in loadAllProgress:", err);
     } finally {
       setLoading(false);
     }
   }, [language]);
 
-  // Save progress for a specific section
   const saveProgress = useCallback(
     async (section, completedDays, totalDays) => {
       if (!user) {
-        console.warn("User not authenticated. Cannot save progress.");
+        console.warn("🚫 User not authenticated. Cannot save progress.");
         return;
       }
 
-      // Upsert row using unique constraint
-      const { error } = await supabase
-        .from("user_progress")
-        .upsert({
-          user_id: user.id,
-          language,
-          section,
-          completed_days: completedDays,
-          total_days: totalDays,
-        }, { onConflict: ["user_id", "language", "section"] });
+      const progressPct = totalDays > 0 ? Math.round((completedDays / totalDays) * 100) : 0;
 
-      if (error) {
-        console.error("Error saving progress:", error.message);
-      } else {
-        loadAllProgress(); // Refresh state
-        window.dispatchEvent(new Event("progressUpdate"));
+      console.log("📤 Saving progress:", { language, section, completedDays, totalDays, progressPct });
+
+      try {
+        const { error } = await supabase
+          .from("user_progress")
+          .upsert(
+            {
+              user_id: user.id,
+              language,
+              section,
+              completed_days: completedDays,
+              total_days: totalDays,
+              progress_pct: progressPct,
+              updated_at: new Date().toISOString(),
+            },
+            { onConflict: ["user_id", "language", "section"] }
+          );
+
+        if (error) {
+          console.error("❌ Error saving to Supabase:", error.message);
+        } else {
+          console.log("✅ Progress saved to DB!");
+          await loadAllProgress();
+          window.dispatchEvent(
+            new CustomEvent("progressUpdate", { detail: { language } })
+          );
+        }
+      } catch (err) {
+        console.error("❌ Error in saveProgress:", err);
       }
     },
     [user, language, loadAllProgress]
   );
 
-  // Initialize progress and listen for auth changes
   useEffect(() => {
     loadAllProgress();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((event) => {
       if (["SIGNED_IN", "SIGNED_OUT", "TOKEN_REFRESHED"].includes(event)) {
+        console.log("🔐 Auth state changed:", event);
         loadAllProgress();
-        window.dispatchEvent(new Event("progressUpdate"));
+        window.dispatchEvent(new CustomEvent("progressUpdate", { detail: { language } }));
       }
     });
 
-    return () => subscription?.unsubscribe?.();
+    return () => authListener?.subscription?.unsubscribe?.();
   }, [loadAllProgress]);
 
-  return { languageProgress, overallProgress, saveProgress, loadAllProgress, user, loading, sections };
+  return {
+    languageProgress,
+    overallProgress,
+    saveProgress,
+    loadAllProgress,
+    loading,
+  };
 };
 
 export default useProgress;
