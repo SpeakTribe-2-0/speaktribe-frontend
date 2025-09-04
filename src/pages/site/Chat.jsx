@@ -421,6 +421,15 @@ const Chat = () => {
               >
                 Start Learning Journey ✨
               </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handleModalSubmit}
+                className="w-full mt-6 bg-gradient-to-r from-[#540c00] to-[#a10101] text-white py-3.5 rounded-xl font-semibold hover:from-[#be0b01] hover:to-[#d60202] disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed transition-all shadow-lg"
+              >
+                Cancel Chat
+              </motion.button>
             </motion.div>
           </motion.div>
         )}
