@@ -40,6 +40,7 @@ const AppContent = () => {
 
   // pages where Robo should not show
   const hideRobo = ['/chat', '/login', '/signup','/', '/verify-otp' ];
+  const hideFooter = ['/chat', '/login', '/signup','/', '/verify-otp' ];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} className='relative'>
@@ -102,7 +103,8 @@ const AppContent = () => {
       </div>
 
       {/* Show Footer unless hidden */}
-      {!hideNavAndFooter.includes(location.pathname) && <Footer />}
+      {/* {!hideNavAndFooter.includes(location.pathname) && <Footer />} */}
+      {!hideFooter.includes(location.pathname) && <Footer />}
     </div>
   );
 };
