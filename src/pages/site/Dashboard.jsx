@@ -27,9 +27,14 @@ const Dashboard = () => {
         .eq('id', currentUser.id)
         .single();
 
-      setUser({
-        displayName: profile?.display_name || currentUser.email.split('@')[0],
-      });
+      // ✅ Correct displayName fetching
+      const displayName =
+        currentUser.user_metadata?.full_name ||
+        currentUser.user_metadata?.displayName ||
+        profile?.display_name ||
+        currentUser.email.split('@')[0];
+
+      setUser({ displayName });
     };
 
     fetchUserProfile();

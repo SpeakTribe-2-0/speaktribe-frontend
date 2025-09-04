@@ -25,6 +25,8 @@ import  QrCode  from '../src/pages/site/QrCode';
 import Chat from './pages/site/Chat';
 import Robo from './pages/Robo';
 import VerifyOtpPage from './pages/user/VerifyOtp';
+import Profile from './pages/user/Profile';
+// import Demo from './Demo';
 
 
 
@@ -58,6 +60,18 @@ const AppContent = () => {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
           <Route path='/verify-otp' element={<VerifyOtpPage />} />
+          <Route path='/profile' element={<Profile />} />
+
+
+
+
+
+          {/* <Route path='/back' element={<Demo />} /> */}
+
+
+
+
+
 
 
 
