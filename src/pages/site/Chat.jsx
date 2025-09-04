@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FiSend, FiUser, FiMenu, FiSettings, FiMessageCircle, FiRefreshCw, FiChevronLeft } from "react-icons/fi";
+import {
+  FiSend,
+  FiUser,
+  FiMenu,
+  FiSettings,
+  FiMessageCircle,
+  FiRefreshCw,
+  FiChevronLeft,
+} from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
@@ -18,37 +26,40 @@ const Chat = () => {
     firstName: "",
     level: "",
     learningGoal: "",
-    culturalBackground: ""
+    culturalBackground: "",
   });
 
   const [generativeAI, setGenerativeAI] = useState(null);
   const [model, setModel] = useState(null);
 
   const teachers = {
-    ola: { 
-      name: "Ola", 
-      language: "Yoruba", 
-      color: "#00968741", 
+    ola: {
+      name: "Ola",
+      language: "Yoruba",
+      color: "#00968741",
       culture: "yoruba",
-      story: "Ola grew up in Lagos and loves sharing Yoruba traditions through storytelling and proverbs. She makes learning fun with cultural anecdotes.",
-      avatar: "🌶️"
+      story:
+        "Ola grew up in Lagos and loves sharing Yoruba traditions through storytelling and proverbs. She makes learning fun with cultural anecdotes.",
+      avatar: "🌶️",
     },
-    abdul: { 
-      name: "Abdul", 
-      language: "Hausa", 
-      color: "#00968741", 
+    abdul: {
+      name: "Abdul",
+      language: "Hausa",
+      color: "#00968741",
       culture: "hausa",
-      story: "Abdul is from Kano and passionate about Hausa poetry and history. He incorporates cultural wisdom into every lesson.",
-      avatar: "🌙"
+      story:
+        "Abdul is from Kano and passionate about Hausa poetry and history. He incorporates cultural wisdom into every lesson.",
+      avatar: "🌙",
     },
-    chidimma: { 
-      name: "Chidimma", 
-      language: "Igbo", 
-      color: "#00968741", 
+    chidimma: {
+      name: "Chidimma",
+      language: "Igbo",
+      color: "#00968741",
       culture: "igbo",
-      story: "Chidimma hails from Enugu and loves teaching through Igbo folklore and music. She believes language connects hearts.",
-      avatar: "💵"
-    }
+      story:
+        "Chidimma hails from Enugu and loves teaching through Igbo folklore and music. She believes language connects hearts.",
+      avatar: "💵",
+    },
   };
 
   // Initialize Gemini AI
@@ -63,30 +74,32 @@ const Chat = () => {
 
     // Load user data from localStorage
     try {
-      const userData = localStorage.getItem('user');
+      const userData = localStorage.getItem("user");
       if (userData) {
         const parsedData = JSON.parse(userData);
-        setUserDetails(prev => ({
+        setUserDetails((prev) => ({
           ...prev,
-          firstName: parsedData.firstName || ""
+          firstName: parsedData.firstName || "",
         }));
       }
     } catch (error) {
-      console.error('Error parsing user data:', error);
+      console.error("Error parsing user data:", error);
     }
-    
+
     // Load chat history
     try {
-      const savedHistory = localStorage.getItem('chatHistory');
+      const savedHistory = localStorage.getItem("chatHistory");
       if (savedHistory) {
         setChatHistory(JSON.parse(savedHistory));
       }
     } catch (error) {
-      console.error('Error loading chat history:', error);
+      console.error("Error loading chat history:", error);
     }
-    
+
     // Check if user has completed onboarding
-    const hasCompletedOnboarding = localStorage.getItem('hasCompletedOnboarding');
+    const hasCompletedOnboarding = localStorage.getItem(
+      "hasCompletedOnboarding"
+    );
     if (!hasCompletedOnboarding) {
       setShowModal(true);
     }
@@ -97,7 +110,7 @@ const Chat = () => {
     const scrollToBottom = () => {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
-    
+
     // Use setTimeout to ensure DOM updates
     const timer = setTimeout(scrollToBottom, 100);
     return () => clearTimeout(timer);
@@ -108,60 +121,65 @@ const Chat = () => {
     if (selectedTeacher && messages.length > 0) {
       const updatedHistory = {
         ...chatHistory,
-        [selectedTeacher]: messages
+        [selectedTeacher]: messages,
       };
       setChatHistory(updatedHistory);
-      localStorage.setItem('chatHistory', JSON.stringify(updatedHistory));
+      localStorage.setItem("chatHistory", JSON.stringify(updatedHistory));
     }
   }, [messages, selectedTeacher]);
 
   const getSuggestions = () => {
     if (!selectedTeacher) return [];
-    
+
     const teacher = teachers[selectedTeacher];
     const suggestions = {
       words: [
         `Teach me basic ${teacher.language} greetings`,
         `What are common ${teacher.language} words for family?`,
-        `How do you say "thank you" in ${teacher.language}?`
+        `How do you say "thank you" in ${teacher.language}?`,
       ],
       alphabets: [
         `Show me the ${teacher.language} alphabet`,
         `How do you write my name in ${teacher.language}?`,
-        `Teach me ${teacher.language} pronunciation rules`
+        `Teach me ${teacher.language} pronunciation rules`,
       ],
       sentences: [
         `Help me form simple sentences in ${teacher.language}`,
         `Teach me basic ${teacher.language} grammar`,
-        `Show me sentence structure examples`
+        `Show me sentence structure examples`,
       ],
       conversation: [
         `Let's have a conversation in ${teacher.language}`,
         `Role-play a market scene in ${teacher.language}`,
-        `Practice introductions in ${teacher.language}`
-      ]
+        `Practice introductions in ${teacher.language}`,
+      ],
     };
-    
+
     return suggestions[userDetails.learningGoal] || suggestions.words;
   };
 
   const handleModalSubmit = () => {
-    if (!userDetails.firstName || !userDetails.level || !userDetails.learningGoal || !userDetails.culturalBackground) {
+    if (
+      !userDetails.firstName ||
+      !userDetails.level ||
+      !userDetails.learningGoal ||
+      !userDetails.culturalBackground
+    ) {
       return;
     }
-    
+
     // Save user data to localStorage
-    localStorage.setItem('user', JSON.stringify(userDetails));
-    localStorage.setItem('hasCompletedOnboarding', 'true');
-    
+    localStorage.setItem("user", JSON.stringify(userDetails));
+    localStorage.setItem("hasCompletedOnboarding", "true");
+
     // Auto select teacher based on cultural background
     let teacher = "ola";
     if (userDetails.culturalBackground === "hausa") teacher = "abdul";
     if (userDetails.culturalBackground === "igbo") teacher = "chidimma";
-    
+
     setSelectedTeacher(teacher);
     setShowModal(false);
-    
+
     // Load previous chat or create new welcome message
     const previousChat = chatHistory[teacher];
     if (previousChat && previousChat.length > 0) {
@@ -172,9 +190,9 @@ const Chat = () => {
       const welcomeMessage = {
         id: Date.now(),
         sender: "ai",
-        text: `${teacherInfo.avatar} Hello ${userDetails.firstName}! I'm ${teacherInfo.name}, your ${teacherInfo.language} teacher. I'm excited to help you learn ${userDetails.learningGoal} at your ${userDetails.level} level. Let's continue this beautiful journey together!`
+        text: `${teacherInfo.avatar} Hello ${userDetails.firstName}! I'm ${teacherInfo.name}, your ${teacherInfo.language} teacher. I'm excited to help you learn ${userDetails.learningGoal} at your ${userDetails.level} level. Let's continue this beautiful journey together!`,
       };
-      
+
       setMessages([welcomeMessage]);
       setConversationStarted(true);
     }
@@ -184,15 +202,19 @@ const Chat = () => {
     if (!model || !selectedTeacher) {
       return "I'm having trouble connecting to the AI service. Please check your API key.";
     }
-    
+
     try {
       const teacher = teachers[selectedTeacher];
-      
+
       // Build context from previous messages
-      const context = messages.slice(-6).map(msg => 
-        `${msg.sender === 'user' ? 'Student' : teacher.name}: ${msg.text}`
-      ).join('\n');
-      
+      const context = messages
+        .slice(-6)
+        .map(
+          (msg) =>
+            `${msg.sender === "user" ? "Student" : teacher.name}: ${msg.text}`
+        )
+        .join("\n");
+
       const promptWithContext = `
         You are ${teacher.name}, a friendly ${teacher.language} language teacher with ${teacher.culture} cultural background.
         You're teaching ${userDetails.firstName} who is at ${userDetails.level} level and wants to learn ${userDetails.learningGoal}.
@@ -207,15 +229,14 @@ const Chat = () => {
         Student: ${prompt}
         ${teacher.name}:
       `;
-      
+
       const result = await model.generateContent(promptWithContext);
       const response = await result.response;
       const text = response.text();
-      
+
       // Ensure the response is concise
-      const sentences = text.split('. ').slice(0, 2);
-      return sentences.join('. ') + (sentences.length > 1 ? '.' : '');
-      
+      const sentences = text.split(". ").slice(0, 2);
+      return sentences.join(". ") + (sentences.length > 1 ? "." : "");
     } catch (error) {
       console.error("Error generating AI response:", error);
       if (error.message.includes("API key")) {
@@ -229,20 +250,24 @@ const Chat = () => {
     if (!input.trim() || !selectedTeacher || isTyping) return;
 
     const newMessage = { id: Date.now(), sender: "user", text: input };
-    setMessages(prev => [...prev, newMessage]);
+    setMessages((prev) => [...prev, newMessage]);
     setInput("");
     setIsTyping(true);
 
     try {
       const aiResponse = await generateAIResponse(input);
-      setMessages(prev => [
+      setMessages((prev) => [
         ...prev,
-        { id: Date.now(), sender: "ai", text: aiResponse }
+        { id: Date.now(), sender: "ai", text: aiResponse },
       ]);
     } catch (error) {
-      setMessages(prev => [
+      setMessages((prev) => [
         ...prev,
-        { id: Date.now(), sender: "ai", text: "Sorry, I'm having trouble right now. Please try again!" }
+        {
+          id: Date.now(),
+          sender: "ai",
+          text: "Sorry, I'm having trouble right now. Please try again!",
+        },
       ]);
     } finally {
       setIsTyping(false);
@@ -252,7 +277,9 @@ const Chat = () => {
   const handleSuggestionClick = (suggestion) => {
     setInput(suggestion);
     setTimeout(() => {
-      const sendButton = document.querySelector('button[aria-label="Send message"]');
+      const sendButton = document.querySelector(
+        'button[aria-label="Send message"]'
+      );
       if (sendButton) sendButton.click();
     }, 100);
   };
@@ -263,11 +290,11 @@ const Chat = () => {
     setSelectedTeacher(null);
     setConversationStarted(false);
     // Keep firstName from localStorage, reset other fields
-    setUserDetails(prev => ({
+    setUserDetails((prev) => ({
       ...prev,
       level: "",
       learningGoal: "",
-      culturalBackground: ""
+      culturalBackground: "",
     }));
   };
 
@@ -278,20 +305,20 @@ const Chat = () => {
       );
       if (!confirmSwitch) return;
     }
-    
+
     // Save current chat before switching
     if (selectedTeacher && messages.length > 0) {
       const updatedHistory = {
         ...chatHistory,
-        [selectedTeacher]: messages
+        [selectedTeacher]: messages,
       };
       setChatHistory(updatedHistory);
-      localStorage.setItem('chatHistory', JSON.stringify(updatedHistory));
+      localStorage.setItem("chatHistory", JSON.stringify(updatedHistory));
     }
-    
+
     setSelectedTeacher(teacherKey);
     setSidebarOpen(false);
-    
+
     // Load previous chat or create new welcome message
     const previousChat = chatHistory[teacherKey];
     if (previousChat && previousChat.length > 0) {
@@ -302,9 +329,17 @@ const Chat = () => {
       const welcomeMessage = {
         id: Date.now(),
         sender: "ai",
-        text: `${teacherInfo.avatar} Hello ${userDetails.firstName || 'learner'}! I'm ${teacherInfo.name}, your ${teacherInfo.language} teacher. I'm excited to help you learn ${userDetails.learningGoal || 'the language'} at your ${userDetails.level || 'current'} level. Let's begin this beautiful journey together!`
+        text: `${teacherInfo.avatar} Hello ${
+          userDetails.firstName || "learner"
+        }! I'm ${teacherInfo.name}, your ${
+          teacherInfo.language
+        } teacher. I'm excited to help you learn ${
+          userDetails.learningGoal || "the language"
+        } at your ${
+          userDetails.level || "current"
+        } level. Let's begin this beautiful journey together!`,
       };
-      
+
       setMessages([welcomeMessage]);
       setConversationStarted(true);
     }
@@ -331,25 +366,32 @@ const Chat = () => {
               exit={{ scale: 0.9, opacity: 0 }}
               className="bg-white rounded-3xl p-6 w-full max-w-md shadow-2xl"
             >
-              <motion.h2 
+              <motion.h2
                 initial={{ y: -20 }}
                 animate={{ y: 0 }}
                 className="text-2xl md:text-3xl font-bold text-center mb-6 bg-gradient-to-r from-[#009688] to-[#009688] bg-clip-text text-transparent"
               >
                 Welcome to Language Learning!
               </motion.h2>
-              
+
               <div className="space-y-5">
                 <motion.div
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.1 }}
                 >
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Your Name
+                  </label>
                   <input
                     type="text"
                     value={userDetails.firstName}
-                    onChange={(e) => setUserDetails({...userDetails, firstName: e.target.value})}
+                    onChange={(e) =>
+                      setUserDetails({
+                        ...userDetails,
+                        firstName: e.target.value,
+                      })
+                    }
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#009688] focus:border-[#009688] transition-all"
                     placeholder="Enter your name"
                   />
@@ -360,10 +402,14 @@ const Chat = () => {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Your Learning Level</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Your Learning Level
+                  </label>
                   <select
                     value={userDetails.level}
-                    onChange={(e) => setUserDetails({...userDetails, level: e.target.value})}
+                    onChange={(e) =>
+                      setUserDetails({ ...userDetails, level: e.target.value })
+                    }
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#009688] focus:border-[#009688] transition-all"
                   >
                     <option value="">Select your level</option>
@@ -378,17 +424,26 @@ const Chat = () => {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">What do you want to learn?</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    What do you want to learn?
+                  </label>
                   <select
                     value={userDetails.learningGoal}
-                    onChange={(e) => setUserDetails({...userDetails, learningGoal: e.target.value})}
+                    onChange={(e) =>
+                      setUserDetails({
+                        ...userDetails,
+                        learningGoal: e.target.value,
+                      })
+                    }
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#009688] focus:border-[#009688] transition-all"
                   >
                     <option value="">Select learning goal</option>
                     <option value="words">📚 Words & Vocabulary</option>
                     <option value="alphabets">🔤 Alphabets & Writing</option>
                     <option value="sentences">📝 Sentences & Grammar</option>
-                    <option value="conversation">💬 Conversation Practice</option>
+                    <option value="conversation">
+                      💬 Conversation Practice
+                    </option>
                   </select>
                 </motion.div>
 
@@ -397,10 +452,17 @@ const Chat = () => {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Your Cultural Background</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Your Cultural Background
+                  </label>
                   <select
                     value={userDetails.culturalBackground}
-                    onChange={(e) => setUserDetails({...userDetails, culturalBackground: e.target.value})}
+                    onChange={(e) =>
+                      setUserDetails({
+                        ...userDetails,
+                        culturalBackground: e.target.value,
+                      })
+                    }
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#009688] focus:border-[#009688] transition-all"
                   >
                     <option value="">Select background</option>
@@ -416,19 +478,27 @@ const Chat = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleModalSubmit}
-                disabled={!userDetails.firstName || !userDetails.level || !userDetails.learningGoal || !userDetails.culturalBackground}
+                disabled={
+                  !userDetails.firstName ||
+                  !userDetails.level ||
+                  !userDetails.learningGoal ||
+                  !userDetails.culturalBackground
+                }
                 className="w-full mt-6 bg-gradient-to-r from-[#009688] to-[#009688] text-white py-3.5 rounded-xl font-semibold hover:from-[#007a6e] hover:to-[#007a6e] disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed transition-all shadow-lg"
               >
                 Start Learning Journey ✨
               </motion.button>
 
+              
+              {/* --------------------------------------------------------- */}
+              {/* added the cancel learning button. set the onclick to navigate the user to the previous page */}
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleModalSubmit}
-                className="w-full mt-6 bg-gradient-to-r from-[#540c00] to-[#a10101] text-white py-3.5 rounded-xl font-semibold hover:from-[#be0b01] hover:to-[#d60202] disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed transition-all shadow-lg"
+                className="w-full mt-6 bg-gradient-to-r from-[#721701] to-[#912500] text-white py-3.5 rounded-xl font-semibold hover:from-[#a72a01] hover:to-[#bf0101] disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed transition-all shadow-lg"
               >
-                Cancel Chat
+                Cancel
               </motion.button>
             </motion.div>
           </motion.div>
@@ -453,16 +523,21 @@ const Chat = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="text-center">
-                <div 
+                <div
                   className="w-20 h-20 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-lg"
                   style={{ backgroundColor: teachers[selectedTeacher].color }}
                 >
                   {teachers[selectedTeacher].avatar}
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-2" style={{ color: teachers[selectedTeacher].color }}>
+                <h3
+                  className="text-xl md:text-2xl font-bold mb-2"
+                  style={{ color: teachers[selectedTeacher].color }}
+                >
                   Meet {teachers[selectedTeacher].name}
                 </h3>
-                <p className="text-gray-600 mb-3">Your {teachers[selectedTeacher].language} Teacher</p>
+                <p className="text-gray-600 mb-3">
+                  Your {teachers[selectedTeacher].language} Teacher
+                </p>
                 <p className="text-gray-700 leading-relaxed px-2">
                   {teachers[selectedTeacher].story}
                 </p>
@@ -505,7 +580,7 @@ const Chat = () => {
               </button>
             </div>
           </div>
-          
+
           <div className="flex-1 overflow-y-auto p-4">
             <div className="space-y-3 ">
               {Object.entries(teachers).map(([key, teacher]) => (
@@ -515,45 +590,57 @@ const Chat = () => {
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handleTeacherSelect(key)}
                   className={`p-4 rounded-2xl cursor-pointer transition-all ${
-                    selectedTeacher === key 
-                      ? 'shadow-lg ring-2 ring-offset-2' 
-                      : 'hover:shadow-md'
+                    selectedTeacher === key
+                      ? "shadow-lg ring-2 ring-offset-2"
+                      : "hover:shadow-md"
                   }`}
-                  style={{ 
-                    backgroundColor: selectedTeacher === key ? `${teacher.color}15` : 'white',
-                    ringColor: selectedTeacher === key ? teacher.color : 'transparent'
+                  style={{
+                    backgroundColor:
+                      selectedTeacher === key ? `${teacher.color}15` : "white",
+                    ringColor:
+                      selectedTeacher === key ? teacher.color : "transparent",
                   }}
                 >
                   <div className="flex items-center">
-                    <div 
+                    <div
                       className="w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-md mr-3"
                       style={{ backgroundColor: teacher.color }}
                     >
                       {teacher.avatar}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-bold text-gray-800 truncate">{teacher.name}</div>
-                      <div className="text-sm text-gray-600">{teacher.language}</div>
+                      <div className="font-bold text-gray-800 truncate">
+                        {teacher.name}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {teacher.language}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
-            
+
             {/* Teacher Stories Section */}
             <div className="mt-8">
-              <h3 className="text-base font-bold text-gray-800 mb-3">Teacher Stories</h3>
+              <h3 className="text-base font-bold text-gray-800 mb-3">
+                Teacher Stories
+              </h3>
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-sm border border-white/50">
                 {selectedTeacher ? (
                   <div>
                     <div className="flex items-center mb-2">
-                      <div 
+                      <div
                         className="w-8 h-8 rounded-full flex items-center justify-center text-sm mr-2"
-                        style={{ backgroundColor: teachers[selectedTeacher].color }}
+                        style={{
+                          backgroundColor: teachers[selectedTeacher].color,
+                        }}
                       >
                         {teachers[selectedTeacher].avatar}
                       </div>
-                      <span className="font-semibold text-gray-800">{teachers[selectedTeacher].name}</span>
+                      <span className="font-semibold text-gray-800">
+                        {teachers[selectedTeacher].name}
+                      </span>
                     </div>
                     <p className="text-xs text-gray-600">
                       {teachers[selectedTeacher].story}
@@ -567,16 +654,20 @@ const Chat = () => {
               </div>
             </div>
           </div>
-          
+
           {/* User Profile */}
           <div className="p-4 border-t border-gray-200 bg-gradient-to-r from-gray-50 to-[#009688]/10">
             <div className="flex items-center">
               <div className="w-10 h-10 bg-gradient-to-r from-[#009688] to-[#009688] rounded-full flex items-center justify-center text-white text-base font-bold shadow-md">
-                {userDetails.firstName?.charAt(0) || 'U'}
+                {userDetails.firstName?.charAt(0) || "U"}
               </div>
               <div className="ml-3 flex-1 min-w-0">
-                <div className="font-semibold text-gray-800 truncate">{userDetails.firstName || 'User'}</div>
-                <div className="text-xs text-gray-600 capitalize">{userDetails.level || 'Learner'}</div>
+                <div className="font-semibold text-gray-800 truncate">
+                  {userDetails.firstName || "User"}
+                </div>
+                <div className="text-xs text-gray-600 capitalize">
+                  {userDetails.level || "Learner"}
+                </div>
               </div>
               <button
                 onClick={openOnboarding}
@@ -605,29 +696,34 @@ const Chat = () => {
               >
                 <FiMenu size={20} />
               </button>
-              
+
               <div className="flex items-center space-x-2 md:space-x-3">
                 {selectedTeacher && (
                   <>
                     <div
                       className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-sm md:text-base shadow-md cursor-pointer hover:scale-110 transition-transform"
-                      style={{ backgroundColor: teachers[selectedTeacher].color }}
+                      style={{
+                        backgroundColor: teachers[selectedTeacher].color,
+                      }}
                       onClick={() => setShowTeacherInfo(true)}
                     >
                       {teachers[selectedTeacher].avatar}
                     </div>
                     <h1 className="text-base md:text-lg font-bold text-gray-800 truncate max-w-[120px] md:max-w-xs">
-                      {teachers[selectedTeacher].name} ({teachers[selectedTeacher].language})
+                      {teachers[selectedTeacher].name} (
+                      {teachers[selectedTeacher].language})
                     </h1>
                   </>
                 )}
               </div>
-              
+
               <div className="flex space-x-2">
                 <button
                   onClick={() => {
                     if (selectedTeacher) {
-                      const confirmReset = window.confirm("This will end your current session. Are you sure?");
+                      const confirmReset = window.confirm(
+                        "This will end your current session. Are you sure?"
+                      );
                       if (confirmReset) resetConversation();
                     } else {
                       resetConversation();
@@ -654,22 +750,25 @@ const Chat = () => {
                     className="text-center py-8"
                   >
                     <div className="inline-block p-4 rounded-full bg-white/80 backdrop-blur-sm shadow-sm mb-4">
-                      <div 
+                      <div
                         className="w-16 h-16 rounded-full flex items-center justify-center text-2xl"
-                        style={{ backgroundColor: teachers[selectedTeacher].color }}
+                        style={{
+                          backgroundColor: teachers[selectedTeacher].color,
+                        }}
                       >
                         {teachers[selectedTeacher].avatar}
                       </div>
                     </div>
                     <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
-                      Welcome to your {teachers[selectedTeacher].language} lesson!
+                      Welcome to your {teachers[selectedTeacher].language}{" "}
+                      lesson!
                     </h3>
                     <p className="text-gray-600 max-w-md mx-auto ">
                       {teachers[selectedTeacher].story}
                     </p>
                   </motion.div>
                 )}
-                
+
                 <AnimatePresence>
                   {messages.map((msg) => (
                     <motion.div
@@ -677,13 +776,17 @@ const Chat = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
-                      className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+                      className={`flex ${
+                        msg.sender === "user" ? "justify-end" : "justify-start"
+                      }`}
                     >
                       <div className="flex items-end max-w-xs md:max-w-md lg:max-w-lg text-[14px]">
                         {msg.sender === "ai" && selectedTeacher && (
-                          <div 
+                          <div
                             className="w-8 h-8 rounded-full flex items-center justify-center text-sm mr-2 md:mr-3 mb-1 shadow-md flex-shrink-0 "
-                            style={{ backgroundColor: teachers[selectedTeacher].color }}
+                            style={{
+                              backgroundColor: teachers[selectedTeacher].color,
+                            }}
                           >
                             {teachers[selectedTeacher].avatar}
                           </div>
@@ -711,9 +814,11 @@ const Chat = () => {
                   >
                     <div className="flex items-end">
                       {selectedTeacher && (
-                        <div 
+                        <div
                           className="w-8 h-8 rounded-full flex items-center justify-center text-sm mr-2 md:mr-3 mb-1 shadow-md flex-shrink-0"
-                          style={{ backgroundColor: teachers[selectedTeacher].color }}
+                          style={{
+                            backgroundColor: teachers[selectedTeacher].color,
+                          }}
                         >
                           {teachers[selectedTeacher].avatar}
                         </div>
@@ -722,17 +827,29 @@ const Chat = () => {
                         <div className="flex space-x-1">
                           <motion.div
                             animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, delay: 0 }}
+                            transition={{
+                              duration: 0.6,
+                              repeat: Infinity,
+                              delay: 0,
+                            }}
                             className="w-2 h-2 bg-gray-400 rounded-full"
                           />
                           <motion.div
                             animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
+                            transition={{
+                              duration: 0.6,
+                              repeat: Infinity,
+                              delay: 0.2,
+                            }}
                             className="w-2 h-2 bg-gray-400 rounded-full"
                           />
                           <motion.div
                             animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
+                            transition={{
+                              duration: 0.6,
+                              repeat: Infinity,
+                              delay: 0.4,
+                            }}
                             className="w-2 h-2 bg-gray-400 rounded-full"
                           />
                         </div>
@@ -782,8 +899,12 @@ const Chat = () => {
                       type="text"
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
-                      onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                      placeholder={selectedTeacher ? `Message ${teachers[selectedTeacher].name}...` : 'Select a teacher first...'}
+                      onKeyPress={(e) => e.key === "Enter" && handleSend()}
+                      placeholder={
+                        selectedTeacher
+                          ? `Message ${teachers[selectedTeacher].name}...`
+                          : "Select a teacher first..."
+                      }
                       disabled={!selectedTeacher}
                       className="w-full px-4 py-3 md:py-4 pr-12 md:pr-14 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#009688] focus:border-[#009688] transition-all bg-white/80 backdrop-blur-sm disabled:bg-gray-100 disabled:cursor-not-allowed text-sm md:text-base"
                     />
@@ -791,7 +912,7 @@ const Chat = () => {
                       <FiMessageCircle size={18} />
                     </div>
                   </div>
-                  
+
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -812,11 +933,16 @@ const Chat = () => {
                     className="flex items-center justify-center mt-2 md:mt-3 text-xs md:text-sm text-gray-600"
                   >
                     <div className="flex items-center space-x-2">
-                      <div 
+                      <div
                         className="w-2 h-2 rounded-full"
-                        style={{ backgroundColor: teachers[selectedTeacher].color }}
+                        style={{
+                          backgroundColor: teachers[selectedTeacher].color,
+                        }}
                       />
-                      <span>Learning {userDetails.learningGoal} • {userDetails.level} level</span>
+                      <span>
+                        Learning {userDetails.learningGoal} •{" "}
+                        {userDetails.level} level
+                      </span>
                     </div>
                   </motion.div>
                 )}
