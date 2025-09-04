@@ -1,3 +1,4 @@
+// pages/IgboAlphabet.jsx
 import React, { useState, useEffect } from "react";
 import { BsFillSpeakerFill } from "react-icons/bs";
 import alphabets from "../../utils/alphabets/igboAlphabet ";
@@ -23,54 +24,92 @@ const IgboAlphabet = () => {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
-  const [streak, setStreak] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentAudio, setCurrentAudio] = useState(null);
   const [showCelebration, setShowCelebration] = useState(false);
   const [particles, setParticles] = useState([]);
 
-  // Load progress on mount - FIXED: Remove dependency loop
+  // Validate alphabets
   useEffect(() => {
-    loadAllProgress();
-  }, []); // Only run once on mount
+    if (!alphabets || !Array.isArray(alphabets) || alphabets.length === 0) {
+      console.error("Igbo alphabet data is missing or invalid");
+      return;
+    }
+  }, []);
 
-  // Separate effect to handle progress loading - FIXED: Prevent infinite loop
+  // Load saved progress
   useEffect(() => {
     if (languageProgress?.Alphabet?.completedDays !== undefined) {
-      setDayIndex(languageProgress.Alphabet.completedDays);
+      const savedDay = languageProgress.Alphabet.completedDays;
+      const maxDay = totalDays - 1;
+      setDayIndex(Math.min(savedDay, maxDay));
     }
-  }, [languageProgress]); // Only depend on languageProgress
+  }, [languageProgress, totalDays]);
 
-  const dailyBatch = alphabets.slice(dayIndex * batchSize, dayIndex * batchSize + batchSize);
-  const current = dailyBatch[selectedIndex];
-
-  // Generate quiz once when quiz is shown - FIXED: Remove dailyBatch dependency
+  // Reset selectedIndex when day changes
   useEffect(() => {
-    if (showQuiz && !quizQuestions.length) { // Only generate if quiz is empty
-      const currentBatch = alphabets.slice(dayIndex * batchSize, dayIndex * batchSize + batchSize);
-      const newQuiz = currentBatch.map((q) => {
-        const options = [q.pronunciation];
+    setSelectedIndex(0);
+  }, [dayIndex]);
+
+  // Generate quiz
+  useEffect(() => {
+    if (showQuiz && quizQuestions.length === 0 && alphabets.length > 0) {
+      const start = dayIndex * batchSize;
+      const end = start + batchSize;
+      const currentBatch = alphabets.slice(start, end);
+
+      const newQuiz = currentBatch.map((letter) => {
+        const options = [letter.pronunciation];
         while (options.length < 4) {
-          const rand = alphabets[Math.floor(Math.random() * alphabets.length)].pronunciation;
-          if (!options.includes(rand)) options.push(rand);
+          const randomLetter = alphabets[Math.floor(Math.random() * alphabets.length)];
+          if (!options.includes(randomLetter.pronunciation)) {
+            options.push(randomLetter.pronunciation);
+          }
         }
         return {
-          letter: q.letter,
-          correct: q.pronunciation,
+          letter: letter.letter,
+          correct: letter.pronunciation,
           options: options.sort(() => 0.5 - Math.random()),
         };
       });
       setQuizQuestions(newQuiz);
     }
-  }, [showQuiz, dayIndex]); // Only depend on showQuiz and dayIndex
+  }, [showQuiz, dayIndex, alphabets, quizQuestions.length]);
 
-  // Create celebration particles
+  const dailyBatch = alphabets.slice(dayIndex * batchSize, dayIndex * batchSize + batchSize);
+  const current = dailyBatch[selectedIndex];
+
+  // Safety check
+  if (!alphabets || alphabets.length === 0) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-red-500">Failed to load alphabet data.</p>
+      </div>
+    );
+  }
+
+  if (!current) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-50">
+        <p className="text-lg text-gray-600">
+          No content for Day {dayIndex + 1}.{" "}
+          <button
+            onClick={() => setDayIndex(Math.max(0, dayIndex - 1))}
+            className="text-[#009688] underline"
+          >
+            Go back
+          </button>
+        </p>
+      </div>
+    );
+  }
+
   const createParticles = () => {
     const newParticles = Array.from({ length: 15 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      delay: Math.random() * 0.5
+      delay: Math.random() * 0.5,
     }));
     setParticles(newParticles);
     setTimeout(() => setParticles([]), 3000);
@@ -83,19 +122,10 @@ const IgboAlphabet = () => {
 
   const handleSubmit = () => {
     let newScore = 0;
-    let correctStreak = 0;
-
     quizQuestions.forEach((q, i) => {
-      if (quizAnswers[i] === q.correct) {
-        newScore++;
-        correctStreak++;
-      } else {
-        correctStreak = 0;
-      }
+      if (quizAnswers[i] === q.correct) newScore++;
     });
-
     setScore(newScore);
-    setStreak(correctStreak);
     setSubmitted(true);
 
     if (newScore === quizQuestions.length) {
@@ -121,11 +151,6 @@ const IgboAlphabet = () => {
 
   const updateProgress = (newDayIndex) => {
     saveProgress("Alphabet", newDayIndex, totalDays);
-    window.dispatchEvent(
-      new CustomEvent("progressUpdate", {
-        detail: { language, section: "Alphabet", completedDays: newDayIndex, totalDays },
-      })
-    );
   };
 
   const resetQuiz = () => {
@@ -134,7 +159,6 @@ const IgboAlphabet = () => {
     setQuizQuestions([]);
     setSubmitted(false);
     setScore(0);
-    setStreak(0);
     setSelectedIndex(0);
     setShowCelebration(false);
     setParticles([]);
@@ -142,15 +166,14 @@ const IgboAlphabet = () => {
 
   return (
     <div className="pt-24 bg-[#f9fafb] min-h-screen relative overflow-hidden">
-      {/* Celebration Particles */}
       <AnimatePresence>
-        {particles.map((particle) => (
+        {particles.map((p) => (
           <motion.div
-            key={particle.id}
-            initial={{ opacity: 1, scale: 0, x: `${particle.x}vw`, y: `${particle.y}vh` }}
-            animate={{ opacity: 0, scale: 1, y: `${particle.y - 20}vh`, rotate: 360 }}
+            key={p.id}
+            initial={{ opacity: 1, scale: 0, x: `${p.x}vw`, y: `${p.y}vh` }}
+            animate={{ opacity: 0, scale: 1, y: `${p.y - 20}vh`, rotate: 360 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 3, delay: particle.delay }}
+            transition={{ duration: 3, delay: p.delay }}
             className="fixed pointer-events-none text-2xl z-50"
           >
             {['🎉', '⭐', '🌟', '✨', '🎊'][Math.floor(Math.random() * 5)]}
@@ -158,7 +181,6 @@ const IgboAlphabet = () => {
         ))}
       </AnimatePresence>
 
-      {/* Success Confetti */}
       {showCelebration && <Confetti />}
 
       <div className="flex justify-center px-4">
@@ -173,10 +195,10 @@ const IgboAlphabet = () => {
                 transition={{ duration: 0.4 }}
                 className="bg-white shadow-lg rounded-2xl p-6"
               >
-                {/* Day & Progress */}
                 <h1 className="text-3xl font-bold text-[#262626] mb-4 text-center">
                   Igbo Alphabets — Day {dayIndex + 1} / {totalDays}
                 </h1>
+
                 <div className="mb-6">
                   <div className="flex justify-between text-sm text-gray-600 mb-2">
                     <span>Alphabet Progress</span>
@@ -190,15 +212,10 @@ const IgboAlphabet = () => {
                   </div>
                 </div>
 
-                {/* Letter */}
-                <div
-                  onClick={() => playAudio(current.sound)}
-                  className="cursor-pointer flex flex-col items-center justify-center my-8"
-                >
+                <div onClick={() => playAudio(current.sound)} className="cursor-pointer flex flex-col items-center my-8">
                   <span className="text-7xl font-extrabold text-[#009688] mb-3">{current.letter}</span>
                 </div>
 
-                {/* Pronunciation */}
                 <div className="bg-[#e0f2f1] rounded-xl px-6 py-4 flex items-center justify-between gap-3 shadow-sm mb-6">
                   <div className="flex items-center gap-3">
                     <div className="rounded-full bg-[#009688] p-3">
@@ -214,7 +231,6 @@ const IgboAlphabet = () => {
                   />
                 </div>
 
-                {/* Examples */}
                 <div className="bg-white border border-[#42424230] rounded-xl px-6 py-5 shadow-sm mb-6">
                   <p className="font-semibold text-lg mb-3">Example Words</p>
                   <div className="grid gap-4">
@@ -236,18 +252,16 @@ const IgboAlphabet = () => {
                   </div>
                 </div>
 
-                {/* Cultural Context */}
                 <div className="bg-white border border-[#42424230] rounded-xl px-6 py-5 shadow-sm mb-6">
                   <p className="font-semibold text-lg mb-2">Cultural Context</p>
                   <p className="text-gray-600 text-sm">{current.culturalContext}</p>
                 </div>
 
-                {/* Navigation */}
-                <div className="flex justify-between items-center mt-6 max-mobile:flex-col-reverse max-mobile:gap-3">
+                <div className="flex justify-between items-center mt-6">
                   <button
                     onClick={() => setSelectedIndex((prev) => Math.max(prev - 1, 0))}
                     disabled={selectedIndex === 0}
-                    className={`px-6 py-2 rounded-lg font-semibold transition-all ${
+                    className={`px-6 py-2 rounded-lg font-semibold ${
                       selectedIndex === 0
                         ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                         : "bg-[#009688] text-white hover:bg-[#00796B]"
@@ -261,14 +275,14 @@ const IgboAlphabet = () => {
                       onClick={() => setShowQuiz(true)}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl shadow-lg hover:shadow-xl transition-all font-bold"
+                      className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl shadow-lg hover:shadow-xl font-bold"
                     >
                       🎮 Take Quiz Challenge!
                     </motion.button>
                   ) : (
                     <button
                       onClick={() => setSelectedIndex((prev) => Math.min(prev + 1, dailyBatch.length - 1))}
-                      className="px-6 py-2 bg-[#009688] text-white rounded-lg font-semibold hover:bg-[#00796B] transition-all"
+                      className="px-6 py-2 bg-[#009688] text-white rounded-lg font-semibold hover:bg-[#00796B]"
                     >
                       Next
                     </button>
@@ -282,7 +296,7 @@ const IgboAlphabet = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="bg-gradient-to-br from-white to-blue-50 shadow-2xl rounded-3xl p-8 border"
             >
-              {/* Quiz Header */}
+              {/* Quiz UI (unchanged) */}
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold bg-gradient-to-r from-[#009688] to-emerald-600 bg-clip-text text-transparent mb-2">
                   🎮 Day {dayIndex + 1} Quiz Challenge!
@@ -290,7 +304,6 @@ const IgboAlphabet = () => {
                 <p className="text-gray-600">Test your knowledge of today's letters</p>
               </div>
 
-              {/* Progress Bar */}
               <div className="mb-8">
                 <div className="flex justify-between text-sm text-gray-600 mb-2">
                   <span>Quiz Progress</span>
@@ -306,7 +319,6 @@ const IgboAlphabet = () => {
                 </div>
               </div>
 
-              {/* Quiz Questions */}
               <div className="space-y-6">
                 {quizQuestions.map((q, i) => {
                   const isAnswered = quizAnswers[i] !== undefined;
@@ -319,7 +331,7 @@ const IgboAlphabet = () => {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.1 }}
-                      className={`relative overflow-hidden rounded-2xl border-2 transition-all duration-500 ${
+                      className={`relative overflow-hidden rounded-2xl border-2 ${
                         isCorrect
                           ? "border-green-400 bg-gradient-to-r from-green-50 to-emerald-50 shadow-lg scale-[1.02]"
                           : isWrong
@@ -329,14 +341,12 @@ const IgboAlphabet = () => {
                           : "border-gray-200 bg-white hover:border-[#009688] hover:shadow-md"
                       }`}
                     >
-                      {/* Question Badge */}
                       <div className={`absolute top-4 left-4 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shadow-lg ${
                         isCorrect ? "bg-green-500" : isWrong ? "bg-red-500" : "bg-gradient-to-r from-[#009688] to-emerald-600"
                       }`}>
                         {i + 1}
                       </div>
 
-                      {/* Result Icons */}
                       <AnimatePresence>
                         {submitted && (
                           <motion.div
@@ -359,18 +369,12 @@ const IgboAlphabet = () => {
                       </AnimatePresence>
 
                       <div className="p-6 pt-16">
-                        {/* Letter Display */}
                         <motion.div
                           className="text-center mb-6"
                           whileHover={{ scale: 1.1 }}
-                          transition={{ type: "spring", stiffness: 300 }}
                         >
                           <div className={`inline-block p-6 rounded-2xl text-5xl font-black shadow-lg ${
-                            isCorrect
-                              ? "bg-green-500 text-white"
-                              : isWrong
-                              ? "bg-red-500 text-white"
-                              : "bg-gradient-to-r from-[#009688] to-emerald-600 text-white"
+                            isCorrect ? "bg-green-500 text-white" : isWrong ? "bg-red-500 text-white" : "bg-gradient-to-r from-[#009688] to-emerald-600 text-white"
                           }`}>
                             {q.letter}
                           </div>
@@ -379,7 +383,6 @@ const IgboAlphabet = () => {
                           </p>
                         </motion.div>
 
-                        {/* Options */}
                         <div className="grid grid-cols-2 gap-3">
                           {q.options.map((opt, idx) => {
                             const isSelected = quizAnswers[i] === opt;
@@ -399,10 +402,9 @@ const IgboAlphabet = () => {
                                     : isSelected
                                     ? "border-[#009688] bg-gradient-to-r from-teal-100 to-cyan-50 text-teal-800 shadow-md"
                                     : "border-gray-200 bg-white text-gray-700 hover:border-[#009688] hover:bg-gradient-to-r hover:from-teal-50 hover:to-cyan-50 hover:shadow-sm"
-                                } ${submitted ? "cursor-default" : "cursor-pointer"}`}
+                                }`}
                               >
-                                {/* Custom Radio */}
-                                <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
+                                <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
                                   isSelected
                                     ? isCorrectOption
                                       ? "border-green-500 bg-green-500"
@@ -411,13 +413,7 @@ const IgboAlphabet = () => {
                                       : "border-[#009688] bg-[#009688]"
                                     : "border-gray-300"
                                 }`}>
-                                  {isSelected && (
-                                    <motion.div
-                                      initial={{ scale: 0 }}
-                                      animate={{ scale: 1 }}
-                                      className="w-2 h-2 bg-white rounded-full"
-                                    />
-                                  )}
+                                  {isSelected && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="w-2 h-2 bg-white rounded-full" />}
                                 </div>
 
                                 <input
@@ -432,13 +428,8 @@ const IgboAlphabet = () => {
 
                                 <span className="flex-1">{opt}</span>
 
-                                {/* Option Status */}
                                 {submitted && (
-                                  <motion.div
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ delay: 0.1 * idx }}
-                                  >
+                                  <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.1 * idx }}>
                                     {isCorrectOption ? (
                                       <span className="text-green-600 text-lg">✅</span>
                                     ) : isWrongSelection ? (
@@ -451,7 +442,6 @@ const IgboAlphabet = () => {
                           })}
                         </div>
 
-                        {/* Feedback */}
                         <AnimatePresence>
                           {submitted && (
                             <motion.div
@@ -489,7 +479,6 @@ const IgboAlphabet = () => {
                 })}
               </div>
 
-              {/* Submit Section */}
               <div className="mt-8 text-center">
                 {!submitted ? (
                   <motion.button
@@ -497,7 +486,7 @@ const IgboAlphabet = () => {
                     disabled={Object.keys(quizAnswers).length !== quizQuestions.length}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`px-8 py-4 rounded-xl font-bold text-lg transition-all ${
+                    className={`px-8 py-4 rounded-xl font-bold text-lg ${
                       Object.keys(quizAnswers).length === quizQuestions.length
                         ? "bg-gradient-to-r from-[#009688] to-emerald-600 text-white shadow-lg hover:shadow-xl"
                         : "bg-gray-300 text-gray-500 cursor-not-allowed"
@@ -506,12 +495,7 @@ const IgboAlphabet = () => {
                     🚀 Submit My Answers!
                   </motion.button>
                 ) : (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="space-y-4"
-                  >
-                    {/* Score Display */}
+                  <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="space-y-4">
                     <div className="bg-white rounded-2xl p-6 shadow-lg">
                       <div className="text-center">
                         <div className="text-4xl mb-2">
@@ -531,32 +515,30 @@ const IgboAlphabet = () => {
                       </div>
                     </div>
 
-                    {/* Action Button */}
                     {allCorrect ? (
                       <motion.button
                         onClick={() => {
-                          if (dayIndex === totalDays - 1) {
-                            updateProgress(dayIndex + 1);
+                          const newDay = dayIndex + 1;
+                          setDayIndex(newDay);
+                          updateProgress(newDay);
+                          if (newDay >= totalDays) {
                             navigate("/igbo-word");
                           } else {
-                            const newDay = dayIndex + 1;
-                            setDayIndex(newDay);
-                            updateProgress(newDay);
                             resetQuiz();
                           }
                         }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all"
+                        className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl"
                       >
-                        {dayIndex === totalDays - 1 ? "🎊 Complete Alphabet & Go to Words!" : "🌟 Unlock Next Day!"}
+                        {dayIndex >= totalDays - 1 ? "🎊 Complete Alphabet & Go to Words!" : "🌟 Unlock Next Day!"}
                       </motion.button>
                     ) : (
                       <motion.button
                         onClick={resetQuiz}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all"
+                        className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl font-bold shadow-lg hover:shadow-xl"
                       >
                         🔄 Try Again & Master This Day!
                       </motion.button>
