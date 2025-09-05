@@ -39,13 +39,16 @@ const Navbar = () => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
 
-  const getUserInitial = () => {
-    if (!user) return "U";
-    if (user.firstName) return user.firstName.charAt(0).toUpperCase();
-    if (user.displayName)
-      return user.displayName.split(" ")[0].charAt(0).toUpperCase();
-    return "U";
-  };
+const getUserInitial = () => {
+  if (!user) return "U";
+  const name = user.displayName || "User";
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase();
+};
+
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -114,7 +117,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="absolute right-6 top-16 bg-white rounded-2xl shadow-xl p-5 w-[300px] border border-[#009688]/30 z-50"
+                className="absolute right-6 top-16 bg-white rounded-2xl shadow-xl p-5 w-[400px] border border-[#009688]/30 z-50"
               >
                 <div className="flex items-center gap-4 border-b pb-3 mb-3">
                   <div className="w-[50px] h-[50px] rounded-full bg-[#009688] flex items-center justify-center text-white font-bold text-2xl shadow-md">
