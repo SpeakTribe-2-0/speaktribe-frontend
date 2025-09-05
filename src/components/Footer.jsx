@@ -12,7 +12,7 @@ const Footer = () => {
         {/* Company & Logo */}
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-bold cursor-pointer" onClick={() => navigate('/')}>
-            SpeakTribe
+            Speak<span className='  text-2xl'>Tribe</span>
           </h2>
           <p className="text-sm max-w-xs">
             Empowering communities through language learning. Connect, learn, and grow with us.
